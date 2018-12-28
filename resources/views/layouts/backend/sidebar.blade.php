@@ -11,26 +11,22 @@
                     <a class="js-arrow" href="#">
                         <i class="fas fa-tachometer-alt"></i>Dashboard
                     </a>
-
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="index.html">Dashboard 1</a>
-                        </li>
-
-                    </ul>
                 </li>
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fas fa-copy"></i>Pages</a>
+                        <i class="fas fa-user"></i>Administrator</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="login.html">Login</a>
+                            <a href="{{ route('backend.users.create') }}">Add User</a>
                         </li>
                         <li>
-                            <a href="register.html">Register</a>
+                            <a href="register.html">Add Doctor</a>
                         </li>
                         <li>
-                            <a href="forget-pass.html">Forget Password</a>
+                            <a href="forget-pass.html">Add New Appointment</a>
+                        </li>
+                        <li>
+                            <a href="forget-pass.html">Add New Timeslot</a>
                         </li>
                     </ul>
                 </li>

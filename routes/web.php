@@ -32,3 +32,5 @@ Route::get('/contact', [
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/users', 'UsersController',['as'=>'backend']);
