@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     @include('backend_partials._head')
+    @yield('style')
 </head>
 <body class="animsition">
 <div class="page-wrapper">
@@ -21,7 +22,9 @@
         <div class="main-content">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
+
                  @yield('content')
+
                     <div class="row">
                         <div class="col-md-12">
                             @include('backend_partials._footer')
@@ -35,6 +38,7 @@
     </div>
 </div>
 @include('backend_partials._scripts')
+@yield('script')
 </body>
 </html>
 <!-- end document-->

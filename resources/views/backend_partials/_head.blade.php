@@ -7,7 +7,7 @@
 <meta name="keywords" content="au theme template">
 
 <!-- Title Page-->
-<title>Dashboard</title>
+<title>@yield('title', 'Norsu Clinic')</title>
 
 <!-- Fontfaces CSS-->
 <link href="{{asset('/backend/css/font-face.css')}}" rel="stylesheet" media="all">
@@ -29,3 +29,4 @@
 
 <!-- Main CSS-->
 <link href="{{asset('/backend/css/theme.css')}}" rel="stylesheet" media="all">
+

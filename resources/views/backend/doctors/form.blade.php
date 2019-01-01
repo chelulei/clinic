@@ -16,7 +16,12 @@
     @endif
 </div>
     <div class="form-group {{ $errors->has('slug') ? 'has-error' : '' }}">
-        {{ Form::hidden('slug', null, array('id' => 'slug')) }}
+        {!! Form::label('slug') !!}
+        {!! Form::text('slug', null, ['class' => 'form-control']) !!}
+
+        @if($errors->has('slug'))
+            <span class="help-block">{{ $errors->first('slug') }}</span>
+        @endif
     </div>
     <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
         {!! Form::label('email') !!}
@@ -42,17 +47,9 @@
             <span class="help-block">{{ $errors->first('password_confirmation') }}</span>
         @endif
     </div>
-<div class="form-group {{ $errors->has('image') ? 'has-error' : '' }}">
-    {!! Form::label('image') !!}
-    {!! Form::file('image') !!}
-
-    @if($errors->has('image'))
-        <span class="help-block">{{ $errors->first('image') }}</span>
-    @endif
-</div>
     <div class="form-group">
-        <button type="submit" class="btn btn-outline-primary btn-lg">{{ $user->exists ? 'Update' : 'Save' }}</button>
-        <a href="{{ route('backend.users.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cance</a>
+        <button type="submit" class="btn btn-outline-primary btn-lg">{{ $doctor->exists ? 'Update' : 'Save' }}</button>
+        <a href="{{ route('backend.doctors.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cance</a>
 
     </div>
     <!-- /.form-group -->

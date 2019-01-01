@@ -1,3 +1,3 @@
-<div class="copyright fixed-bottom">
-    <p>Copyright © 2018 Colorlib</p>
+<div class="copyright">
+    <p>Copyright © 2018 By Josken</p>
 </div>

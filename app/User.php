@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name','username','slug', 'email','password','image',
     ];
 
     /**
@@ -27,4 +27,26 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getRouteKeyName()
+    {
+       return 'slug';
+    }
+
+
+    public function getImageUrlAttribute($value){
+
+       $imageUrl="";
+
+       if(! is_null($this->image)){
+
+           $imagePath= public_path() . "/img/" . $this->image;
+
+           if(file_exists($imagePath))  $imageUrl = asset("img/" . $this->image);
+
+       }
+
+       return   $imageUrl;
+    }
+
 }
