@@ -66,8 +66,6 @@ class DoctorsController extends Controller
      */
     public function edit($id)
     {
-        //
-//       dd (config('custom.default_doctor_id'));
         $doctor = Doctor::findOrFail($id);
         return view("backend.doctors.edit", compact('doctor'));
     }

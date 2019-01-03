@@ -34,6 +34,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/users', 'UsersController',['as'=>'backend']);
 Route::resource('/doctors', 'DoctorsController',['as'=>'backend']);
-//Route::resource('/patients', 'PatiensController',['as'=>'backend']);
+Route::resource('/patients', 'PatientsController',['as'=>'backend']);
 Route::resource('/events', 'EventController',['as'=>'backend']);
 

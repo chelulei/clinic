@@ -21,11 +21,18 @@ class EventController extends Controller
                 $event->title,
                 true,
                 new \DateTime($event->start_date),
-                new \DateTime($event->end_date.' +1 day')
+                new \DateTime($event->end_date.' +1 day'),
+                null,
+                // Add color
+                [
+                    'color' => '#000000',
+                    'textColor' => '#008000',
+                ]
             );
         }
+		
         $calendar = Calendar::addEvents($event_list);
-
+ 
         return view('backend.events.index', compact('calendar') );
     }
 
@@ -55,6 +62,7 @@ class EventController extends Controller
 
         \Session::flash('success','Event added successfully.');
         return Redirect::to('/events');
+      
     }
 
 

@@ -27,7 +27,7 @@
                             <a href="{{ route('backend.events.index')}}"><i class="fa  fa-calendar"></i>Calenda</a>
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-user-plus"></i>Patients</a>
+                            <a href="{{ route('backend.patients.index')}}"><i class="fa fa-user-plus"></i>Patients</a>
                         </li>
                     </ul>
 
@@ -41,7 +41,7 @@
                                 <i class="fa fa-group"></i>Doctors</a>
                         </li>
                         <li>
-                            {{--<a href="{{ route('backend.patients.index') }}">--}}
+                            <a href="{{ route('backend.patients.index') }}">
                                 <i class="fa fa-group"></i>Patients</a>
                         </li>
                         <li>
