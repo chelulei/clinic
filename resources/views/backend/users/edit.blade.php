@@ -13,18 +13,20 @@
         <div class="col-lg-8 offset-md-2">
             <div class="card">
                 <div class="card-header">
-                    <strong>Eidt User</strong>
+                    <strong>Edit User</strong>
                     <small> Form</small>
                 </div>
                 <div class="card-body card-block">
                     {!! Form::model($user, [
+
                   'method' => 'PUT',
                   'route'  => ['backend.users.update', $user->id],
                   'files'  => TRUE,
                   'id'     => 'user-form'
+
               ]) !!}
 
-                    @include('backend.users.form')
+                    @include('backend.users.form2')
 
                     {!! Form::close() !!}
                 </div>

@@ -6,7 +6,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 class PatientsController extends Controller
 {
-    protected $limit = 10;
+
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +15,10 @@ class PatientsController extends Controller
     public function index()
     {
         //
-        $patients= Patient::orderBy('name')->paginate($this->limit);
+        $patients= Patient::all();
+
         $patientCount=Patient::count();
+
         return view('backend.patients.index',compact('patients','patientCount'));
     }
 

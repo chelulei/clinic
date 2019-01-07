@@ -14639,8 +14639,3 @@ section {
 .vue-lists ul, .vue-lists ol {
     padding-left: 30px;
 }
-.has-error .form-control{
-    border-width: 3px;
-    border-color: blue !important;
-    color: red;
-}

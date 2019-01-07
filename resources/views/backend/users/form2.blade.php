@@ -17,7 +17,16 @@
 </div>
 <div class="form-group">
     {!! Form::label('role') !!}
-    {{ Form::select ('role', ['0' => 'Secretary', '1' => 'Admin','2' => 'doctor','3' => 'dentist', ], 0 , ['class' => 'form-control', 'id' =>'role']) }}
+    <select class="form-control m-bot15" name="role_id">
+
+
+
+                <option value="{{ $user->role }}" {{ $selectedRole == $user->role ? 'selected="selected"' : '' }}>{{ $user->role }}</option>
+
+
+
+
+    </select>
 </div>
     <div class="form-group {{ $errors->has('slug') ? 'has-error' : '' }}">
         {{ Form::hidden('slug', null, array('id' => 'slug')) }}
@@ -30,23 +39,6 @@
             <span class="help-block">{{ $errors->first('email') }}</span>
         @endif
     </div>
-
-<div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
-    {!! Form::label('password') !!}
-    {!! Form::password('password', ['class' => 'form-control']) !!}
-
-    @if($errors->has('password'))
-        <span class="help-block">{{ $errors->first('password') }}</span>
-    @endif
-</div>
-<div class="form-group {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
-    {!! Form::label('password_confirmation') !!}
-    {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
-
-    @if($errors->has('password_confirmation'))
-        <span class="help-block">{{ $errors->first('password_confirmation') }}</span>
-    @endif
-</div>
 
 <div class="form-group {{ $errors->has('image') ? 'has-error' : '' }}">
     {!! Form::label('image') !!}

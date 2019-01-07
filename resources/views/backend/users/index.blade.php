@@ -27,14 +27,6 @@
                 @include('backend.users.table')
             </div>
     @endif
-        <div class="float-left">
-            <nav aria-label="Page navigation example float-left">
-                {{$users->render()}}
-            </nav>
-        </div>
-        <div class="float-right">
-            <small>{{$userCount}} {{str_plural('User',$userCount)}}</small>
-        </div>
     </div>
     </div>
     <!-- /.row -->

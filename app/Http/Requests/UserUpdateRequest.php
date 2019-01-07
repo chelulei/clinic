@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Requests;
-
 use Illuminate\Foundation\Http\FormRequest;
 use App\Http\Requests\Request;
 class UserUpdateRequest extends FormRequest
@@ -23,12 +22,19 @@ class UserUpdateRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
-            'name'     => 'required',
-            'email'    => 'email|required|unique:users,email,' . $this->route("user"),
-            'password' => 'required_with:password_confirmation|confirmed',
-//            'role'     => 'required',
-            'slug'     => 'required|unique:users,slug,' . $this->route("user")
+            'name' => 'required|string|max:255',
+            'username' => 'required|unique:users,username,' . $this->route("user"),
+            'slug' => 'required|unique:users,slug,' . $this->route("user"),
+            'email' => 'required|unique:users,email,' . $this->route("user"),
+            'image' => 'mimes:jpg,jpeg,bmp,png',
+            'role' => 'required',
         ];
-    }
+
+
+     }
+
+
+
 }

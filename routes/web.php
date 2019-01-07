@@ -33,7 +33,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/users', 'UsersController',['as'=>'backend']);
-Route::resource('/doctors', 'DoctorsController',['as'=>'backend']);
+Route::get('/doctors', ['as' => 'doctor', 'uses' => 'DoctorsController@index']);
+Route::get('/dentists', ['as' => 'dentist', 'uses' => 'DoctorsController@dentists']);
 Route::resource('/patients', 'PatientsController',['as'=>'backend']);
-Route::resource('/events', 'EventController',['as'=>'backend']);
+Route::get('event/add','EventController@createEvent');
+Route::post('event/add','EventController@store');
+Route::get('event','EventController@calender');
 

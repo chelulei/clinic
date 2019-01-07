@@ -27,7 +27,7 @@ class PatientUpdateRequest extends FormRequest
             'name'     => 'required',
             'email'    => 'email|required|unique:users,email,' . $this->route("user"),
             'password' => 'required_with:password_confirmation|confirmed',
-//            'role'     => 'required',
+            'role'     => 'required',
             'slug'     => 'required|unique:users,slug,' . $this->route("user")
         ];
     }

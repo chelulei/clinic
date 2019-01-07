@@ -8,7 +8,7 @@
         <div class="col-md-12">
             <div class="overview-wrap">
                 <h2 class="title-1"> Full Calendar</h2>
-                <a href="{{ route('backend.events.create')}}"><button class="au-btn au-btn-icon au-btn--blue">
+                <a href="{{ url('event/add')}}"><button class="au-btn au-btn-icon au-btn--blue">
                         <i class="zmdi zmdi-plus"></i>add Event</button></a>
             </div>
         </div>
@@ -16,7 +16,19 @@
     <br>
         <div class="row m-t-30">
             <div class="col-md-12">
-                {!! $calendar->calendar() !!}
+                @if (\Session::has('success'))
+                    <div class="alert alert-success">
+                        <p>{{ \Session::get('success') }}</p>
+                    </div><br />
+                @endif
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+
+                    </div>
+                    <div class="panel-body" >
+                        {!! $calendar->calendar() !!}
+                    </div>
+                </div>
         </div>
         </div>
         <!-- /.row -->

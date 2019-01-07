@@ -1,13 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 class UsersController extends Controller
 {
-    protected $limit = 5;
+
     protected $uploadPath;
 
     public function __construct()
@@ -23,10 +22,15 @@ class UsersController extends Controller
     public function index()
     {
         //
-        $users= User::orderBy('name')->paginate($this->limit);
+        $users= User::all();
+
         $userCount=User::count();
+
         return view('backend.users.index',compact('users','userCount'));
     }
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -49,7 +53,6 @@ class UsersController extends Controller
     {
         //
         $data= $this->handleRequest($request);
-
         User::create($data);
 
         return redirect("/users")->with("message", "New user was created successfully!");
@@ -94,8 +97,8 @@ class UsersController extends Controller
     public function edit($id)
     {
         //
-//       dd (config('custom.default_user_id'));
         $user = User::findOrFail($id);
+
         return view("backend.users.edit", compact('user'));
     }
 
@@ -109,14 +112,10 @@ class UsersController extends Controller
     public function update(Requests\UserUpdateRequest $request, $id)
     {
         //
-        $user = User::findOrFail ($id);
-        if (Input::get ('password') == '') {
-            $user->update (Input::except ('password'));
-        }
-        else {
-            $user->update (Input::all ());
-        }
 
+        $user = User::findOrFail($id);
+         $data=$this->handleRequest($request);
+         $user->update($data);
         return redirect("/users")->with("message", "User was updated successfully!!");
     }
 

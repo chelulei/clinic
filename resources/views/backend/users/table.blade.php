@@ -1,4 +1,4 @@
-<table class="table table-bordered">
+<table class="table table-bordered" id="DataTable">
     <thead>
     <tr>
         <th>Action</th>
@@ -38,7 +38,7 @@
             <td>{{$user->name}}</td>
             <td>{{$user->username}}</td>
             <td>{{$user->email}}</td>
-            <td>Admin</td>
+            <td>{!! $user->roleLabel() !!}</td>
             @endforeach
         </tr>
     </tbody>

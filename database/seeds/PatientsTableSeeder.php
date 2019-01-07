@@ -70,4 +70,5 @@ class PatientsTableSeeder extends Seeder
 
         );
     }
+
 }

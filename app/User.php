@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','username','slug', 'email','password','image',
+        'name','username','role','slug','email','password','image',
     ];
 
     /**
@@ -48,5 +48,23 @@ class User extends Authenticatable
 
        return   $imageUrl;
     }
+
+    public function roleLabel()
+    {
+        if ($this->role == 1) {
+            return '<span class="badge badge-danger">Admin</span>';
+        }
+        elseif ($this->role == 2) {
+            return '<span class="badge badge-success">Doctor</span>';
+        }
+        elseif ($this->role == 3) {
+            return '<span class="badge badge-primary"> Dentists</span>';
+        }else{
+
+            return '<span class="badge badge-warning"> Secretary</span>';
+        }
+    }
+
+
 
 }

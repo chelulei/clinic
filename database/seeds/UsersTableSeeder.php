@@ -19,6 +19,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name'=>'josken prono',
                 'username'=>'mike',
+                'role'=>'3',
                 'slug'=>'prono',
                 'email'=>'bomo@gmail.com',
                 'password'=>bcrypt('secret'),
@@ -27,6 +28,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name'=>'josk sikilai',
                 'username'=>'mikey',
+                'role'=>'0',
                 'slug'=>'josken',
                 'email'=>'bomor@gmail.com',
                 'password'=>bcrypt('secret'),
@@ -35,6 +37,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name'=>'joken ptum',
                 'username'=>'prono',
+                'role'=>'2',
                 'slug'=>'bomori',
                 'email'=>'bomori@gmail.com',
                 'password'=>bcrypt('secret'),
@@ -43,6 +46,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name'=>'joen rono',
                 'username'=>'siki',
+                'role'=>'2',
                 'slug'=>'joen',
                 'email'=>'omo@gmail.com',
                 'password'=>bcrypt('secret'),
@@ -51,6 +55,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name'=>'jsk sikilai',
                 'username'=>'yes',
+                'role'=>'2',
                 'slug'=>'sikilai',
                 'email'=>'bmor@gmail.com',
                 'password'=>bcrypt('secret'),
@@ -59,6 +64,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name'=>'oken ptum',
                 'username'=>'wewe',
+                'role'=>'1',
                 'slug'=>'ptum',
                 'email'=>'bomoi@gmail.com',
                 'password'=>bcrypt('secret'),

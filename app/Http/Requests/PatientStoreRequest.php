@@ -27,9 +27,9 @@ class PatientStoreRequest extends FormRequest
 
         return [
             'name' => 'required|string|max:255',
-            'username' => 'required|unique:users',
+            'username' => 'required|unique:users,username' . $this->route("user"),
             'slug'     => 'required|unique:users',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email'    => 'email|required|unique:users,email,' . $this->route("user"),
             'password' => 'required|string|min:6|confirmed',
             'image'    => 'mimes:jpg,jpeg,bmp,png',
 //          'role'     => 'required',

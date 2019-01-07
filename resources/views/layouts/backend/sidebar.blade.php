@@ -21,10 +21,13 @@
                                 <i class="fa fa-group"></i>Users</a>
                         </li>
                         <li>
-                            <a href="{{ route('backend.doctors.index') }}"><i class="fa fa-user-md"></i>Doctors</a>
+                            <a href="{{ route('doctor') }}"><i class="fa fa-user-md"></i>Doctors</a>
                         </li>
                         <li>
-                            <a href="{{ route('backend.events.index')}}"><i class="fa  fa-calendar"></i>Calenda</a>
+                            <a href="{{ route('dentist') }}"><i class="fa fa-user-md"></i>Dentists</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('event')}}"><i class="fa  fa-calendar"></i>Calendar</a>
                         </li>
                         <li>
                             <a href="{{ route('backend.patients.index')}}"><i class="fa fa-user-plus"></i>Patients</a>
