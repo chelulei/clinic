@@ -1,12 +1,10 @@
-<table class="table table-bordered">
+<table class="table table-bordered" id="DataTable">
     <thead>
     <tr>
         <th>Action</th>
         <th>Image</th>
         <th>Name</th>
-        <th>patientname</th>
         <th>Email</th>
-        <th>Role</th>
     </tr>
     </thead>
     <tbody>
@@ -36,9 +34,7 @@
             </td>
             <td><img src="{{ $patient->image_url}} " alt="" width="100" height="100"></td>
             <td>{{$patient->name}}</td>
-            <td>{{$patient->username}}</td>
             <td>{{$patient->email}}</td>
-            <td>Admin</td>
             @endforeach
         </tr>
     </tbody>

@@ -28,8 +28,6 @@
 <script src="{{asset('/backend/vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
 <script src="{{asset('/backend/vendor/chartjs/Chart.bundle.min.js')}}"></script>
 <script src="{{asset('/backend/vendor/select2/select2.min.js')}}"></script>
-<script src="{{asset('/backend/vendor/select2/select2.min.js')}}"></script>
-
 <script src="{{asset('/backend/vendor/jasny-bootstrap/js/jasny-bootstrap.js')}}"></script>
 
 <!-- Main JS-->

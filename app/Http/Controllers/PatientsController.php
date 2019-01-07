@@ -41,14 +41,34 @@ class PatientsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Requests\PatientStoreRequest $request)
+     public function store(Requests\PatientStoreRequest $request)
     {
+        //
+        $data= $this->handleRequest($request);
+        Patient::create($data);
 
-
-        Patient::create($request->all());
-       return redirect("/patients")->with("message", "New patient was created successfully!");
+        return redirect("/patients")->with("message", "New patient was created successfully!");
     }
 
+     private function handleRequest($request){
+
+         $data = $request->all();
+
+         if($request->hasFile('image')){
+
+            $image = $request->file('image');
+
+            $fileName = $image->getClientOriginalName();
+
+             $destination = $this->uploadPath;
+
+            $image->move($destination,$fileName);
+
+            $data['image'] =  $fileName;
+
+         }
+         return $data;
+     }
     /**
      * Display the specified resource.
      *
@@ -82,17 +102,10 @@ class PatientsController extends Controller
     public function update(Requests\PatientUpdateRequest $request, $id)
     {
         //
-        $patient = patient::findOrFail ($id);
-
-        if (Input::get ('password') == '') {
-
-            $patient->update (Input::except ('password'));
-        }
-        else {
-            $patient->update (Input::all ());
-        }
-
-        return redirect("/patients")->with("message", "patient was updated successfully!!");
+         $user = Patient::findOrFail($id);
+         $data=$this->handleRequest($request);
+         $user->update($data);
+        return redirect("/patients")->with("message", "Patient was updated successfully!!");
     }
 
     /**
@@ -103,9 +116,8 @@ class PatientsController extends Controller
      */
     public function destroy($id)
     {
-        //
-        patient::findOrFail($id)->delete();
+          Patient::findOrFail($id)->delete();
 
-        return redirect("/patients")->with("message", "patient was deleted successfully!");
+        return redirect("/patients")->with("message", "Patient was deleted successfully!");
     }
 }

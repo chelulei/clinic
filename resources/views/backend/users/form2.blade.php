@@ -18,14 +18,6 @@
 <div class="form-group">
     {!! Form::label('role') !!}
     <select class="form-control m-bot15" name="role_id">
-
-
-
-                <option value="{{ $user->role }}" {{ $selectedRole == $user->role ? 'selected="selected"' : '' }}>{{ $user->role }}</option>
-
-
-
-
     </select>
 </div>
     <div class="form-group {{ $errors->has('slug') ? 'has-error' : '' }}">

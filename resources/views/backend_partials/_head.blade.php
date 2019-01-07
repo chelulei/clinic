@@ -32,7 +32,12 @@
 <link href="{{asset('/backend/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
 <link href="{{asset('/backend/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
 <link href="{{asset('/backend/vendor/jasny-bootstrap/css/jasny-bootstrap.css')}}" rel="stylesheet" media="all">
-
 <!-- Main CSS-->
 <link href="{{asset('/backend/css/theme.css')}}" rel="stylesheet" media="all">
-
+<script type="text/javascript">
+    var myform=new formtowizard({
+        formid: 'feedbackform',
+        persistsection: true,
+        revealfx: ['slide', 500] //<--no comma after last setting
+    })
+</script>

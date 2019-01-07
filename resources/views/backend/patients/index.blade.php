@@ -27,14 +27,6 @@
                 @include('backend.patients.table')
             </div>
     @endif
-        <div class="float-left">
-            <nav aria-label="Page navigation example float-left">
-                {{$patients->render()}}
-            </nav>
-        </div>
-        <div class="float-right">
-            <small>{{$patientCount}} {{str_plural('patient',$patientCount)}}</small>
-        </div>
     </div>
     </div>
     <!-- /.row -->

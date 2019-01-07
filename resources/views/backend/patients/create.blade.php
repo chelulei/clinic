@@ -11,17 +11,16 @@
     </nav>
     <div class="row mb-10">
     <div class="col-lg-8 offset-md-2">
-        <div class="card">
+        <div class="card card">
             <div class="card-header">
-                <strong>Register patient</strong>
-                <small> Form</small>
+                <strong>Consultation Form</strong>
             </div>
             <div class="card-body card-block">
                 {!! Form::model($patient, [
                     'method' => 'POST',
                     'route'  => 'backend.patients.store',
                     'files'  => TRUE,
-                    'id'     => 'patient-form'
+                    'id'     => 'id="feedbackform'
                 ]) !!}
                 @csrf
                 @include('backend.patients.form')
@@ -33,5 +32,6 @@
     </div>
     <br><br>
 @endsection
-@include('backend.patients.script')
+
+
 
