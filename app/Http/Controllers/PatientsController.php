@@ -1,9 +1,7 @@
 <?php
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
 use App\Patient;
 use App\Http\Requests;
-use Illuminate\Support\Facades\Input;
 class PatientsController extends Controller
 {
 
@@ -45,7 +43,9 @@ class PatientsController extends Controller
     {
         //
         $data= $this->handleRequest($request);
+
         Patient::create($data);
+        
 
         return redirect("/patients")->with("message", "New patient was created successfully!");
     }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\Http\Requests;
-use Illuminate\Support\Facades\Input;
 class UsersController extends Controller
 {
 

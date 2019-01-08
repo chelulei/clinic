@@ -255,9 +255,6 @@
         <!-- /.co-md-6 -->
     </div>
     <!-- /.row -->
-
-
-
 <!-- /.row -->
     <div class="form-group">
         <button type="submit" class="btn btn-outline-primary btn-lg">{{ $patient->exists ? 'Update' : 'Save' }}</button>

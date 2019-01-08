@@ -4,7 +4,6 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Http\Requests\Request;
-
 class PatientStoreRequest extends FormRequest
 {
     /**
@@ -27,8 +26,28 @@ class PatientStoreRequest extends FormRequest
 
         return [
             'name' => 'required|string|max:255',
-            'email'    => 'email|required|unique:users',
-            'image'    => 'mimes:jpg,jpeg,bmp,png',
+            'age'    => 'required',
+            'sex'    => 'required',
+            'status'    => 'required',
+            'address'    => 'required',
+            'date_birth'    => 'required',
+            'weight'    => 'nullable',
+            'height'    => 'nullable',
+            'course'    => 'required',
+            'year'    => 'required',
+            'religion'    =>'nullable',
+            'name2'    => 'required',
+            'contact'    => 'required',
+            'address2'    => 'required',
+            'others'    => 'nullable',
+            'allergies'    => 'nullable',
+            'illness'    => 'nullable',
+            'immune'    => 'nullable',
+            'others2'    => 'nullable',
+            'medics'    => 'nullable',
+            'hospital'    => 'nullable'
+
+
     ];
 
     }

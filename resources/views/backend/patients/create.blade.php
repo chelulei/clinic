@@ -10,7 +10,7 @@
         </ol>
     </nav>
     <div class="row mb-10">
-    <div class="col-lg-8 offset-md-2">
+    <div class="col-lg-12">
         <div class="card card">
             <div class="card-header">
                 <strong>Consultation Form</strong>

@@ -2,9 +2,9 @@
     <thead>
     <tr>
         <th>Action</th>
-        <th>Image</th>
         <th>Name</th>
-        <th>Email</th>
+        <th>course</th>
+        <th>Age</th>
     </tr>
     </thead>
     <tbody>
@@ -19,11 +19,10 @@
                     <!-- /.fa fa-edit -->
                 </a>
                 <!-- /.btn  btn-default -->
-                @if($patient->id == config('custom.default_patient_id'))
                     <button onclick="return false" type="submit" class="btn btn-sm btn-danger disabled">
                         <i class="fa fa-times"></i>
                     </button>
-                @else
+
                     <button onclick="return confirm('Are you sure?');" type="submit" class="btn btn-sm btn-outline-danger">
                         <i class="fa fa-times"></i>
                     </button>
@@ -32,9 +31,9 @@
                 <!-- /.btn bt-danger -->
                 {!! Form::close() !!}
             </td>
-            <td><img src="{{ $patient->image_url}} " alt="" width="100" height="100"></td>
             <td>{{$patient->name}}</td>
-            <td>{{$patient->email}}</td>
+            <td>{{$patient->course}}</td>
+            <td>{{$patient->age}}</td>
             @endforeach
         </tr>
     </tbody>

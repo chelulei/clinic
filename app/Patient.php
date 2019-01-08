@@ -9,7 +9,27 @@ class Patient extends Model
     //
     //
     protected $fillable = [
-        'name','username','slug', 'email','password','image',
+        'name',
+        'age'  ,
+        'sex',
+        'status',
+        'address',
+        'date_birth',
+        'weight',
+        'height',
+        'course',
+        'year',
+        'religion',
+        'name2',
+        'contact',
+        'address2',
+        'others',
+        'allergies',
+        'illness',
+        'immune',
+        'others2',
+        'medics',
+        'hospital'
     ];
 
     /**
