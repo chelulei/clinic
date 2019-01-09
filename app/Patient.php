@@ -62,4 +62,13 @@ class Patient extends Model
 
         return   $imageUrl;
     }
+
+    public function histories()
+    {
+        return $this->belongsToMany(History::class);
+    }
+    public function immunizations()
+    {
+        return $this->belongsToMany(Immunization::class);
+    }
 }

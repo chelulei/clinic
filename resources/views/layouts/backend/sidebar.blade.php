@@ -32,6 +32,9 @@
                         <li>
                             <a href="{{ route('backend.patients.index')}}"><i class="fa fa-user-plus"></i>Patients</a>
                         </li>
+                        <li>
+                            <a href="{{ route('backend.prescriptions.index')}}"><i class="fa fa-user-plus"></i>Prescriptions</a>
+                        </li>
                     </ul>
 
                 </li>

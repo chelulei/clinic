@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 use App\Patient;
+use App\History;
+use App\Immunization;
 use App\Http\Requests;
 class PatientsController extends Controller
 {
@@ -28,9 +30,10 @@ class PatientsController extends Controller
     public function create(Patient $patient)
     {
         //
-
-
-        return view('backend.patients.create',compact('patient'));
+        $histories=History::all();
+        $immunizations=Immunization::all();
+        return view('backend.patients.create',compact('patient','histories',
+            'immunizations'));
     }
 
     /**
@@ -43,7 +46,7 @@ class PatientsController extends Controller
     {
         //
         $data= $this->handleRequest($request);
-
+   dd($data);
         Patient::create($data);
         
 

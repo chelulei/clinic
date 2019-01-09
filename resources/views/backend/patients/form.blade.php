@@ -170,63 +170,23 @@
     <div class="col-md-6">
         <h5> Family and Past Medical History</h5>
         <hr>
-        {!! Form::checkbox('history[]', 'hpn') !!}
-        {!! Form::label('HPN', 'HPN') !!}
-        <br>
-        {!! Form::checkbox('history[]', 'diabetes') !!}
-        {!! Form::label('Diabetes', 'Diabetes') !!}
-
-        <br>
-        {!! Form::checkbox('history[]', 'Asthma') !!}
-        {!! Form::label('Asthma', 'Asthma') !!}
-
-        <br>
-        {!! Form::checkbox('history[]', 'cardiac problems') !!}
-        {!! Form::label('Cardiac problems', 'Cardiac problems') !!}
-
-        <br>
-        {!! Form::checkbox('history[]', 'arthritis') !!}
-        {!! Form::label('Arthritis', 'Arthritis') !!}
-        <br>
-        <br>
-       {!! Form::label('others') !!}
-       {!! Form::textarea('others', null, ['class' => 'form-control','rows' => 1, 'cols' =>5]) !!}
-        <!-- /# -->
-        <br>
-        {!! Form::label('allergies') !!}
-        {!! Form::textarea('allergies', null, ['class' => 'form-control','rows' => 1, 'cols' =>5]) !!}
-        <span class="border-right"></span>
+    @foreach($histories as $history)
+      <label class="checkbox-inline">
+      <input type="checkbox" id="history_id" name="history_id[]" value="{{$history->id}}"> {{$history->name}}
+      </label>
+      <br>
+     @endforeach
     </div>
     <!-- /.col-md-6 -->
     <div class="col-md-6">
         <h5> Immunizations</h5>
         <hr>
-        {!! Form::checkbox('immune[]', 'bcg') !!}
-        {!! Form::label('BCG', 'BCG') !!}
-
-        <br>
-        {!! Form::checkbox('immune[]', 'dpt') !!}
-        {!! Form::label('DPT', 'DPT') !!}
-        <br>
-        {!! Form::checkbox('immune[]', 'opv') !!}
-        {!! Form::label('OPV', 'OPV') !!}
-        <br>
-        {!! Form::checkbox('immune[]', 'bcg') !!}
-        {!! Form::label('BCG', 'BCG') !!}
-
-        <br>
-        {!! Form::checkbox('immune[]', 'hep.b') !!}
-        {!! Form::label('Hep.B', 'DPT') !!}
-        <br>
-        {!! Form::checkbox('immune[]', 'measles') !!}
-        {!! Form::label('Measles', 'Measles') !!}
-        <br>
-        {!! Form::label('others') !!}
-        {!! Form::textarea('medics', null, ['class' => 'form-control','rows' => 1, 'cols' =>5]) !!}
-        <br>
-    {!! Form::label('Meds Taken:') !!}
-    {!! Form::textarea('others2', null, ['class' => 'form-control','rows' => 1, 'cols' =>5]) !!}
-        <br>
+        @foreach($immunizations as $immunization)
+         <label class="checkbox-inline">
+       <input type="checkbox" id="immunization_id" name="immunization_id[]" value="{{$immunization->id}}"> {{$immunization->name}}
+        </label>
+       <br>
+     @endforeach
     </div>
 </div>
     <!-- /.col-md-6 -->

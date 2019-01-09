@@ -19,14 +19,10 @@
                     <!-- /.fa fa-edit -->
                 </a>
                 <!-- /.btn  btn-default -->
-                    <button onclick="return false" type="submit" class="btn btn-sm btn-danger disabled">
-                        <i class="fa fa-times"></i>
-                    </button>
 
                     <button onclick="return confirm('Are you sure?');" type="submit" class="btn btn-sm btn-outline-danger">
                         <i class="fa fa-times"></i>
                     </button>
-                @endif
 
                 <!-- /.btn bt-danger -->
                 {!! Form::close() !!}
