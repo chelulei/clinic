@@ -65,10 +65,10 @@ class Patient extends Model
 
     public function histories()
     {
-        return $this->belongsToMany(History::class);
+        return $this->belongsToMany(History::class,'history_patient','patient_id', 'history_id');
     }
     public function immunizations()
     {
-        return $this->belongsToMany(Immunization::class);
+        return $this->belongsToMany(Immunization::class,'immunize_patient','patient_id', 'immunize_id');
     }
 }

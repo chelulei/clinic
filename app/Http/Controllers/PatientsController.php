@@ -46,9 +46,11 @@ class PatientsController extends Controller
     {
         //
         $data= $this->handleRequest($request);
-   dd($data);
-        Patient::create($data);
-        
+
+        $patient = Patient::create($data);
+
+        $patient->histories()->attach($request->history_id);
+        $patient->immunizations()->attach($request->immunization_id);
 
         return redirect("/patients")->with("message", "New patient was created successfully!");
     }
@@ -91,8 +93,11 @@ class PatientsController extends Controller
      */
     public function edit($id)
     {
-        $patient = Patient::findOrFail($id);
-        return view("backend.patients.edit", compact('patient'));
+        $patient = Patient::with()->findOrFail($id);
+
+        $histories=$patient->histories;
+        $immunizations=$patient->immunizations;
+        return view("backend.patients.edit", compact('patient','histories','immunizations'));
     }
 
     /**

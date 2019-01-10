@@ -9,7 +9,7 @@ class History extends Model
     //
     public function patients()
     {
-        return $this->hasMany(Patient::class);
+        return $this->belongsToMany(Patient::class,'history_patient','patient_id', 'history_id');
     }
 
 }
