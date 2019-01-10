@@ -16,9 +16,7 @@ class PatientsController extends Controller
     {
         //
         $patients= Patient::all();
-
         $patientCount=Patient::count();
-
         return view('backend.patients.index',compact('patients','patientCount'));
     }
 
@@ -46,31 +44,21 @@ class PatientsController extends Controller
     {
         //
         $data= $this->handleRequest($request);
-
         $patient = Patient::create($data);
-
-        $patient->histories()->attach($request->history_id);
-        $patient->immunizations()->attach($request->immunization_id);
+        $patient->histories()->attach($request->histo);
+        $patient->immunizations()->attach($request->immun);
 
         return redirect("/patients")->with("message", "New patient was created successfully!");
     }
 
      private function handleRequest($request){
-
          $data = $request->all();
-
          if($request->hasFile('image')){
-
             $image = $request->file('image');
-
             $fileName = $image->getClientOriginalName();
-
              $destination = $this->uploadPath;
-
             $image->move($destination,$fileName);
-
             $data['image'] =  $fileName;
-
          }
          return $data;
      }
@@ -93,11 +81,11 @@ class PatientsController extends Controller
      */
     public function edit($id)
     {
-        $patient = Patient::with()->findOrFail($id);
-
-        $histories=$patient->histories;
-        $immunizations=$patient->immunizations;
-        return view("backend.patients.edit", compact('patient','histories','immunizations'));
+        $patient = Patient::with('histories','immunizations')->findOrFail($id);
+        $histories = History::all();
+        $immunizations = Immunization::all();
+        return view("backend.patients.edit", 
+            compact('patient','histories','immunizations'));
     }
 
     /**
@@ -110,12 +98,14 @@ class PatientsController extends Controller
     public function update(Requests\PatientUpdateRequest $request, $id)
     {
         //
-         $user = Patient::findOrFail($id);
-         $data=$this->handleRequest($request);
-         $user->update($data);
+        $patient = Patient::findOrFail($id);
+        $data=$this->handleRequest($request);
+        $patient->update($data);
+        $patient->histories()->sync($request->histo);
+        $patient->immunizations()->sync($request->immun);
+
         return redirect("/patients")->with("message", "Patient was updated successfully!!");
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -125,7 +115,8 @@ class PatientsController extends Controller
     public function destroy($id)
     {
           Patient::findOrFail($id)->delete();
-
         return redirect("/patients")->with("message", "Patient was deleted successfully!");
     }
 }
+
+// {{ @if($patient->histories->contains($history->id)) checked=checked @endif }}

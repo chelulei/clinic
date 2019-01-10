@@ -17,16 +17,16 @@
                     <small> Form</small>
                 </div>
                 <div class="card-body card-block">
-                    {!! Form::model($prescription, [
+                    {!! Form::model($prescript, [
 
                   'method' => 'PUT',
-                  'route'  => ['backend.prescriptions.update', $prescription->id],
+                  'route'  => ['backend.prescriptions.update', $prescript->id],
                   'files'  => TRUE,
                   'id'     => 'prescription-form'
 
               ]) !!}
 
-                    @include('backend.prescriptions.form2')
+                    @include('backend.prescriptions.form')
 
                     {!! Form::close() !!}
                 </div>

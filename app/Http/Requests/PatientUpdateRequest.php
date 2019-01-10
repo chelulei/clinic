@@ -34,17 +34,17 @@ class PatientUpdateRequest extends FormRequest
             'height'    => 'nullable',
             'course'    => 'required',
             'year'    => 'required',
-            'religion'    => 'nullable|religion',
+            'religion'    => 'nullable',
             'name2'    => 'required',
             'contact'    => 'required',
             'address2'    => 'required',
-            'others'    => 'nullable|others',
-            'allergies'    => 'nullable|allergies',
-            'illness'    => 'nullable|illness',
-            'immune'    => 'nullable|immune',
-            'others2'    => 'nullable|others2',
-            'medics'    => 'nullable|medics',
-            'hospital'    => 'nullable|hospital'
+            'others'    => 'nullable',
+            'allergies'    => 'nullable',
+            'illness'    => 'nullable',
+            'immune'    => 'nullable',
+            'others2'    => 'nullable',
+            'medics'    => 'nullable',
+            'hospital'    => 'nullable'
         ];
     }
 }

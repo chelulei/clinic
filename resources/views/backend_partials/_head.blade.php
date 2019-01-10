@@ -41,3 +41,6 @@
         revealfx: ['slide', 500] //<--no comma after last setting
     })
 </script>
+<script type="text/javascript" src="{{asset('/backend/js/calendarDateInput.js')}}">
+
+</script>

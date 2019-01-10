@@ -71,4 +71,9 @@ class Patient extends Model
     {
         return $this->belongsToMany(Immunization::class,'immunize_patient','patient_id', 'immunize_id');
     }
+
+    public function prescriptions()
+    {
+        return $this->hasMany(Prescription::class);
+    }
 }

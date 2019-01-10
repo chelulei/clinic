@@ -170,23 +170,28 @@
     <div class="col-md-6">
         <h5> Family and Past Medical History</h5>
         <hr>
-    @foreach($histories as $history)
-      <label class="checkbox-inline">
-      <input type="checkbox" id="history_id" name="history_id[]" value="{{$history->id}}"> {{$history->name}}
-      </label>
-      <br>
-     @endforeach
+     @foreach($histories as $history)
+        <label class="checkbox-inline "for="histo[{{ $history->id }}]">
+            <input id="histo[{{ $history->id }}]" name="histo[{{ $history->id }}]" type="checkbox" value="{{ $history->id }}"
+                    {{$patient->histories->find($history->id) ? 'checked' : '' }}
+            > {{ $history->name }}
+        </label>
+        <br>
+      @endforeach
     </div>
     <!-- /.col-md-6 -->
     <div class="col-md-6">
         <h5> Immunizations</h5>
         <hr>
-        @foreach($immunizations as $immunization)
-         <label class="checkbox-inline">
-       <input type="checkbox" id="immunization_id" name="immunization_id[]" value="{{$immunization->id}}"> {{$immunization->name}}
+         @foreach($immunizations as $immune)
+        <label class="checkbox-inline "for="immun[{{ $immune->id }}]">
+            <input id="immun[{{ $immune->id }}]" name="immun[{{ $immune->id }}]" type="checkbox" value="{{ $immune->id }}"
+                    {{$patient->immunizations->find($immune->id) ? 'checked' : '' }}
+            > {{ $immune->name }}
         </label>
-       <br>
-     @endforeach
+        <br>
+
+      @endforeach
     </div>
 </div>
     <!-- /.col-md-6 -->
@@ -195,7 +200,6 @@
             <div class="form-group {{ $errors->has('illness') ? 'has-error' : '' }}">
                 {!! Form::label('Previous Illness') !!}
                 {!! Form::text('illness', null, ['class' => 'form-control']) !!}
-
                 @if($errors->has('illness'))
                     <span class="help-block">{{ $errors->first('illness') }}</span>
                 @endif
@@ -206,7 +210,6 @@
             <div class="form-group {{ $errors->has('contact') ? 'has-error' : '' }}">
                 {!! Form::label('Previous Hospitalization') !!}
                 {!! Form::text('hospital', null, ['class' => 'form-control']) !!}
-
                 @if($errors->has('hospital'))
                     <span class="help-block">{{ $errors->first('hospital') }}</span>
                 @endif
@@ -219,7 +222,6 @@
     <div class="form-group">
         <button type="submit" class="btn btn-outline-primary btn-lg">{{ $patient->exists ? 'Update' : 'Save' }}</button>
         <a href="{{ route('backend.patients.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cance</a>
-
     </div>
     <!-- /.form-group -->
 

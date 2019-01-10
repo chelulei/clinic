@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Prescription;
 use Illuminate\Http\Request;
 
-class PrescriptsController extends Controller
+class PrescriptionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,9 @@ class PrescriptsController extends Controller
     public function index()
     {
         //
-        return view('backend.prescriptions.index');
+       $prescriptions=Prescription::all();
+
+        return view('backend.prescriptions.index',compact('prescriptions'));
     }
 
     /**
@@ -23,9 +25,11 @@ class PrescriptsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Prescription $prescript)
     {
-        //
+
+
+        return view('backend.prescriptions.create',compact('prescript'));
     }
 
     /**
@@ -37,8 +41,23 @@ class PrescriptsController extends Controller
     public function store(Request $request)
     {
         //
-    }
+        //
+        $data= $this->handleRequest($request);
+         Prescription::create($data);
 
+        return redirect("/prescriptions")->with("message", "Prescriptions created successfully!");
+    }
+    private function handleRequest($request){
+        $data = $request->all();
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $fileName = $image->getClientOriginalName();
+            $destination = $this->uploadPath;
+            $image->move($destination,$fileName);
+            $data['image'] =  $fileName;
+        }
+        return $data;
+    }
     /**
      * Display the specified resource.
      *

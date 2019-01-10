@@ -14,19 +14,19 @@
     </div>
     <br>
     @include('backend_partials.messages')
-            {{--@if(! $prescriptions->count())--}}
+            @if(! $prescriptions->count())
                 <div class="alert alert-danger m-2">
                     No Records
                 </div>
                 <!-- /.alert alert-danger -->
-     {{--@else--}}
+     @else
     <div class="row m-t-30">
         <div class="col-md-12">
                 <!-- DATA TABLE-->
             <div class="table-responsive m-b-40">
                 @include('backend.prescriptions.table')
             </div>
-    {{--@endif--}}
+    @endif
     </div>
     </div>
     <!-- /.row -->
