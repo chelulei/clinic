@@ -37,7 +37,17 @@ Route::get('/doctors', ['as' => 'doctor', 'uses' => 'DoctorsController@index']);
 Route::get('/dentists', ['as' => 'dentist', 'uses' => 'DoctorsController@dentists']);
 Route::resource('/patients', 'PatientsController',['as'=>'backend']);
 Route::resource('/prescriptions', 'PrescriptionsController',['as'=>'backend']);
+Route::resource('/roles', 'RolesController',['as'=>'backend']);
+
+
+Route::resource('/appointments', 'AppointmentsController',['as'=>'backend']);
+Route::resource('/services', 'ServicesController',['as'=>'backend']);
+Route::resource('/employees', 'EmployeesController',['as'=>'backend']);
+
 Route::get('event/add','EventController@createEvent');
 Route::post('event/add','EventController@store');
 Route::get('event','EventController@calender');
 
+
+  Route::post('appointments_ajax_update',
+   ['uses' => 'AppointmentsController@ajaxUpdate', 'as' => 'appointments.ajax_update']);

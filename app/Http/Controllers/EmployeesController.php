@@ -1,16 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
+
+use App\Employee;
+use Illuminate\Http\Request;
 use App\Http\Requests;
-class UsersController extends Controller
+class EmployeesController extends Controller
 {
 
     protected $uploadPath;
 
     public function __construct()
     {
-       $this->uploadPath =public_path('img');
+        $this->uploadPath =public_path('img');
     }
 
     /**
@@ -21,9 +23,9 @@ class UsersController extends Controller
     public function index()
     {
         //
-        $users= User::with('role')->get();
+        $employees= Employee::with('service')->get();
 
-        return view('backend.users.index',compact('users'));
+        return view('backend.employees.index',compact('employees'));
     }
 
 
@@ -34,10 +36,10 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(User $user)
+    public function create(Employee $employee)
     {
         //
-        return view('backend.users.create',compact('user'));
+        return view('backend.employees.create',compact('employee'));
     }
 
     /**
@@ -46,34 +48,34 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Requests\UserStoreRequest $request)
+    public function store(Requests\EmployeeStoreRequest $request)
     {
         //
         $data= $this->handleRequest($request);
-        User::create($data);
+        Employee::create($data);
 
-        return redirect("/users")->with("message", "New user created successfully!");
+        return redirect("/employees")->with("message", "New employee created successfully!");
     }
 
-     private function handleRequest($request){
+    private function handleRequest($request){
 
-         $data = $request->all();
+        $data = $request->all();
 
-         if($request->hasFile('image')){
+        if($request->hasFile('image')){
 
             $image = $request->file('image');
 
             $fileName = $image->getClientOriginalName();
 
-             $destination = $this->uploadPath;
+            $destination = $this->uploadPath;
 
             $image->move($destination,$fileName);
 
             $data['image'] =  $fileName;
 
-         }
-         return $data;
-     }
+        }
+        return $data;
+    }
     /**
      * Display the specified resource.
      *
@@ -94,9 +96,9 @@ class UsersController extends Controller
     public function edit($id)
     {
         //
-        $user = User::findOrFail($id);
+        $employee = Employee::findOrFail($id);
 
-        return view("backend.users.edit", compact('user'));
+        return view("backend.employees.edit", compact('employee'));
     }
 
     /**
@@ -106,17 +108,17 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Requests\UserUpdateRequest $request, $id)
+    public function update(Requests\EmployeeUpdateRequest $request, $id)
     {
         //
 
-        $user = User::findOrFail($id);
+        $employee = Employee::findOrFail($id);
 
-         $data=$this->handleRequest($request);
+        $data=$this->handleRequest($request);
 
-         $user->update($data);
-         
-        return redirect("/users")->with("message", "User updated successfully!!");
+        $employee->update($data);
+
+        return redirect("/employees")->with("message", "employee updated successfully!!");
     }
 
     /**
@@ -128,8 +130,8 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
-        User::findOrFail($id)->delete();
+        Employee::findOrFail($id)->delete();
 
-        return redirect("/users")->with("message", "User deleted successfully!");
+        return redirect("/employees")->with("message", "employee deleted successfully!");
     }
 }

@@ -16,10 +16,10 @@
     @endif
 </div>
 <div class="form-group">
-    {!! Form::label('role_id', 'Role', ['class' => 'control-label']) !!}
-    {!! Form::select('role_id',  App\Role::pluck('title', 'id'),  old('role'), ['class' => 'form-control', 'placeholder' => 'Choose role']) !!}
-    @if($errors->has('role_id'))
-        <span class="help-block">{{ $errors->first('role_id') }}</span>
+    {!! Form::label('service_id', 'Service', ['class' => 'control-label']) !!}
+    {!! Form::select('service_id',  App\Service::pluck('title', 'id'),  old('service'), ['class' => 'form-control', 'placeholder' => 'Choose service']) !!}
+    @if($errors->has('service_id'))
+        <span class="help-block">{{ $errors->first('service_id') }}</span>
     @endif
 </div>
 
@@ -57,7 +57,7 @@
     <br>
         <div class="fileinput fileinput-new" data-provides="fileinput">
             <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                <img src="{{ ($user->image_url) ? $user->image_url : ' '}}" alt="">
+                <img src="{{ ($employee->image_url) ? $employee->image_url : ' '}}" alt="">
             </div>
             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
             <div>
@@ -74,8 +74,8 @@
     @endif
 </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-outline-primary btn-lg">{{ $user->exists ? 'Update' : 'Save' }}</button>
-        <a href="{{ route('backend.users.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cance</a>
+        <button type="submit" class="btn btn-outline-primary btn-lg">{{ $employee->exists ? 'Update' : 'Save' }}</button>
+        <a href="{{ route('backend.users.index') }}" class="btn btn-outline-danger btn-lg" service="button" aria-pressed="true">Cance</a>
 
     </div>
     <!-- /.form-group -->

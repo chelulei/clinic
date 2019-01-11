@@ -12,22 +12,41 @@
                         <i class="fas fa-tachometer-alt"></i>Dashboard
                     </a>
                 </li>
+                <li class="active has-sub">
+                    <a class="js-arrow" href="{{ route('backend.employees.index') }}">
+                        <i class="fa fa-suitcase"></i>Employees
+                    </a>
+                </li>
+                <li class="active has-sub">
+                    <a class="js-arrow" href="{{ route('backend.services.index') }} ">
+                        <i class="fa fa-hourglass"></i>Services
+                    </a>
+                </li>
+
+
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fas fa-user"></i>Administrator</a>
+                        <i class="fa fa-group"></i>User Management</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
                             <a href="{{ route('backend.users.index') }}">
                                 <i class="fa fa-group"></i>Users</a>
                         </li>
                         <li>
-                            <a href="{{ route('doctor') }}"><i class="fa fa-user-md"></i>Doctors</a>
+                            <a href="{{ route('backend.roles.index') }}">
+                                <i class="fa fa-briefcase"></i>Roles</a>
                         </li>
-                        <li>
-                            <a href="{{ route('dentist') }}"><i class="fa fa-user-md"></i>Dentists</a>
-                        </li>
+                    </ul>
+                </li>
+                <li class="has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fas fa-user"></i>Administrator</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
                             <a href="{{ url('event')}}"><i class="fa  fa-calendar"></i>Calendar</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('backend.appointments.index')}}"><i class="fa  fa-calendar"></i>Appointments</a>
                         </li>
                         <li>
                             <a href="{{ route('backend.patients.index')}}"><i class="fa fa-user-plus"></i>Patients</a>

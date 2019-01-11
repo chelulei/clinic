@@ -16,13 +16,11 @@
     @endif
 </div>
 <div class="form-group">
-    {!! Form::label('role') !!}
-    <select class="form-control m-bot15" name="role">
-        <option value="0" @if ($user->role == 0)selected="selected" @endif>Secretary</option>
-        <option value="1" @if ($user->role == 1)selected="selected" @endif>Admin</option>
-        <option value="2" @if ($user->role == 2)selected="selected" @endif>Doctor</option>
-        <option value="3" @if ($user->role == 3)selected="selected" @endif>Dentists</option>
-    </select>
+    {!! Form::label('role_id', 'Role', ['class' => 'control-label']) !!}
+    {!! Form::select('role_id',  App\Role::pluck('title', 'id'),  old('role'), ['class' => 'form-control', 'placeholder' => 'Choose role']) !!}
+    @if($errors->has('role_id'))
+        <span class="help-block">{{ $errors->first('role') }}</span>
+    @endif
 </div>
     <div class="form-group {{ $errors->has('slug') ? 'has-error' : '' }}">
         {{ Form::hidden('slug', null, array('id' => 'slug')) }}

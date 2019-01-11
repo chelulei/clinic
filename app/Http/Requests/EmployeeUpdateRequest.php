@@ -3,8 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
-class UserStoreRequest extends FormRequest
+use App\Http\Requests\Request;
+class EmployeeUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,18 +23,13 @@ class UserStoreRequest extends FormRequest
      */
     public function rules()
     {
-
         return [
             'name' => 'required|string|max:255',
-            'username' => 'required|unique:users',
-            'slug'     => 'required|unique:users',
-            'email' => 'required|email|max:255|unique:users',
-            'password'  => 'required|min:6|confirmed',
-            'image'    => 'mimes:jpg,jpeg,bmp,png',
-            'role_id'     => 'required',
+            'username' => 'required|unique:users,username,' . $this->route("employee"),
+            'slug' => 'required|unique:users,slug,' . $this->route("employee"),
+            'email' => 'required|unique:users,email,' . $this->route("employee"),
+            'image' => 'mimes:jpg,jpeg,bmp,png',
+            'service_id' => 'required',
         ];
-
     }
-
-
 }

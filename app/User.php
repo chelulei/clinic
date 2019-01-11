@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','username','role','slug','email','password','image',
+        'name','username','role_id','slug','email','password','image',
     ];
 
     /**
@@ -27,6 +27,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+   public function getNameAttribute($value)
+    {
+        return ucwords($value);
+    }
 
     public function getRouteKeyName()
     {
@@ -49,22 +54,21 @@ class User extends Authenticatable
        return   $imageUrl;
     }
 
-    public function roleLabel()
-    {
-        if ($this->role == 1) {
-            return '<span class="badge badge-danger">Admin</span>';
-        }
-        elseif ($this->role == 2) {
-            return '<span class="badge badge-success">Doctor</span>';
-        }
-        elseif ($this->role == 3) {
-            return '<span class="badge badge-primary"> Dentists</span>';
-        }else{
 
-            return '<span class="badge badge-warning"> Secretary</span>';
+    /**
+     * @return Role|null
+     */
+    public function getRole()
+    {
+        if ( ! $this->getAttribute('role_id')) {
+            return null;
         }
+        return $this->getAttribute('role');
     }
 
-
+    public function role()
+    {
+        return $this->belongsTo(Role::class,'role_id');
+    }
 
 }

@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Requests;
-
 use Illuminate\Foundation\Http\FormRequest;
-
-class UserStoreRequest extends FormRequest
+use App\Http\Requests\Request;
+class UpdateServicesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,16 +24,13 @@ class UserStoreRequest extends FormRequest
     {
 
         return [
-            'name' => 'required|string|max:255',
-            'username' => 'required|unique:users',
-            'slug'     => 'required|unique:users',
-            'email' => 'required|email|max:255|unique:users',
-            'password'  => 'required|min:6|confirmed',
-            'image'    => 'mimes:jpg,jpeg,bmp,png',
-            'role_id'     => 'required',
+
+            'title' => 'required',
         ];
 
-    }
+
+     }
+
 
 
 }

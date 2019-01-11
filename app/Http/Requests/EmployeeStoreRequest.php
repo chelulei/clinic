@@ -3,8 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
-class UserStoreRequest extends FormRequest
+use App\Http\Requests\Request;
+class EmployeeStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,10 +31,8 @@ class UserStoreRequest extends FormRequest
             'email' => 'required|email|max:255|unique:users',
             'password'  => 'required|min:6|confirmed',
             'image'    => 'mimes:jpg,jpeg,bmp,png',
-            'role_id'     => 'required',
-        ];
+            'service_id'     => 'required',
+    ];
 
     }
-
-
 }

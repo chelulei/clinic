@@ -119,4 +119,3 @@ class PatientsController extends Controller
     }
 }
 
-// {{ @if($patient->histories->contains($history->id)) checked=checked @endif }}
