@@ -17,7 +17,11 @@
 </div>
 <div class="form-group">
     {!! Form::label('role') !!}
-    <select class="form-control m-bot15" name="role_id">
+    <select class="form-control m-bot15" name="role">
+        <option value="0" @if ($user->role == 0)selected="selected" @endif>Secretary</option>
+        <option value="1" @if ($user->role == 1)selected="selected" @endif>Admin</option>
+        <option value="2" @if ($user->role == 2)selected="selected" @endif>Doctor</option>
+        <option value="3" @if ($user->role == 3)selected="selected" @endif>Dentists</option>
     </select>
 </div>
     <div class="form-group {{ $errors->has('slug') ? 'has-error' : '' }}">

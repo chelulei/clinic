@@ -113,8 +113,11 @@ class UsersController extends Controller
         //
 
         $user = User::findOrFail($id);
+
          $data=$this->handleRequest($request);
+
          $user->update($data);
+         
         return redirect("/users")->with("message", "User was updated successfully!!");
     }
 

@@ -1,6 +1,6 @@
 @extends('layouts.backend.main')
 
-@section('title', 'Clinic | Add new user')
+@section('title', 'Clinic | Edit user')
 
 @section('content')
     <nav aria-label="breadcrumb">
