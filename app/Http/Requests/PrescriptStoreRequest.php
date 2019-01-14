@@ -33,9 +33,7 @@ class PrescriptStoreRequest extends FormRequest
             'temp'=> 'nullable',
             'wt'=> 'nullable',
             'hpi'=> 'nullable',
-            'assessment'=> 'required',
-
-
+            'assessment'=> 'required'
     ];
 
     }

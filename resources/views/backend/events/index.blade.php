@@ -9,7 +9,7 @@
         <div class="col-md-12">
             <div class="overview-wrap">
                 <h2 class="title-1"> Full Calendar</h2>
-                <a href="{{ url('event/add')}}"><button class="au-btn au-btn-icon au-btn--blue">
+                <a href="{{ route('backend.events.create')}}"><button class="au-btn au-btn-icon au-btn--blue">
                         <i class="zmdi zmdi-plus"></i>add Event</button></a>
             </div>
         </div>
@@ -27,7 +27,8 @@
 
                     </div>
                     <div class="panel-body" >
-                        {!! $calendar->calendar() !!}
+                        {{--{!! $calendar->calendar() !!}--}}
+                        <div id='calendar'></div>
                     </div>
                 </div>
         </div>
@@ -37,6 +38,26 @@
 @section('script')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
-    {!! $calendar->script() !!}
+    {{--{!! $calendar->script() !!}--}}
+
+    <script>
+        $(document).ready(function() {
+            // page is now ready, initialize the calendar...
+            $('#calendar').fullCalendar({
+                // put your options and callbacks here
+                defaultView: 'agendaWeek',
+                events : [
+                        @foreach($working_hours as $hour)
+                    {
+                        title : '{{ $hour->user->name}}',
+                        start : '{{ $hour->date . ' ' . $hour->start_time }}',
+                        end : '{{ $hour->date . ' ' . $hour->finish_time }}',
+                        url : '{{ route('backend.events.edit', $hour->id) }}'
+                    },
+                    @endforeach
+                ]
+            })
+        });
+    </script>
 @endsection
 

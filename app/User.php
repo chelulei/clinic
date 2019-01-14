@@ -56,5 +56,9 @@ class User extends Authenticatable
         return $this->hasMany(Prescription::class);
     }
 
+    public  function events(){
+
+        return $this->hasMany(Event::class);
+    }
 
 }

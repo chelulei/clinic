@@ -5,48 +5,30 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Event;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 class EventController extends Controller
 {
 
-    public function calender()
+    public function index()
     {
-        $events = [];
-        $data = Event::all();
-        if($data->count())
-        {
-            foreach ($data as $key => $value)
-            {
-                $events[] = Calendar::event(
-                    $value->title,
-                    true,
-                    new \DateTime($value->start_date),
-                    new \DateTime($value->end_date.'+1 day'),
-                    null,
-                    // Add color
-                    [
-                        'color' => '#000000',
-                        'textColor' => '#008000',
-                    ]
-                );
-            }
-        }
-        $calendar = Calendar::addEvents($events);
-        return view('backend.events.index', compact('calendar'));
+
+        $working_hours = Event::all();
+        return view('backend.events.index', compact('working_hours'));
     }
 
-    public function createEvent(){
+    public function create(){
 
-        return view('backend.events.create');
+        $user = Auth::user();
+
+        return view('backend.events.create',compact('user'));
     }
 
     public function store(Request $request)
     {
-        $event= new Event();
-        $event->title=$request->get('title');
-        $event->start_date=$request->get('start_date');
-        $event->end_date=$request->get('end_date');
-        $event->save();
-        return redirect('event')->with('success', 'Event has been added');
+
+        Event::create(Input::all());
+        return redirect('/events')->with('success', 'Event has been added');
       
     }
 

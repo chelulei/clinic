@@ -6,9 +6,9 @@
         <span class="help-block">{{ $errors->first('patient_id') }}</span>
     @endif
 </div>
-<?php $user = Auth::user(); ?>
+<div class="form-group">
 {{ Form::hidden('user_id', $user->id) }}
-     <hr>
+</div>
      <h5 class="text-center">VITAL SIGNS</h5>
       <hr>
      <div class="row">

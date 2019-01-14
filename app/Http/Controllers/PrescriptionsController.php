@@ -38,7 +38,8 @@ class PrescriptionsController extends Controller
     public function create(Prescription $prescription)
     {
         //
-        return view('backend.prescriptions.create',compact('prescription'));
+         $user = Auth::user();
+        return view('backend.prescriptions.create',compact('prescription','user'));
     }
 
     /**

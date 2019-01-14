@@ -47,7 +47,7 @@
 </div>
   <p class="text-center">
       <button type="submit" class="btn btn-outline-primary btn-lg">{{ $employee->exists ? 'Update' : 'Save' }}</button>
-      <a href="{{ route('backend.employees.index') }}" class="btn btn-outline-danger btn-lg" service="button" aria-pressed="true">Cance</a>
+      <a href="{{ route('backend.employees.index') }}" class="btn btn-outline-danger btn-lg" service="button" aria-pressed="true">Cancel</a>
 
   </p>
 

@@ -12,14 +12,9 @@
                         <i class="fas fa-tachometer-alt"></i>Dashboard
                     </a>
                 </li>
-                <li class="active has-sub">
-                    <a class="js-arrow" href="{{ route('backend.employees.index') }}">
-                        <i class="fa fa-suitcase"></i>Employees
-                    </a>
-                </li>
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fa fa-group"></i>Employees</a>
+                        <i class="fa fa-suitcase"></i>Employees</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
                             <a href="{{ route('backend.employees.index') }}">
@@ -27,7 +22,7 @@
                         </li>
                         <li>
                             <a href="{{ route('backend.employees.create') }}">
-                                <i class="fa fa-briefcase"></i>Add Eloyee</a>
+                                <i class="fa fa-briefcase"></i>Add Employee</a>
                         </li>
                     </ul>
                 </li>
@@ -50,7 +45,7 @@
                     </ul>
                 </li>
                 <li class="has-sub">
-                    <a class="js-arrow" href="{{ url('event')}}">
+                    <a class="js-arrow" href="{{route('backend.events.index')}}">
                         <i class="fa fa-pencil-square-o"></i>
                         Appointments
                     </a>

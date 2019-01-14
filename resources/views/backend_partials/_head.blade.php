@@ -20,7 +20,8 @@
 <link href="{{asset('/backend/vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
-
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.css"/>
 
 <!-- Vendor CSS-->
 <link href="{{asset('/backend/vendor/animsition/animsition.min.css')}}" rel="stylesheet" media="all">

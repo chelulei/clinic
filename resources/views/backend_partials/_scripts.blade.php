@@ -1,10 +1,5 @@
 <!-- Jquery JS-->
-{{--<script src="{{asset('/backend/vendor/jquery-3.2.1.min.js')}}"></script>--}}
-<script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-<!-- dataTables-->
+<script src="{{asset('/backend/vendor/jquery-3.2.1.min.js')}}"></script>
 <script src="{{asset('/backend/vendor/dataTables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('/backend/vendor/dataTables/dataTables.bootstrap4.min.js')}}"></script>
 
@@ -47,14 +42,10 @@
         });
     }, 4000);
 
-    $('#start_date').datepicker({
+    $('.date').datepicker({
         autoclose: true,
         format: 'yyyy-mm-dd',
         startDate: '-3d'
     });
-    $('#end_date').datepicker({
-        autoclose: true,
-        format: 'yyyy-mm-dd',
-        startDate: '-3d'
-    });
+
 </script>

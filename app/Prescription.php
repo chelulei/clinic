@@ -9,6 +9,7 @@ class Prescription extends Model
     //
     protected $fillable = [
              'patient_id',
+              'user_id',
               'age',
               'bp',
               'pr',
