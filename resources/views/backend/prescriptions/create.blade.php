@@ -1,6 +1,6 @@
 @extends('layouts.backend.main')
 
-@section('title', 'Clinic | Add new user')
+@section('title', 'Clinic | Add new Assessments')
 
 @section('content')
     <nav aria-label="breadcrumb">
@@ -10,14 +10,13 @@
         </ol>
     </nav>
     <div class="row mb-10">
-    <div class="col-lg-8 offset-md-2">
+    <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <strong>Record Prescriptions</strong>
-                <small> Form</small>
+                <strong>Record Assessment</strong>
             </div>
             <div class="card-body card-block">
-                {!! Form::model($prescript, [
+                {!! Form::model($prescription, [
                     'method' => 'POST',
                     'route'  => 'backend.prescriptions.store',
                     'files'  => TRUE,

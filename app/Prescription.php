@@ -8,17 +8,21 @@ class Prescription extends Model
 {
     //
     protected $fillable = [
-            'patient_id',
-            'date',
-            'description',
-            'treatment',
-            'medicine',
+             'patient_id',
+              'age',
+              'bp',
+              'pr',
+              'rr',
+              'temp',
+              'wt',
+              'hpi',
+              'assessment'
     ];
 
 
-    public function patients()
+    public function patient()
     {
-        return $this->belongsTo(Patient::class);
+        return $this->belongsTo(Patient::class,'patient_id');
     }
 }
 

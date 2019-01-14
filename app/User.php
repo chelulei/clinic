@@ -4,20 +4,28 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     use Notifiable;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
-        'name','username','role_id','slug','email','password','image',
+        'name', 'email', 'password',
     ];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -28,47 +36,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-   public function getNameAttribute($value)
-    {
-        return ucwords($value);
-    }
-
-    public function getRouteKeyName()
-    {
-       return 'slug';
-    }
-
-
-    public function getImageUrlAttribute($value){
-
-       $imageUrl="";
-
-       if(! is_null($this->image)){
-
-           $imagePath= public_path() . "/img/" . $this->image;
-
-           if(file_exists($imagePath))  $imageUrl = asset("img/" . $this->image);
-
-       }
-
-       return   $imageUrl;
-    }
-
-
-    /**
-     * @return Role|null
-     */
-    public function getRole()
-    {
-        if ( ! $this->getAttribute('role_id')) {
-            return null;
-        }
-        return $this->getAttribute('role');
-    }
-
-    public function role()
-    {
-        return $this->belongsTo(Role::class,'role_id');
-    }
+// Only accept a valid password and
+// hash a password before saving
+//    public function setPasswordAttribute($password)
+//    {
+//        if ( $password !== null & $password !== "" )
+//        {
+//            $this->attributes['password'] = Hash::make($password);
+//        }
+//    }
 
 }

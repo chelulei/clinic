@@ -8,10 +8,16 @@ use App\Http\Requests;
 class EmployeesController extends Controller
 {
 
+
     protected $uploadPath;
 
     public function __construct()
     {
+//        $this->middleware('permission:employee-list');
+//        $this->middleware('permission:employee-create', ['only' => ['create','store']]);
+//        $this->middleware('permission:employee-edit', ['only' => ['edit','update']]);
+//        $this->middleware('permission:employee-delete', ['only' => ['destroy']]);
+
         $this->uploadPath =public_path('img');
     }
 
@@ -23,7 +29,7 @@ class EmployeesController extends Controller
     public function index()
     {
         //
-        $employees= Employee::with('service')->get();
+        $employees= Employee::all();
 
         return view('backend.employees.index',compact('employees'));
     }

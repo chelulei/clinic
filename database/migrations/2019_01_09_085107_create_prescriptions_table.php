@@ -16,13 +16,15 @@ class CreatePrescriptionsTable extends Migration
         Schema::create('prescriptions', function (Blueprint $table) {
 
             $table->increments('id');
-            $table->integer('patient_id')->unsigned();
-            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('restrict');
-            $table->date('date');
-            $table->text('test');
-            $table->text('description');
-            $table->text('treatment');
-            $table->text('medicine');
+            $table->integer('patient_id')->unsigned()->nullable();
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('restrict');;
+            $table->string('bp')->nullable();
+            $table->string('pr')->nullable();
+            $table->string('rr')->nullable();
+            $table->string('temp')->nullable();
+            $table->string('wt')->nullable();
+            $table->text('hpi')->nullable();
+            $table->text('assessment');
             $table->timestamps();
         });
     }

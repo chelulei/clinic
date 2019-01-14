@@ -55,9 +55,4 @@ class Employee extends Model
     }
 
 
-    public function service()
-    {
-        return $this->belongsTo(Service::class);
-    }
-
 }

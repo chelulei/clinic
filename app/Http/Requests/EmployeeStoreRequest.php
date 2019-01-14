@@ -31,7 +31,7 @@ class EmployeeStoreRequest extends FormRequest
             'email' => 'required|email|max:255|unique:users',
             'password'  => 'required|min:6|confirmed',
             'image'    => 'mimes:jpg,jpeg,bmp,png',
-            'service_id'     => 'required',
+            'service'     => 'required',
     ];
 
     }

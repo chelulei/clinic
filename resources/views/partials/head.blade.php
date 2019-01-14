@@ -1,14 +1,29 @@
-<meta charset="UTF-8">
-<meta name="description" content="">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Mobile Specific Meta -->
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<!-- Favicon-->
+<link rel="shortcut icon" href="img/fav.png">
+<!-- Author Meta -->
+<meta name="author" content="colorlib">
+<!-- Meta Description -->
+<meta name="description" content="">
+<!-- Meta Keyword -->
+<meta name="keywords" content="">
+<!-- meta character set -->
+<meta charset="UTF-8">
+<!-- Site Title -->
+<title>Medical</title>
 
-<!-- Title  -->
-<title>Medilife - Health &amp; Medical Template | Home</title>
-
-<!-- Favicon  -->
-<link rel="icon" href="img/core-img/favicon.ico">
-
-<!-- Style CSS -->
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+<!--
+CSS
+============================================= -->
+<link rel="stylesheet" href="{{asset('css/linearicons.css')}}">
+<link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+<link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
+<link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
+<link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
+<link rel="stylesheet" href="{{asset('css/nice-select.css')}}">
+<link rel="stylesheet" href="{{asset('css/animate.min.css')}}">
+<link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
+<link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
+<link rel="stylesheet" href="{{asset('css/main.css')}}">

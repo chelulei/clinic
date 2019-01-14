@@ -141,11 +141,12 @@
                                 </div>
                                 <div class="account-dropdown__body">
                                     <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-account"></i>Account</a>
+                                        {{--<a href="{{route('backend.profile.index')}}">--}}
+                                            {{--<i class="zmdi zmdi-account"></i>Account</a>--}}
                                     </div>
+                                    <?php $user = Auth::user(); ?>
                                     <div class="account-dropdown__item">
-                                        <a href="#">
+                                        <a href="{{ route('profile-edit', ['user' => $user]) }}">
                                             <i class="zmdi zmdi-settings"></i>Setting</a>
                                     </div>
                                     <div class="account-dropdown__item">

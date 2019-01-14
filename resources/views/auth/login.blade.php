@@ -14,11 +14,11 @@
                         @csrf
                         <div class="form-group">
                             <label>{{ __('E-Mail Address') }}</label>
-                            <input id="username" type="username" class="au-input au-input--full{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" placeholder="username" required autofocus>
+                            <input id="email" type="email" class="au-input au-input--full{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('username') }}" placeholder="Email" required autofocus>
 
-                            @if ($errors->has('username'))
+                            @if ($errors->has('email'))
                                 <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('username') }}</strong>
+                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                             @endif
                         </div>

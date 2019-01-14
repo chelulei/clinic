@@ -1,113 +1,59 @@
-<footer class="footer-area section-padding-100">
-    <!-- Main Footer Area -->
-    <div class="main-footer-area">
-        <div class="container-fluid">
-            <div class="row">
-
-                <div class="col-12 col-sm-6 col-xl-3">
-                    <div class="footer-widget-area">
-                        <div class="footer-logo">
-                            <img src="img/core-img/logo.png" alt="">
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer.</p>
-                        <div class="footer-social-info">
-                            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
+<footer class="footer-area section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2  col-md-6">
+                <div class="single-footer-widget">
+                    <h6>Top Products</h6>
+                    <ul class="footer-nav">
+                        <li><a href="#">Managed Website</a></li>
+                        <li><a href="#">Manage Reputation</a></li>
+                        <li><a href="#">Power Tools</a></li>
+                        <li><a href="#">Marketing Service</a></li>
+                    </ul>
                 </div>
+            </div>
+            <div class="col-lg-4  col-md-6">
+                <div class="single-footer-widget mail-chimp">
+                    <h6 class="mb-20">Contact Us</h6>
+                    <p>
+                        56/8, Santa bullevard, Rocky beach, San fransisco, Los angeles, USA
+                    </p>
+                    <h3>012-6532-568-9746</h3>
+                    <h3>012-6532-568-97468</h3>
+                </div>
+            </div>
+            <div class="col-lg-6  col-md-12">
+                <div class="single-footer-widget newsletter">
+                    <h6>Newsletter</h6>
+                    <p>You can trust us. we only send promo offers, not a single spam.</p>
+                    <div id="mc_embed_signup">
+                        <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
 
-                <div class="col-12 col-sm-6 col-xl-3">
-                    <div class="footer-widget-area">
-                        <div class="widget-title">
-                            <h6>Latest News</h6>
-                        </div>
-                        <div class="widget-blog-post">
-                            <!-- Single Blog Post -->
-                            <div class="widget-single-blog-post d-flex">
-                                <div class="widget-post-thumbnail">
-                                    <img src="img/blog-img/ln1.jpg" alt="">
+                            <div class="form-group row" style="width: 100%">
+                                <div class="col-lg-8 col-md-12">
+                                    <input name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '" required="" type="email">
                                 </div>
-                                <div class="widget-post-content">
-                                    <a href="#">Better Health Care</a>
-                                    <p>Dec 02, 2017</p>
+
+                                <div class="col-lg-4 col-md-12">
+                                    <button class="nw-btn primary-btn circle">Subscribe<span class="lnr lnr-arrow-right"></span></button>
                                 </div>
                             </div>
-                            <!-- Single Blog Post -->
-                            <div class="widget-single-blog-post d-flex">
-                                <div class="widget-post-thumbnail">
-                                    <img src="img/blog-img/ln2.jpg" alt="">
-                                </div>
-                                <div class="widget-post-content">
-                                    <a href="#">A new drug is tested</a>
-                                    <p>Dec 02, 2017</p>
-                                </div>
-                            </div>
-                            <!-- Single Blog Post -->
-                            <div class="widget-single-blog-post d-flex">
-                                <div class="widget-post-thumbnail">
-                                    <img src="img/blog-img/ln3.jpg" alt="">
-                                </div>
-                                <div class="widget-post-content">
-                                    <a href="#">Health department advice</a>
-                                    <p>Dec 02, 2017</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-xl-3">
-                    <div class="footer-widget-area">
-                        <div class="widget-title">
-                            <h6>Contact Form</h6>
-                        </div>
-                        <div class="footer-contact-form">
-                            <form action="#" method="post">
-                                <input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="footer-name" id="footer-name" placeholder="Name">
-                                <input type="email" class="form-control border-top-0 border-right-0 border-left-0" name="footer-email" id="footer-email" placeholder="Email">
-                                <textarea name="message" class="form-control border-top-0 border-right-0 border-left-0" id="footerMessage" placeholder="Message"></textarea>
-                                <button type="submit" class="btn medilife-btn">Contact Us <span>+</span></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-xl-3">
-                    <div class="footer-widget-area">
-                        <div class="widget-title">
-                            <h6>News Letter</h6>
-                        </div>
-
-                        <div class="footer-newsletter-area">
-                            <form action="#">
-                                <input type="email" class="form-control border-0 mb-0" name="newsletterEmail" id="newsletterEmail" placeholder="Your Email Here">
-                                <button type="submit">Subscribe</button>
-                            </form>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer.</p>
-                        </div>
+                            <div class="info"></div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Bottom Footer Area -->
-    <div class="bottom-footer-area">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="bottom-footer-content">
-                        <!-- Copywrite Text -->
-                        <div class="copywrite-text">
-                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </p>
-                        </div>
-                    </div>
-                </div>
+
+        <div class="row footer-bottom d-flex justify-content-between">
+            <p class="col-lg-8 col-sm-12 footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            <div class="col-lg-4 col-sm-12 footer-social">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+                <a href="#"><i class="fa fa-behance"></i></a>
             </div>
         </div>
     </div>

@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="overview-wrap">
-                <h2 class="title-1">All Users</h2>
+                <h2 class="title-1">Users Management</h2>
                 <a href="{{ route('backend.users.create') }}"><button class="au-btn au-btn-icon au-btn--blue">
                     <i class="zmdi zmdi-plus"></i>add user</button></a>
             </div>

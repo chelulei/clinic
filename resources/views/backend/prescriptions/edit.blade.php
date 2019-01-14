@@ -10,17 +10,17 @@
         </ol>
     </nav>
     <div class="row mb-10">
-        <div class="col-lg-8 offset-md-2">
+        <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
                     <strong>Edit prescription</strong>
                     <small> Form</small>
                 </div>
                 <div class="card-body card-block">
-                    {!! Form::model($prescript, [
+                    {!! Form::model($prescription, [
 
                   'method' => 'PUT',
-                  'route'  => ['backend.prescriptions.update', $prescript->id],
+                  'route'  => ['backend.prescriptions.update', $prescription->id],
                   'files'  => TRUE,
                   'id'     => 'prescription-form'
 

@@ -36,6 +36,8 @@
 <script>
     $('#DataTable').DataTable();
 
+    $('select').select2();
+
     //Remove alert
     window.setTimeout(function() {
         $(".alert").fadeTo(500, 0).slideUp(500, function(){

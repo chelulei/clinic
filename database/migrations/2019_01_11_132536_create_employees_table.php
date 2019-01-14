@@ -16,13 +16,9 @@ class CreateEmployeesTable extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('username')->unique();
-            $table->string('slug')->unique();
             $table->string('email')->unique();
+            $table->unsignedInteger('service');
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->unsignedInteger('service_id')->unsigned()->nullable();
-            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
             $table->string('image')->default('default.png');
             $table->timestamps();
         });

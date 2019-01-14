@@ -1,69 +1,62 @@
-<header class="header-area">
-    <!-- Top Header Area -->
-    <div class="top-header-area">
-        <div class="container h-100">
-            <div class="row h-100">
-                <div class="col-12 h-100">
-                    <div class="h-100 d-md-flex justify-content-between align-items-center">
-                        <p>Welcome to <span>Medifile</span> template</p>
-                        <p>Opening Hours : Monday to Saturday - 8am to 10pm Contact : <span>+12-823-611-8721</span></p>
-                    </div>
+<header id="header">
+    <div class="header-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-sm-6 col-4 header-top-left">
+
+                </div>
+                <div class="col-lg-6 col-sm-6 col-8 header-top-right">
+                    <a href="#" class="primary-btn text-uppercase">Book Appointment</a>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Main Header Area -->
-    <div class="main-header-area" id="stickyHeader">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12 h-100">
-                    <div class="main-menu h-100">
-                        <nav class="navbar h-100 navbar-expand-lg">
-                            <!-- Logo Area  -->
-                            <a class="navbar-brand" href="index.html"><img src="img/core-img/logo.png" alt="Logo"></a>
-
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#medilifeMenu" aria-controls="medilifeMenu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-
-                            <div class="collapse navbar-collapse" id="medilifeMenu">
-                                <!-- Menu Area -->
-                                <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="index.html">Home</a>
-                                            <a class="dropdown-item" href="about-us.html">About Us</a>
-                                            <a class="dropdown-item" href="services.html">Services</a>
-                                            <a class="dropdown-item" href="blog.html">News</a>
-                                            <a class="dropdown-item" href="single-blog.html">News Details</a>
-                                            <a class="dropdown-item" href="contact.html">Contact</a>
-                                            <a class="dropdown-item" href="elements.html">Elements</a>
-                                            <a class="dropdown-item" href="index-icons.html">All Icons</a>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="about-us.html">About Us</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="services.html">Services</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="blog.html">News</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="contact.html">Contact</a>
-                                    </li>
-                                </ul>
-                                <!-- Appointment Button -->
-                                <a href="#" class="btn medilife-appoint-btn ml-30">For <span>emergencies</span> Click here</a>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
+    <div class="container main-menu">
+        <div class="row align-items-center justify-content-between d-flex">
+            <div id="logo">
+                <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
             </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="doctors.html">Doctors</a></li>
+                    <li><a href="departments.html">Departments</a></li>
+                        <ul>
+                            <li><a href="blog-home.html">Blog Home</a></li>
+                            <li><a href="blog-single.html">Blog Single</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-has-children"><a href="">Pages</a>
+                        <ul>
+                            <li><a href="elements.html">Elements</a></li>
+                            <li><a href="#">Item One</a></li>
+                            <li><a href="#">Item Two</a></li>
+                            <li class="menu-has-children"><a href="">Level 2 </a>
+                                <ul>
+                                    <li><a href="#">Item One</a></li>
+                                    <li><a href="#">Item Two</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                    @if (Route::has('login'))
+                        @auth
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ url('/home') }}">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link login" href="{{ route('login') }}">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">Register</a>
+                            </li>
+                        @endauth
+                    @endif
+                </ul>
+            </nav><!-- #nav-menu-container -->
         </div>
     </div>
 </header>

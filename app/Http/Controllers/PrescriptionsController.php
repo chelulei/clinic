@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Prescription;
 use Illuminate\Http\Request;
-
+use App\Http\Requests;
 class PrescriptionsController extends Controller
 {
+    protected $uploadPath;
+
+    public function __construct()
+    {
+        $this->uploadPath =public_path('img');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,21 +21,23 @@ class PrescriptionsController extends Controller
     public function index()
     {
         //
-       $prescriptions=Prescription::all();
+        $prescriptions= Prescription::with('patient')->get();
 
         return view('backend.prescriptions.index',compact('prescriptions'));
     }
+
+
+
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Prescription $prescript)
+    public function create(Prescription $prescription)
     {
-
-
-        return view('backend.prescriptions.create',compact('prescript'));
+        //
+        return view('backend.prescriptions.create',compact('prescription'));
     }
 
     /**
@@ -38,33 +46,41 @@ class PrescriptionsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\PrescriptStoreRequest $request)
     {
         //
-        //
         $data= $this->handleRequest($request);
-         Prescription::create($data);
+        prescription::create($data);
 
-        return redirect("/prescriptions")->with("message", "Prescriptions created successfully!");
+        return redirect("/prescriptions")->with("message", "New prescription created successfully!");
     }
+
     private function handleRequest($request){
+
         $data = $request->all();
+
         if($request->hasFile('image')){
+
             $image = $request->file('image');
+
             $fileName = $image->getClientOriginalName();
+
             $destination = $this->uploadPath;
+
             $image->move($destination,$fileName);
+
             $data['image'] =  $fileName;
+
         }
         return $data;
     }
     /**
      * Display the specified resource.
      *
-     * @param  \App\Prescription  $prescription
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Prescription $prescription)
+    public function show($id)
     {
         //
     }
@@ -72,34 +88,48 @@ class PrescriptionsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Prescription  $prescription
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Prescription $prescription)
+    public function edit($id)
     {
         //
+        $prescription = prescription::findOrFail($id);
+
+        return view("backend.prescriptions.edit", compact('prescription'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Prescription  $prescription
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Prescription $prescription)
+    public function update(Requests\PrescriptUpdateRequest $request, $id)
     {
         //
+
+        $prescription = Prescription::findOrFail($id);
+
+        $data=$this->handleRequest($request);
+
+        $prescription->update($data);
+
+        return redirect("/prescriptions")->with("message", "prescription updated successfully!!");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Prescription  $prescription
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Prescription $prescription)
+    public function destroy($id)
     {
         //
+        Prescription::findOrFail($id)->delete();
+
+        return redirect("/prescriptions")->with("message", "prescription deleted successfully!");
     }
 }

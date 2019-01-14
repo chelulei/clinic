@@ -29,7 +29,7 @@ class EmployeeUpdateRequest extends FormRequest
             'slug' => 'required|unique:users,slug,' . $this->route("employee"),
             'email' => 'required|unique:users,email,' . $this->route("employee"),
             'image' => 'mimes:jpg,jpeg,bmp,png',
-            'service_id' => 'required',
+            'service' => 'required',
         ];
     }
 }

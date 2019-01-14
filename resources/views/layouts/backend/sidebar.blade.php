@@ -17,13 +17,20 @@
                         <i class="fa fa-suitcase"></i>Employees
                     </a>
                 </li>
-                <li class="active has-sub">
-                    <a class="js-arrow" href="{{ route('backend.services.index') }} ">
-                        <i class="fa fa-hourglass"></i>Services
-                    </a>
+                <li class="has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fa fa-group"></i>Employees</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a href="{{ route('backend.employees.index') }}">
+                                <i class="fa fa-group"></i>All Employees</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('backend.employees.create') }}">
+                                <i class="fa fa-briefcase"></i>Add Eloyee</a>
+                        </li>
+                    </ul>
                 </li>
-
-
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fa fa-group"></i>User Management</a>
@@ -35,6 +42,22 @@
                         <li>
                             <a href="{{ route('backend.roles.index') }}">
                                 <i class="fa fa-briefcase"></i>Roles</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('backend.permissions.index') }}">
+                                <i class="fa fa-briefcase"></i>Permissions </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fa fa-user-md" aria-hidden="true"></i>Patient Management</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a href="{{ route('backend.patients.index')}}"><i class="fa fa-user-plus"></i>All Patients</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('backend.prescriptions.index')}}"><i class="fa fa-user-plus"></i>Patient Assessment</a>
                         </li>
                     </ul>
                 </li>
