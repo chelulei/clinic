@@ -45,9 +45,15 @@
                         </li>
                         <li>
                             <a href="{{ route('backend.permissions.index') }}">
-                                <i class="fa fa-briefcase"></i>Permissions </a>
+                                <i class="fa fa-lock" aria-hidden="true"></i>Permissions </a>
                         </li>
                     </ul>
+                </li>
+                <li class="has-sub">
+                    <a class="js-arrow" href="{{ url('event')}}">
+                        <i class="fa fa-pencil-square-o"></i>
+                        Appointments
+                    </a>
                 </li>
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
@@ -57,7 +63,7 @@
                             <a href="{{ route('backend.patients.index')}}"><i class="fa fa-user-plus"></i>All Patients</a>
                         </li>
                         <li>
-                            <a href="{{ route('backend.prescriptions.index')}}"><i class="fa fa-user-plus"></i>Patient Assessment</a>
+                            <a href="{{ route('backend.prescriptions.index')}}"><i class="fa fa-user-plus"></i>Patient Prescription</a>
                         </li>
                     </ul>
                 </li>
@@ -68,15 +74,7 @@
                         <li>
                             <a href="{{ url('event')}}"><i class="fa  fa-calendar"></i>Calendar</a>
                         </li>
-                        <li>
-                            <a href="{{ route('backend.appointments.index')}}"><i class="fa  fa-calendar"></i>Appointments</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('backend.patients.index')}}"><i class="fa fa-user-plus"></i>Patients</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('backend.prescriptions.index')}}"><i class="fa fa-user-plus"></i>Prescriptions</a>
-                        </li>
+
                     </ul>
 
                 </li>

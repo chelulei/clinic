@@ -7,18 +7,11 @@
             <span class="help-block">{{ $errors->first('name') }}</span>
         @endif
     </div>
-<div class="form-group {{ $errors->has('username') ? 'has-error' : '' }}">
-    {!! Form::label('username') !!}
-    {!! Form::text('username', null, ['class' => 'form-control']) !!}
 
-    @if($errors->has('username'))
-        <span class="help-block">{{ $errors->first('username') }}</span>
-    @endif
-</div>
 <div class="form-group">
-    {!! Form::label('service_id', 'Service', ['class' => 'control-label']) !!}
-    {!! Form::select('service_id',  App\Service::pluck('title', 'id'),  old('service'), ['class' => 'form-control', 'placeholder' => 'Choose service']) !!}
-    @if($errors->has('service_id'))
+    {!! Form::label('service') !!}
+    {!! Form::text('service',null, ['class' => 'form-control']) !!}
+    @if($errors->has('service'))
         <span class="help-block">{{ $errors->first('service') }}</span>
     @endif
 </div>

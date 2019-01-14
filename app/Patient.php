@@ -77,5 +77,8 @@ class Patient extends Model
         return $this->hasMany(Prescription::class);
     }
 
-
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

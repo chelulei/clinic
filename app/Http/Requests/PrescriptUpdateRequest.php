@@ -25,6 +25,7 @@ class PrescriptUpdateRequest  extends FormRequest
     {
         return [
             'patient_id' => 'required',
+            'user_id' => 'required',
             'bp'=> 'nullable',
             'pr'=> 'nullable',
             'rr'=> 'nullable',

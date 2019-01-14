@@ -26,12 +26,10 @@ class EmployeeStoreRequest extends FormRequest
 
         return [
             'name' => 'required|string|max:255',
-            'username' => 'required|unique:users',
-            'slug'     => 'required|unique:users',
             'email' => 'required|email|max:255|unique:users',
-            'password'  => 'required|min:6|confirmed',
-            'image'    => 'mimes:jpg,jpeg,bmp,png',
             'service'     => 'required',
+            'image'    => 'mimes:jpg,jpeg,bmp,png',
+
     ];
 
     }

@@ -17,7 +17,7 @@ class CreateEmployeesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->unsignedInteger('service');
+            $table->string('service');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('image')->default('default.png');
             $table->timestamps();

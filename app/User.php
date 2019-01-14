@@ -36,14 +36,25 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-// Only accept a valid password and
-// hash a password before saving
-//    public function setPasswordAttribute($password)
-//    {
-//        if ( $password !== null & $password !== "" )
-//        {
-//            $this->attributes['password'] = Hash::make($password);
-//        }
-//    }
+
+
+    public function setPasswordAttribute($password)
+    {
+        if ( $password !== null & $password !== "" )
+        {
+            $this->attributes['password'] = Hash::make($password);
+        }
+    }
+
+    public function patients()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function prescriptions()
+    {
+        return $this->hasMany(Prescription::class);
+    }
+
 
 }

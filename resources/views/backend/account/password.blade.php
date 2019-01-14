@@ -21,7 +21,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="bg-primary p-2 mb-2 text-white text-center">
-                                   UPDATE PASSWORD
+                                   Change Password
                                 </div>
                             </div>
                             <!-- /.col-md-12 -->
@@ -81,7 +81,7 @@
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-4">
                                         <button type="submit" class="btn btn-primary">
-                                            Update
+                                            Update Password
                                         </button>
                                     </div>
                                 </div>

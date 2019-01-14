@@ -13,7 +13,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <strong>Record Assessment</strong>
+                <strong>Add Prescriptions</strong>
             </div>
             <div class="card-body card-block">
                 {!! Form::model($prescription, [

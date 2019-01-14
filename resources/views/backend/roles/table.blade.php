@@ -12,7 +12,7 @@
 
             <td>{{ $role->name }}</td>
 
-            <td>{{ str_replace(array('[',']','"'),'', $role->permissions()->pluck('name')) }}</td>{{-- Retrieve array of permissions associated to a role and convert to string --}}
+            <td>{{ str_replace(array('[',']','"'),'', $role->permissions()->pluck('name')) }}<br></td>
             <td>
                 <a href="{{ route('backend.roles.edit',$role->id)}}" class="btn btn-outline-info pull-left" style="margin-right: 3px;">Edit</a>
 

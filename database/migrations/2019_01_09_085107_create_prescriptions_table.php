@@ -16,8 +16,10 @@ class CreatePrescriptionsTable extends Migration
         Schema::create('prescriptions', function (Blueprint $table) {
 
             $table->increments('id');
-            $table->integer('patient_id')->unsigned()->nullable();
-            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('restrict');;
+            $table->unsignedInteger('patient_id')->unsigned()->nullable();
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('restrict');
+            $table->unsignedInteger('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
             $table->string('bp')->nullable();
             $table->string('pr')->nullable();
             $table->string('rr')->nullable();

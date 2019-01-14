@@ -15,9 +15,6 @@
     @endif
 </div>
 
-    <div class="form-group {{ $errors->has('slug') ? 'has-error' : '' }}">
-        {{ Form::hidden('slug', null, array('id' => 'slug')) }}
-    </div>
     <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
         {!! Form::label('email') !!}
         {!! Form::text('email', null, ['class' => 'form-control','required' => '']) !!}

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Prescription;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 class PrescriptionsController extends Controller
 {
     protected $uploadPath;
@@ -22,8 +23,8 @@ class PrescriptionsController extends Controller
     {
         //
         $prescriptions= Prescription::with('patient')->get();
-
-        return view('backend.prescriptions.index',compact('prescriptions'));
+        $user = Auth::user();
+        return view('backend.prescriptions.index',compact('prescriptions','user'));
     }
 
 
@@ -49,6 +50,7 @@ class PrescriptionsController extends Controller
     public function store(Requests\PrescriptStoreRequest $request)
     {
         //
+
         $data= $this->handleRequest($request);
         prescription::create($data);
 

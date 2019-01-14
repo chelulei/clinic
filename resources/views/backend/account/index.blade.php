@@ -7,6 +7,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/home">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('backend.patients.index')}}">Patient List</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('backend.prescriptions.index')}}">Prescriptions</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('backend.appointments.index')}}">Appointments</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="{{ url('event')}}">Calendar</a></li>
         </ol>
@@ -21,7 +22,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="bg-primary p-2 mb-2 text-white text-center">
-                                        Update Profile
+                                        Profile
                                     </div>
                                 </div>
                                 <!-- /.col-md-12 -->
@@ -31,8 +32,8 @@
 
                                 <!-- /.col-m-3 -->
                                 <div class="col-md-4">
-                                    Name: <strong></strong><hr>
-                                    TSC No: <strong></strong><hr>
+                                    Name: <strong>{{$user->name}}</strong><hr>
+                                    Email: <strong>{{$user->email}}</strong><hr>
                                     Gender: <strong></strong><hr>
                                     Date Of Birth: <strong></strong><hr>
                                 </div>
@@ -43,7 +44,7 @@
                                 </div>
                             </div>
                             <!-- /.div -->
-
+                         <button CLASS="btn btn-lg  btn-primary">UPDATE</button>
                         </div>
                     </div>
                 </div>

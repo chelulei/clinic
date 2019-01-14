@@ -8,7 +8,7 @@
             <div class="overview-wrap">
                 <h2 class="title-1">All Prescriptions</h2>
                 <a href="{{ route('backend.prescriptions.create') }}"><button class="au-btn au-btn-icon au-btn--blue">
-                    <i class="zmdi zmdi-plus"></i>add prescription</button></a>
+                    <i class="zmdi zmdi-plus"></i>add Prescriptions</button></a>
             </div>
         </div>
     </div>

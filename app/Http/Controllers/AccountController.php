@@ -1,11 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateProfile;
 use App\User;
-class PasswordController extends Controller
+use Illuminate\Support\Facades\Auth;
+class AccountController extends Controller
 {
     //
     public function __construct()
@@ -20,14 +19,10 @@ class PasswordController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, User $user){
+    public function index(){
 
-// user
-        $viewData = [
-            'user' => $user,
-        ];
-        // render view with data
-        return view('backend.account.password',$viewData);
+        $user = Auth::user();
+        return view('backend.account.index',compact('user'));
 
 }
     /**

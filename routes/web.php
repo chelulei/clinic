@@ -61,9 +61,8 @@ Route::get('event','EventController@calender');
     Route::resource('/roles','RolesController',['as'=>'backend']);
     Route::resource('/users', 'UsersController',['as'=>'backend']);
     Route::resource('/permissions', 'permissionsController',['as'=>'backend']);
-//    Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('profile.edit');
+    Route::resource('/account', 'AccountController',['as'=>'backend']);
     Route::put('/profile/{user}', 'ProfileController@update')->name('profile.update');
-
     Route::get('/profile/{user}/edit', [
         'uses' => 'ProfileController@edit',
         'as'   => 'profile-edit'

@@ -25,11 +25,10 @@ class EmployeeUpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'username' => 'required|unique:users,username,' . $this->route("employee"),
-            'slug' => 'required|unique:users,slug,' . $this->route("employee"),
             'email' => 'required|unique:users,email,' . $this->route("employee"),
-            'image' => 'mimes:jpg,jpeg,bmp,png',
             'service' => 'required',
+            'image' => 'mimes:jpg,jpeg,bmp,png',
+
         ];
     }
 }

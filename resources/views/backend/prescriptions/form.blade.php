@@ -1,11 +1,13 @@
 
 <div class="form-group">
-    {!! Form::label('patient_id', 'patient', ['class' => 'control-label']) !!}
+    {!! Form::label('patient_id', 'Patient', ['class' => 'control-label']) !!}
     {!! Form::select('patient_id',  App\Patient::pluck('name', 'id'),  old('patient'), ['class' => 'form-control', 'placeholder' => 'Choose patient']) !!}
     @if($errors->has('patient_id'))
         <span class="help-block">{{ $errors->first('patient_id') }}</span>
     @endif
 </div>
+<?php $user = Auth::user(); ?>
+{{ Form::hidden('user_id', $user->id) }}
      <hr>
      <h5 class="text-center">VITAL SIGNS</h5>
       <hr>
@@ -88,5 +90,5 @@
 
 <div class="form-group">
     <button type="submit" class="btn btn-outline-primary btn-lg">{{ $prescription->exists ? 'Update' : 'Save' }}</button>
-    <a href="{{ route('backend.prescriptions.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cance</a>
+    <a href="{{ route('backend.prescriptions.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>
 </div>

@@ -23,15 +23,19 @@
     </div>
 <!-- /.col-md-4 -->
     <div class="col-md-3">
-        <div class="form-group {{ $errors->has('sex') ? 'has-error' : '' }}">
-            {!! Form::label('sex') !!}
-            {!! Form::text('sex', null, ['class' => 'form-control']) !!}
-
-            @if($errors->has('sex'))
-                <span class="help-block">{{ $errors->first('sex') }}</span>
-            @endif
-        </div>
-    </div>
+         <label for="">Sex</label>
+        <br>
+           <div class="form-check-inline">
+               <label class="form-check-label">
+                   <input type=radio name="sex" value="Male" {{ $patient->sex == 'Male' ? 'checked' : ''}}>Male</option>
+               </label>
+           </div>
+           <div class="form-check-inline">
+               <label class="form-check-label">
+                   <input type=radio name="sex" value="Female" {{ $patient->sex == 'Female' ? 'checked' : ''}}>Female</option>
+               </label>
+           </div>
+     </div>
     <div class="col-md-3">
         <div class="form-group {{ $errors->has('status') ? 'has-error' : '' }}">
             {!! Form::label('status') !!}
@@ -96,7 +100,6 @@
         <div class="form-group {{ $errors->has('course') ? 'has-error' : ''}}">
             {!! Form::label('course') !!}
             {!! Form::text('course', null, ['class' => 'form-control']) !!}
-
             @if($errors->has('course'))
                 <span class="help-block">{{ $errors->first('course') }}</span>
             @endif
@@ -104,13 +107,16 @@
     </div>
     <!-- /.col-md-4 -->
     <div class="col-md-4">
-        <div class="form-group {{ $errors->has('year') ? 'has-error' : '' }}">
-            {!! Form::label('year') !!}
-            {!! Form::text('year', null, ['class' => 'form-control']) !!}
-
-            @if($errors->has('year'))
-                <span class="help-block">{{ $errors->first('year') }}</span>
-            @endif
+        <div class="form-group">
+            <label for="exampleInputEmail1">Year Level</label>
+            <select name="year"  class="form-control" required="" required="">
+                <option value="">--Select Year---</option>
+                <option value="1st" @if ($patient->year == "1st")selected="selected" @endif>1st Year</option>
+                <option value="2nd" @if ($patient->year == "2nd")selected="selected" @endif>2nd Year</option>
+                <option value="3rd" @if ($patient->year == "3rd")selected="selected" @endif>3rd Year</option>
+                <option value="4th" @if ($patient->year == "4th")selected="selected" @endif>4th Year</option>
+                <option value="5th" @if ($patient->year == "5th")selected="selected" @endif>5th Year</option>
+            </select>
         </div>
     </div>
     <!-- /.col-md-4 -->
