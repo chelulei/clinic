@@ -1,27 +1,27 @@
 <?php
-
-
 namespace App\Http\Controllers;
-
-
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\User;
 use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
-
-
+use App\Http\Requests;
 class UsersController extends Controller
 {
+    protected $uploadPath;
+
+    public function __construct()
+    {
+        $this->uploadPath =public_path('img');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $users = User::orderBy('id','DESC')->paginate(5);
+        $users = User::all();
         return view('backend.users.index',compact('users'));
 
     }
@@ -32,10 +32,10 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(User $user)
     {
         $roles = Role::pluck('name','name')->all();
-        return view('backend.users.create',compact('roles'));
+        return view('backend.users.create',compact('roles','user'));
     }
 
 
@@ -45,28 +45,42 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\UserStoreRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm-password',
-            'roles' => 'required'
-        ]);
+
+        $data= $this->handleRequest($request);
+
+          $user = User::create($data);
 
 
-        $input = $request->all();
-        $input['password'] = Hash::make($input['password']);
-
-
-        $user = User::create($input);
         $user->assignRole($request->input('roles'));
 
 
         return redirect()->route('backend.users.index')
+
             ->with('message','User created successfully');
+
     }
 
+            private function handleRequest($request){
+
+                $data = $request->all();
+
+                if($request->hasFile('image')){
+
+                    $image = $request->file('image');
+
+                    $fileName = $image->getClientOriginalName();
+
+                    $destination = $this->uploadPath;
+
+                    $image->move($destination,$fileName);
+
+                    $data['image'] =  $fileName;
+
+                }
+                return $data;
+            }
 
     /**
      * Display the specified resource.
@@ -105,30 +119,16 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\UserUpdateRequest $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,'.$id,
-            'password' => 'same:confirm-password',
-            'roles' => 'required'
-        ]);
 
 
-        $input = $request->all();
+        $user = User::findOrFail($id);
 
-        if(!empty($input['password'])){
+        $data=$this->handleRequest($request);
 
-            $input['password'] = Hash::make($input['password']);
+        $user->update($data);
 
-        }else{
-            $input = array_except($input,array('password'));
-        }
-
-
-        $user = User::find($id);
-
-        $user->update($input);
 
         DB::table('model_has_roles')->where('model_id',$id)->delete();
 

@@ -1,17 +1,25 @@
-<table class="table table-bordered" id="DataTable">
+<table class="table table-bordered table-bordered" id="DataTable">
     <thead>
     <tr>
+        <th>Image</th>
         <th>Name</th>
+        <th>Username</th>
         <th>Email</th>
-        <th>Roles</th>
-        <th width="280px">Action</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Role</th>
+        <th>Action</th>
     </tr>
     </thead>
     <tbody>
     @foreach ($users as $key => $user)
         <tr>
-            <td>{{ $user->name }}</td>
-            <td>{{ $user->email }}</td>
+            <td><img src="{{ $user->image_url}} " alt="" width="100" height="100"></td>
+            <td>{{$user->name}}</td>
+            <td>{{$user->username}}</td>
+            <td>{{$user->email}}</td>
+            <td>{{$user->address}}</td>
+            <td>{{$user->phone}}</td>
             <td>
                 @if(!empty($user->getRoleNames()))
                     @foreach($user->getRoleNames() as $v)

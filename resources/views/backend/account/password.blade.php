@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="bg-primary p-2 mb-2 text-white text-center">
+                                <div class="bg-primary pl-3 p-2 mb-2 text-white">
                                    Change Password
                                 </div>
                             </div>

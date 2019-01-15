@@ -1,5 +1,5 @@
 <table class="table table-bordered" id="DataTable">
-    <thead class="thead-dark">
+    <thead>
     <tr>
         <th>Action</th>
         <th>Image</th>

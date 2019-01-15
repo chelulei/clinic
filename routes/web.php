@@ -49,7 +49,7 @@ Route::resource('/appointments', 'AppointmentsController',['as'=>'backend']);
 Route::resource('/permissions', 'permissionsController',['as'=>'backend']);
 Route::resource('/employees', 'EmployeesController',['as'=>'backend']);
 
-Route::resource('/events', 'EventController',['as'=>'backend']);
+Route::resource('/appointments', 'AppointmentsController',['as'=>'backend']);
 
 
   Route::post('appointments_ajax_update',

@@ -6,20 +6,20 @@
     <div class="row">
         <div class="col-md-12">
             <div class="overview-wrap">
-                <h2 class="title-1"> Full Calendar</h2>
+                <h2 class="title-1">CREATE APPOINTMENT</h2>
             </div>
         </div>
     </div>
     <br>
     <div class="row m-t-30">
         <div class="col-md-12">
-            {!! Form::model($event, [
+            {!! Form::model($appointment, [
                     'method' => 'POST',
-                    'route'  => 'backend.events.store',
+                    'route'  => 'backend.appointments.store',
 
                 ]) !!}
 
-            @include('backend.events.form')
+            @include('backend.appointments.form')
 
             {!! Form::close() !!}
 

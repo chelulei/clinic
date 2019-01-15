@@ -17,14 +17,14 @@
                     <small> Form</small>
                 </div>
                 <div class="card-body card-block">
-                    {!! Form::model($patient, [
+                    {!! Form::model($events, [
                   'method' => 'PUT',
-                  'route'  => ['backend.patients.update', $patient->id],
+                  'route'  => ['backend.patients.update', $events->id],
                   'files'  => TRUE,
                   'id'     => 'patient-form'
               ]) !!}
 
-                    @include('backend.patients.form')
+                    @include('backend.events.form')
 
                     {!! Form::close() !!}
                 </div>

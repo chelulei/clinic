@@ -27,9 +27,8 @@
                                 </div>
                                 <!-- /.col-md-12 -->
                                 <div class="col-md-3 col-lg-3 " align="center">
-                                    <img src="{{ URL::to('/') }}/img/default.png" alt="">
+                                    <img src="{{ Auth::user()->image_url}}" alt="">
                                 </div>
-
                                 <!-- /.col-m-3 -->
                                 <div class="col-md-4">
                                     Name: <strong>{{$user->name}}</strong><hr>
@@ -43,6 +42,7 @@
                                     Email: <strong></strong><hr>
                                 </div>
                             </div>
+                            <br>
                             <!-- /.div -->
                          <button CLASS="btn btn-lg  btn-primary">UPDATE</button>
                         </div>

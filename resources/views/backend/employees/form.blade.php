@@ -8,13 +8,26 @@
         @endif
     </div>
 <div class="form-group">
-    {!! Form::label('service') !!}
-    {!! Form::text('service', null,  ['class' => 'form-control']) !!}
-    @if($errors->has('service'))
-        <span class="help-block">{{ $errors->first('service_id') }}</span>
+    {!! Form::label('designation') !!}
+    {!! Form::text('designation', null,  ['class' => 'form-control']) !!}
+    @if($errors->has('designation'))
+        <span class="help-block">{{ $errors->first('designation') }}</span>
     @endif
 </div>
-
+<div class="form-group">
+    {!! Form::label('address') !!}
+    {!! Form::text('address', null,  ['class' => 'form-control']) !!}
+    @if($errors->has('address'))
+        <span class="help-block">{{ $errors->first('address') }}</span>
+    @endif
+</div>
+<div class="form-group">
+    {!! Form::label('phone') !!}
+    {!! Form::text('phone', null,  ['class' => 'form-control']) !!}
+    @if($errors->has('phone'))
+        <span class="help-block">{{ $errors->first('phone') }}</span>
+    @endif
+</div>
     <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
         {!! Form::label('email') !!}
         {!! Form::text('email', null, ['class' => 'form-control','required' => '']) !!}
@@ -47,7 +60,7 @@
 </div>
   <p class="text-center">
       <button type="submit" class="btn btn-outline-primary btn-lg">{{ $employee->exists ? 'Update' : 'Save' }}</button>
-      <a href="{{ route('backend.employees.index') }}" class="btn btn-outline-danger btn-lg" service="button" aria-pressed="true">Cancel</a>
+      <a href="{{ route('backend.employees.index') }}" class="btn btn-outline-danger btn-lg" designation="button" aria-pressed="true">Cancel</a>
 
   </p>
 

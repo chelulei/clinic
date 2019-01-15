@@ -18,7 +18,16 @@
         </div>
         <!-- /.alert alert-danger -->
     @else
-        <div class="row m-t-30">
+        <div class="card text-center">
+            <div class="card-header bg-primary">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">LIST OF PERMISSIONS</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+        <div class="row">
             <div class="col-md-12">
                 <!-- DATA TABLE-->
                 <div class="table-responsive m-b-40">
@@ -27,5 +36,6 @@
                 @endif
             </div>
         </div>
+            </div></div>
         <!-- /.row -->
 @endsection

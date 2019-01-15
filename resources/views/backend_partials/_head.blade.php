@@ -18,10 +18,7 @@
 <!-- Bootstrap CSS-->
 <link href="{{asset('/backend/vendor/dataTables/dataTables.bootstrap4.min.css')}}" rel="stylesheet" media="all">
 <link href="{{asset('/backend/vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
 
 <!-- Vendor CSS-->
 <link href="{{asset('/backend/vendor/animsition/animsition.min.css')}}" rel="stylesheet" media="all">
@@ -33,7 +30,10 @@
 <link href="{{asset('/backend/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
 <link href="{{asset('/backend/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
 <link href="{{asset('/backend/vendor/jasny-bootstrap/css/jasny-bootstrap.css')}}" rel="stylesheet" media="all">
+
 <!-- Main CSS-->
 <link href="{{asset('/backend/css/theme.css')}}" rel="stylesheet" media="all">
 
+
+<!-- Date Picker-->
 

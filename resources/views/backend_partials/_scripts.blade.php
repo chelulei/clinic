@@ -6,10 +6,9 @@
 <!-- Bootstrap JS-->
 <script src="{{asset('/backend/vendor/bootstrap-4.1/popper.min.js')}}"></script>
 <script src="{{asset('/backend/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>>
-<!-- Vendor JS       -->
 <script src="{{asset('/backend/vendor/slick/slick.min.js')}}">
 </script>
 <script src="{{asset('/backend/vendor/wow/wow.min.js')}}"></script>
@@ -42,10 +41,18 @@
         });
     }, 4000);
 
-    $('.date').datepicker({
-        autoclose: true,
-        format: 'yyyy-mm-dd',
-        startDate: '-3d'
+    $("#datepicker").datetimepicker({
+
+        // useCurrent: false,
+        format: "L"
+    });
+
+    $("#timepicker").datetimepicker({
+        format: "LT"
+    });
+
+    $("#timepicker2").datetimepicker({
+        format: "LT"
     });
 
 </script>

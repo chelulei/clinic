@@ -20,9 +20,9 @@ class CreateEventsTable extends Migration
             $table->unsignedInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
             $table->string('title');
-            $table->date('date');
-            $table->datetime('start_time')->nullable();
-            $table->datetime('finish_time')->nullable();
+            $table->string('date');
+            $table->string('start_time')->nullable();
+            $table->string('finish_time')->nullable();
             $table->timestamps();
         });
     }

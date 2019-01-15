@@ -20,7 +20,7 @@ class CreatePatientsTable extends Migration
             $table->string('sex');
             $table->string('status');
             $table->text('address');
-            $table->date('date_birth');
+            $table->string('date_birth');
             $table->string('weight')->nullable();
             $table->string('height')->nullable();
             $table->string('course');

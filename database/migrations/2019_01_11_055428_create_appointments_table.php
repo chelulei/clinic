@@ -15,9 +15,14 @@ class CreateAppointmentsTable extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('patient_id')->unsigned()->nullable();
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('restrict');
+            $table->unsignedInteger('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
             $table->string('title');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->string('date');
+            $table->string('start_time')->nullable();
+            $table->string('finish_time')->nullable();
             $table->timestamps();
         });
     }

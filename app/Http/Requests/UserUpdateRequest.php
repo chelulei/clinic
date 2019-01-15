@@ -29,7 +29,7 @@ class UserUpdateRequest extends FormRequest
             'slug' => 'required|unique:users,slug,' . $this->route("user"),
             'email' => 'required|unique:users,email,' . $this->route("user"),
             'image' => 'mimes:jpg,jpeg,bmp,png',
-            'role_id' => 'required',
+
         ];
 
 

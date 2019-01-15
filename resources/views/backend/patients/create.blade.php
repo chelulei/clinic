@@ -22,7 +22,7 @@
                     'files'  => TRUE,
                     'id'     => 'id="feedbackform'
                 ]) !!}
-                @csrf
+
                 @include('backend.patients.form')
 
                 {!! Form::close() !!}

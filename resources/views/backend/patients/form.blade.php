@@ -1,4 +1,4 @@
-
+@csrf
 <div class="row">
     <div class="col-md-4">
         <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
@@ -64,7 +64,7 @@
     <div class="col-md-4">
         <div class="form-group {{ $errors->has('date_birth') ? 'has-error' : '' }}">
             {!! Form::label('date of birth') !!}
-            {!! Form::date('date_birth', null, ['class' => 'form-control']) !!}
+            {!! Form::text('date_birth', null, ['class' => 'form-control', 'id' =>'datepicker']) !!}
 
             @if($errors->has('date_birth'))
                 <span class="help-block">{{ $errors->first('date_birth') }}</span>

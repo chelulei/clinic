@@ -18,11 +18,13 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'name'=>'josken prono',
-//                'username'=>'mike',
-//                'slug'=>'prono',
+                'username'=>'mike',
+                'slug'=>'prono',
                 'email'=>'bomo@gmail.com',
+                'address'=>'bomo@gmail.com',
+                'phone'=>'67777778',
                 'password'=>bcrypt('secret'),
-//                'image'=>'default.png',
+                'image'=>'default.png',
             ],
 
 

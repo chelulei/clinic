@@ -45,11 +45,19 @@
                     </ul>
                 </li>
                 <li class="has-sub">
-                    <a class="js-arrow" href="{{route('backend.events.index')}}">
-                        <i class="fa fa-pencil-square-o"></i>
-                        Appointments
-                    </a>
+                    <a class="js-arrow" href="#">
+                        <i class="fa fa-pencil-square-o"></i>Appointments</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a href="{{ route('backend.appointments.index')}}">
+                                <i class="fa fa-users" aria-hidden="true"></i>Patients</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Events</a>
+                        </li>
+                    </ul>
                 </li>
+
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fa fa-user-md" aria-hidden="true"></i>Patient Management</a>

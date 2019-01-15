@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Appointment;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 class AppointmentsController extends Controller
 {
     /**
@@ -15,8 +16,8 @@ class AppointmentsController extends Controller
     public function index()
     {
         //
-        $appointments = Appointment::all();
-        return view('backend.appointments.index', compact('appointments'));
+        $working_hours = Appointment::all();
+        return view('backend.appointments.index', compact('working_hours'));
     }
 
     /**
@@ -24,9 +25,12 @@ class AppointmentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Appointment $appointment)
     {
         //
+        $user = Auth::user();
+
+        return view('backend.appointments.create',compact('user','appointment'));
     }
 
     /**
@@ -38,6 +42,8 @@ class AppointmentsController extends Controller
     public function store(Request $request)
     {
         //
+        Appointment::create(Input::all());
+        return redirect('/appointments')->with('success', 'A has been added');
     }
 
     /**
@@ -46,7 +52,7 @@ class AppointmentsController extends Controller
      * @param  \App\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function show(Appointment $appointment)
+    public function show()
     {
         //
     }
@@ -57,9 +63,30 @@ class AppointmentsController extends Controller
      * @param  \App\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Appointment $appointment)
+    public function edit($id)
     {
         //
+        $appointment = Appointment::findOrFail($id);
+        $user = Auth::user();
+        return view("backend.appointments.edit", compact('appointment','user'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+
+        $event = Appointment::findOrFail($id);
+
+        $event->update($request->all());
+
+        return redirect("/appointments")->with("message", "Appointment updated successfully!!");
     }
 
     /**
@@ -69,27 +96,13 @@ class AppointmentsController extends Controller
      * @param  \App\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Appointment $appointment)
+    public function destroy($id)
     {
         //
+        Appointment::findOrFail($id)->delete();
+
+        return redirect("/appointments")->with("message", "Appointment deleted successfully!");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Appointment  $appointment
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Appointment $appointment)
-    {
-        //
-    }
-
-    public function ajaxUpdate(Request $request)
-    {
-        $appointment = Appointment::with('client')->findOrFail($request->appointment_id);
-        $appointment->update($request->all());
-
-        return response()->json(['appointment' => $appointment]);
-    }
+    
 }

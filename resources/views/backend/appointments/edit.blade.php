@@ -13,18 +13,19 @@
     <br>
     <div class="row m-t-30">
         <div class="col-md-12">
-            {!! Form::model($event, [
-                    'method' => 'POST',
-                    'route'  => 'backend.events.store',
+            {!! Form::model($appointment, [
+                 'method' => 'PUT',
+                 'route'  => ['backend.appointments.update', $appointment->id],
 
-                ]) !!}
+             ]) !!}
 
-            @include('backend.events.form')
+
+            @include('backend.appointments.form')
 
             {!! Form::close() !!}
 
         </div>
-        </div>
+    </div>
     </div>
     <!-- /.row -->
 @endsection

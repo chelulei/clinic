@@ -23,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name','username','slug','email','address','phone','password','image'
     ];
 
 
@@ -36,7 +36,31 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function getNameAttribute($value)
+    {
+        return ucwords($value);
+    }
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+
+    public function getImageUrlAttribute($value){
+
+        $imageUrl="";
+
+        if(! is_null($this->image)){
+
+            $imagePath= public_path() . "/img/" . $this->image;
+
+            if(file_exists($imagePath))  $imageUrl = asset("img/" . $this->image);
+
+        }
+
+        return   $imageUrl;
+    }
 
     public function setPasswordAttribute($password)
     {
@@ -56,9 +80,9 @@ class User extends Authenticatable
         return $this->hasMany(Prescription::class);
     }
 
-    public  function events(){
+    public  function appointments(){
 
-        return $this->hasMany(Event::class);
+        return $this->hasMany(Appointment::class);
     }
 
 }
