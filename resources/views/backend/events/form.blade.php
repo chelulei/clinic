@@ -2,19 +2,9 @@
 <div class="row">
     <div class="col-md-4"></div>
     <div class="form-group col-md-4">
-        {!! Form::label('patient_id', 'Patient', ['class' => 'control-label']) !!}
-        {!! Form::select('patient_id',  App\Patient::pluck('name', 'id'),  old('patient'), ['class' => 'form-control', 'placeholder' => 'Choose patient']) !!}
-        @if($errors->has('patient_id'))
-            <span class="help-block">{{ $errors->first('patient_id') }}</span>
-        @endif
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-4"></div>
-    <div class="form-group col-md-4">
         <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-            {!! Form::label('title') !!}
-            {!! Form::text('title', null, ['class' => 'form-control']) !!}
+            {!! Form::label('title','Title') !!}
+            {!! Form::textarea('title', null, ['class' => 'form-control','form-control','rows' => 2, 'cols' =>5]) !!}
 
             @if($errors->has('title'))
                 <span class="help-block">{{ $errors->first('title') }}</span>
@@ -27,12 +17,12 @@
     <div class="col-md-4"></div>
     <div class="form-group col-md-4">
         <div class="col-xs-12 form-group">
-            {!! Form::label('date', 'Date*', ['class' => 'control-label']) !!}
-            {!! Form::text('date', old('date'), ['class' => 'form-control', 'id' => 'datepicker','placeholder' => '', 'required' => '']) !!}
+            {!! Form::label('start_date', 'Start Date*', ['class' => 'control-label']) !!}
+            {!! Form::text('start_date', old('start_date'), ['class' => 'form-control', 'id' => 'datepick','placeholder' => '', 'required' => '']) !!}
             <p class="help-block"></p>
-            @if($errors->has('date'))
+            @if($errors->has('start_date'))
                 <p class="help-block">
-                    {{ $errors->first('date') }}
+                    {{ $errors->first('start_date') }}
                 </p>
             @endif
         </div>
@@ -42,33 +32,18 @@
     <div class="col-md-4"></div>
     <div class="form-group col-md-4">
         <div class="col-xs-12 form-group">
-            {!! Form::label('start_time', 'Start time*', ['class' => 'control-label']) !!}
-            {!! Form::text('start_time', old('start_time'), ['class' => 'form-control',  'id' => 'timepicker', 'placeholder' => '', 'required' => '']) !!}
+            {!! Form::label('end_date', 'End Date*', ['class' => 'control-label']) !!}
+            {!! Form::text('end_date', old('end_date'), ['class' => 'form-control', 'id' => 'datepicker','placeholder' => '', 'required' => '']) !!}
             <p class="help-block"></p>
-            @if($errors->has('start_time'))
+            @if($errors->has('end_date'))
                 <p class="help-block">
-                    {{ $errors->first('start_time') }}
+                    {{ $errors->first('start_date') }}
                 </p>
             @endif
         </div>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4"></div>
-    <div class="form-group col-md-4">
-        <div class="col-xs-12 form-group">
-            {!! Form::label('finish_time', 'Finish time', ['class' => 'control-label']) !!}
-            {!! Form::text('finish_time', old('finish_time'), ['class' => 'form-control',  'id' => 'timepicker2', 'placeholder' => '']) !!}
-            <p class="help-block"></p>
-            @if($errors->has('finish_time'))
-                <p class="help-block">
-                    {{ $errors->first('finish_time') }}
-                </p>
-            @endif
-        </div>
-    </div>
-</div>
 <div class="row">
     <div class="col-md-4"></div>
     <div class="form-group col-md-4">

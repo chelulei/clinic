@@ -75,7 +75,7 @@
     <div class="col-md-2">
         <div class="form-group {{ $errors->has('weight') ? 'has-error' : '' }}">
             {!! Form::label('weight') !!}
-            {!! Form::text('weight', null, ['class' => 'form-control']) !!}
+            {!! Form::text('weight', null, ['class' => 'form-control','placeholder'=>'Kg']) !!}
 
             @if($errors->has('weight'))
                 <span class="help-block">{{ $errors->first('weight') }}</span>
@@ -86,7 +86,7 @@
     <div class="col-md-2">
         <div class="form-group {{ $errors->has('height') ? 'has-error' : '' }}">
             {!! Form::label('height') !!}
-            {!! Form::text('height', null, ['class' => 'form-control']) !!}
+            {!! Form::text('height', null, ['class' => 'form-control','placeholder'=>'cm']) !!}
 
             @if($errors->has('height'))
                 <span class="help-block">{{ $errors->first('height') }}</span>

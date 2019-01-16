@@ -27,8 +27,8 @@
 
                     </div>
                     <div class="panel-body" >
-                        {{--{!! $calendar->calendar() !!}--}}
                         <div id='calendar'></div>
+
                     </div>
                 </div>
         </div>
@@ -36,10 +36,8 @@
         <!-- /.row -->
 @endsection
 @section('script')
-    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
-    {{--{!! $calendar->script() !!}--}}
-
     <script>
         $(document).ready(function() {
             // page is now ready, initialize the calendar...
@@ -49,9 +47,9 @@
                 events : [
                         @foreach($working_hours as $hour)
                     {
-                        title : '{{ $hour->user->name}}',
-                        start : '{{ $hour->date . ' ' . $hour->start_time }}',
-                        end : '{{ $hour->date . ' ' . $hour->finish_time }}',
+                        title : '{{ $hour->title}}',
+                        start : '{{ $hour->start_date }}',
+                        end : '{{ $hour->end_date}}',
                         url : '{{ route('backend.events.edit', $hour->id) }}'
                     },
                     @endforeach

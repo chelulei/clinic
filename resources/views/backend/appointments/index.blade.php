@@ -1,64 +1,44 @@
 @extends('layouts.backend.main')
 
-@section('title', 'Norsu Clinic | Events index')
-@section('style')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
-@endsection
+@section('title', 'Norsu Clinic | Appointments index')
+
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="overview-wrap">
-                <h2 class="title-1"> Full Calendar</h2>
-                <a href="{{ route('backend.appointments.create')}}"><button class="au-btn au-btn-icon au-btn--blue">
-                        <i class="zmdi zmdi-plus"></i>add Appointment</button></a>
+                <h2 class="title-1">All Appointments</h2>
+                <a href="{{ route('backend.appointments.create') }}"><button class="au-btn au-btn-icon au-btn--blue">
+                        <i class="zmdi zmdi-plus"></i>add appointment</button></a>
             </div>
         </div>
     </div>
     <br>
-        <div class="row m-t-30">
-            <div class="col-md-12">
-                @if (\Session::has('success'))
-                    <div class="alert alert-success">
-                        <p>{{ \Session::get('success') }}</p>
-                    </div><br />
-                @endif
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+    @include('backend_partials.messages')
+    @if(! $appointments->count())
+        <div class="alert alert-danger m-2">
+            No Records
+        </div>
+        <!-- /.alert alert-danger -->
+    @else
+        <div class="card text-center">
+            <div class="card-header bg-primary">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">LIST OF APPOINTMENTS</a>
+                    </li>
 
-                    </div>
-                    <div class="panel-body" >
-                        {{--{!! $calendar->calendar() !!}--}}
-                        <div id='calendar'></div>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- DATA TABLE-->
+                        <div class="table-responsive m-b-40">
+                            @include('backend.appointments.table')
+                        </div>
+                        @endif
                     </div>
                 </div>
-        </div>
-        </div>
+            </div></div>
         <!-- /.row -->
 @endsection
-@section('script')
-    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>--}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
-    {{--{!! $calendar->script() !!}--}}
-
-    <script>
-        $(document).ready(function() {
-            // page is now ready, initialize the calendar...
-            $('#calendar').fullCalendar({
-                // put your options and callbacks here
-                defaultView: 'agendaWeek',
-                events : [
-                        @foreach($working_hours as $hour)
-                    {
-                        name : '{{ $hour->title}}',
-                        title : '{{ $hour->user->name}}',
-                        start : '{{ $hour->date . ' ' . $hour->start_time }}',
-                        end : '{{ $hour->date . ' ' . $hour->finish_time }}',
-                        url : '{{ route('backend.appointments.edit', $hour->id) }}'
-                    },
-                    @endforeach
-                ]
-            })
-        });
-    </script>
-@endsection
-

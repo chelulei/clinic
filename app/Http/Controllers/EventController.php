@@ -14,6 +14,7 @@ class EventController extends Controller
     {
 
         $working_hours = Event::all();
+
         return view('backend.events.index', compact('working_hours'));
     }
 
@@ -37,6 +38,7 @@ class EventController extends Controller
     {
 
         Event::create(Input::all());
+
         return redirect('/events')->with('success', 'Event has been added');
       
     }

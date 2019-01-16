@@ -17,7 +17,10 @@ class Prescription extends Model
               'temp',
               'wt',
               'hpi',
-              'assessment'
+              'assessment',
+              'symptoms',
+              'diagnostics',
+              'prescriptions',
     ];
 
 

@@ -48,7 +48,7 @@
          <div class="col-sm-2">
              <div class="form-group {{ $errors->has('contact') ? 'has-error' : '' }}">
                  {!! Form::label('temp','TEMP') !!}
-                 {!! Form::text('temp', null, ['class' => 'form-control']) !!}
+                 {!! Form::text('temp', null, ['class' => 'form-control','placeholder' =>'°C']) !!}
 
                  @if($errors->has('temp'))
                      <span class="help-block">{{ $errors->first('temp') }}</span>
@@ -58,7 +58,7 @@
          <div class="col-sm-2">
              <div class="form-group {{ $errors->has('wt') ? 'has-error' : '' }}">
                  {!! Form::label('wt','WT') !!}
-                 {!! Form::text('wt', null, ['class' => 'form-control']) !!}
+                 {!! Form::text('wt', null, ['class' => 'form-control','placeholder' =>'Kg']) !!}
 
                  @if($errors->has('wt'))
                      <span class="help-block">{{ $errors->first('wt') }}</span>
@@ -83,11 +83,40 @@
 <div class="form-group {{ $errors->has('assessment') ? 'has-error' : ''}}">
     {!! Form::textarea('assessment', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
 
-    @if($errors->has('assess'))
+    @if($errors->has('assessment'))
         <span class="help-block">{{ $errors->first('assessment') }}</span>
     @endif
 </div>
+<hr>
+<h5 class="text-center">Symptoms</h5>
+<hr>
+<div class="form-group {{ $errors->has('symptoms') ? 'has-error' : ''}}">
+    {!! Form::textarea('symptoms', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
 
+    @if($errors->has('symptoms'))
+        <span class="help-block">{{ $errors->first('symptoms') }}</span>
+    @endif
+</div>
+
+<hr>
+<h5 class="text-center">Diagnostics</h5>
+<hr>
+<div class="form-group {{ $errors->has('diagnostics') ? 'has-error' : ''}}">
+    {!! Form::textarea('diagnostics', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
+
+    @if($errors->has('diagnostics'))
+        <span class="help-block">{{ $errors->first('diagnostics') }}</span>
+    @endif
+</div>
+<h5 class="text-center">Prescriptions</h5>
+<hr>
+<div class="form-group {{ $errors->has('prescriptions') ? 'has-error' : ''}}">
+    {!! Form::textarea('diagnostics', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
+
+    @if($errors->has('prescriptions'))
+        <span class="help-block">{{ $errors->first('prescriptions') }}</span>
+    @endif
+</div>
 <div class="form-group">
     <button type="submit" class="btn btn-outline-primary btn-lg">{{ $prescription->exists ? 'Update' : 'Save' }}</button>
     <a href="{{ route('backend.prescriptions.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>

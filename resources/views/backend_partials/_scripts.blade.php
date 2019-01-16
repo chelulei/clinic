@@ -46,6 +46,11 @@
         // useCurrent: false,
         format: "L"
     });
+    $("#datepick").datetimepicker({
+
+        format: "L"
+    });
+
 
     $("#timepicker").datetimepicker({
         format: "LT"

@@ -13,12 +13,12 @@
                     <form action="{{ route('login') }}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label>{{ __('E-Mail Address') }}</label>
-                            <input id="email" type="email" class="au-input au-input--full{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('username') }}" placeholder="Email" required autofocus>
+                            <label>{{ __('Username') }}</label>
+                            <input id="username" type="username" class="au-input au-input--full{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" placeholder="username" required autofocus>
 
-                            @if ($errors->has('email'))
+                            @if ($errors->has('username'))
                                 <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                             @endif
                         </div>

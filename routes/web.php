@@ -43,25 +43,14 @@ Route::get('/dentists', ['as' => 'dentist', 'uses' => 'DoctorsController@dentist
 Route::resource('/patients', 'PatientsController',['as'=>'backend']);
 Route::resource('/prescriptions', 'PrescriptionsController',['as'=>'backend']);
 Route::resource('/roles', 'RolesController',['as'=>'backend']);
-
-
-Route::resource('/appointments', 'AppointmentsController',['as'=>'backend']);
 Route::resource('/permissions', 'permissionsController',['as'=>'backend']);
 Route::resource('/employees', 'EmployeesController',['as'=>'backend']);
-
 Route::resource('/appointments', 'AppointmentsController',['as'=>'backend']);
-
-
-  Route::post('appointments_ajax_update',
-   ['uses' => 'AppointmentsController@ajaxUpdate', 'as' => 'appointments.ajax_update']);
-
-
-    Route::resource('/roles','RolesController',['as'=>'backend']);
-    Route::resource('/users', 'UsersController',['as'=>'backend']);
-    Route::resource('/permissions', 'permissionsController',['as'=>'backend']);
-    Route::resource('/account', 'AccountController',['as'=>'backend']);
-    Route::put('/profile/{user}', 'ProfileController@update')->name('profile.update');
-    Route::get('/profile/{user}/edit', [
+Route::resource('/events', 'EventController',['as'=>'backend']);
+Route::resource('/users', 'UsersController',['as'=>'backend']);
+Route::resource('/account', 'AccountController',['as'=>'backend']);
+Route::put('/profile/{user}', 'ProfileController@update')->name('profile.update');
+Route::get('/profile/{user}/edit', [
         'uses' => 'ProfileController@edit',
         'as'   => 'profile-edit'
     ]);

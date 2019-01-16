@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="overview-wrap">
-                <h2 class="title-1"> Full Calendar</h2>
+                <h2 class="title-1">Create Event</h2>
             </div>
         </div>
     </div>

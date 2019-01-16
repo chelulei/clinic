@@ -16,8 +16,11 @@ class AppointmentsController extends Controller
     public function index()
     {
         //
-        $working_hours = Appointment::all();
-        return view('backend.appointments.index', compact('working_hours'));
+//        $working_hours = Appointment::all();
+//        return view('backend.appointments.index', compact('working_hours'));
+
+        $appointments = Appointment::all();
+        return view('backend.appointments.index', compact('appointments'));
     }
 
     /**

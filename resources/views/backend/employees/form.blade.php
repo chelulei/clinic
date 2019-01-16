@@ -42,7 +42,7 @@
     <br>
         <div class="fileinput fileinput-new" data-provides="fileinput">
             <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                <img src="{{ ($employee->image_url) ? $employee->image_url : ' '}}" alt="">
+                <img src="{{ ($employee->image_url) ? $employee->image_url : 'http://placehold.it/200x150&text=No+Image'}}" alt="">
             </div>
             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
             <div>

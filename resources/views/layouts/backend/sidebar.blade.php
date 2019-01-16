@@ -53,7 +53,10 @@
                                 <i class="fa fa-users" aria-hidden="true"></i>Patients</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Events</a>
+                            <a href="{{ route('backend.events.index')}}"><i class="fa fa-calendar" aria-hidden="true"></i>Events</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa  fa-calendar"></i>Calendar</a>
                         </li>
                     </ul>
                 </li>
@@ -63,10 +66,11 @@
                         <i class="fa fa-user-md" aria-hidden="true"></i>Patient Management</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="{{ route('backend.patients.index')}}"><i class="fa fa-user-plus"></i>All Patients</a>
+                            <a href="{{ route('backend.patients.index')}}">
+                                <i class="fa fa-user-circle" aria-hidden="true"></i>All Patients</a>
                         </li>
                         <li>
-                            <a href="{{ route('backend.prescriptions.index')}}"><i class="fa fa-user-plus"></i>Patient Prescription</a>
+                            <a href="{{ route('backend.prescriptions.index')}}"><i class="fa fa-file-text" aria-hidden="true"></i>Patient Prescription</a>
                         </li>
                     </ul>
                 </li>
