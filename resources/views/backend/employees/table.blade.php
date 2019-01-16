@@ -30,7 +30,7 @@
             <td><img src="{{ $employee->image_url}} " alt="" width="100" height="100"></td>
             <td>{{$employee->name}}</td>
             <td>{{$employee->email}}</td>
-             <td>{{$employee->service}}</td>
+             <td>{{$employee->designation}}</td>
             @endforeach
         </tr>
     </tbody>

@@ -5,8 +5,8 @@
         <th>Name</th>
         <th>Username</th>
         <th>Email</th>
-        <th>Address</th>
-        <th>Phone</th>
+        {{--<th>Address</th>--}}
+        {{--<th>Phone</th>--}}
         <th>Role</th>
         <th>Action</th>
     </tr>
@@ -18,8 +18,8 @@
             <td>{{$user->name}}</td>
             <td>{{$user->username}}</td>
             <td>{{$user->email}}</td>
-            <td>{{$user->address}}</td>
-            <td>{{$user->phone}}</td>
+            {{--<td>{{$user->address}}</td>--}}
+            {{--<td>{{$user->phone}}</td>--}}
             <td>
                 @if(!empty($user->getRoleNames()))
                     @foreach($user->getRoleNames() as $v)
@@ -29,7 +29,7 @@
             </td>
             <td>
                 {!! Form::open(['method' => 'DELETE', 'route' => ['backend.users.destroy', $user->id]]) !!}
-
+                <div class="btn-group" role="group" aria-label="Basic example">
                 <a class="btn  btn-sm btn-outline-info" href="{{ route('backend.users.show',$user->id) }}">
                     <i class="fa fa-eye" aria-hidden="true"></i>
                     SHOW
@@ -50,6 +50,8 @@
                         DELETE
                     </button>
                 @endif
+                </div>
+                {!! Form::close() !!}
             </td>
         </tr>
     @endforeach

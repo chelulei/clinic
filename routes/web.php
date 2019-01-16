@@ -47,6 +47,7 @@ Route::resource('/permissions', 'permissionsController',['as'=>'backend']);
 Route::resource('/employees', 'EmployeesController',['as'=>'backend']);
 Route::resource('/appointments', 'AppointmentsController',['as'=>'backend']);
 Route::resource('/events', 'EventController',['as'=>'backend']);
+Route::resource('/slots', 'TimeslotController',['as'=>'backend']);
 Route::resource('/users', 'UsersController',['as'=>'backend']);
 Route::resource('/account', 'AccountController',['as'=>'backend']);
 Route::put('/profile/{user}', 'ProfileController@update')->name('profile.update');

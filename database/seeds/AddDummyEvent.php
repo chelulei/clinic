@@ -14,11 +14,11 @@ class AddDummyEvent extends Seeder
         //
         $data = [
 
-            ['title'=>'Rom Event', 'start_date'=>'2017-05-10', 'end_date'=>'2017-05-15'],
+            ['user_id','title'=>'Rom Event', 'start_date'=>'2017-05-10', 'end_date'=>'2017-05-15'],
 
-            ['title'=>'Coyala Event', 'start_date'=>'2017-05-11', 'end_date'=>'2017-05-16'],
+            ['user_id','title'=>'Coyala Event', 'start_date'=>'2017-05-11', 'end_date'=>'2017-05-16'],
 
-            ['title'=>'Lara Event', 'start_date'=>'2017-05-16', 'end_date'=>'2017-05-22'],
+            ['user_id','title'=>'Lara Event', 'start_date'=>'2017-05-16', 'end_date'=>'2017-05-22'],
 
         ];
 

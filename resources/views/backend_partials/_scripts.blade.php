@@ -59,5 +59,7 @@
     $("#timepicker2").datetimepicker({
         format: "LT"
     });
-
+    $("#slot").datetimepicker({
+        format: "LT"
+    });
 </script>

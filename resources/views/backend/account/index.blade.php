@@ -1,7 +1,8 @@
 @extends('layouts.backend.main')
 
 @section('title', 'Norsu Clinic | employees index')
-
+@section('css')
+@endsection
 @section('content')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -27,24 +28,35 @@
                                 </div>
                                 <!-- /.col-md-12 -->
                                 <div class="col-md-3 col-lg-3 " align="center">
-                                    <img src="{{ Auth::user()->image_url}}" alt="">
+                                    <img src="{{ $user->image_url}}" alt="">
                                 </div>
                                 <!-- /.col-m-3 -->
                                 <div class="col-md-4">
-                                    Name: <strong>{{$user->name}}</strong><hr>
-                                    Email: <strong>{{$user->email}}</strong><hr>
-                                    Gender: <strong></strong><hr>
-                                    Date Of Birth: <strong></strong><hr>
+                                    <br>
+                                    {!! Form::model($user, [
+                                    'method' => 'PUT',
+                                    'files'  => TRUE,
+                                    'route'  => ['backend.users.update', $user->id],
+                                     ]) !!}
+                                    @csrf
+                                    {{ Form::hidden('slug', null, array('id' => 'slug')) }}
+                                    UserName: <strong><input class="effect-1"  name="username" type="text" value="{{$user->username}}"></strong><hr>
+                                    Name: <strong><input class="effect-1"  name="name" type="text" value="{{$user->name}}"></strong><hr>
+                                    Email: <strong><input class="effect-1" name="email" type="text" value="{{$user->email}}"></strong><hr>
+                                    Phone: <strong><input class="effect-1" name="phone" type="text" value="{{$user->phone}}"></strong><hr>
+                                    Address: <strong><input class="effect-1 "name="address" type="text" value="{{$user->address}}"></strong><hr>
+
                                 </div>
                                 <div class="col-md-4">
-                                    Residential address:<strong></strong><hr>
-                                    Telephone No: <strong></strong><hr>
-                                    Email: <strong></strong><hr>
+
                                 </div>
                             </div>
                             <br>
                             <!-- /.div -->
-                         <button CLASS="btn btn-lg  btn-primary">UPDATE</button>
+                            <div class="border-top  border-dark pt-2">
+                                <button type="submit" class="btn btn-outline-primary btn-lg">UPDATE</button>
+                            </div>
+                            {!! Form::close() !!}
                         </div>
                     </div>
                 </div>
@@ -52,3 +64,5 @@
             </div>
     </div><!-- .content -->
 @endsection
+
+@include('backend.account.script')

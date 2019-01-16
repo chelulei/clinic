@@ -84,5 +84,10 @@ class User extends Authenticatable
 
         return $this->hasMany(Appointment::class);
     }
+    public  function slots(){
+
+        return $this->hasMany(Timeslot::class);
+    }
+
 
 }

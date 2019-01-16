@@ -19,30 +19,36 @@
                     No Records
                 </div>
                 <!-- /.alert alert-danger -->
-    @else
+            @else
 
-                <div class="card text-center">
-                    <div class="card-header bg-primary">
-                        <ul class="nav nav-tabs card-header-tabs">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">LIST OF USERS</a>
-                            </li>
+                <div class="card card-tabs-3">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tab-7" role="tab">LIST OF USERS</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab-8 {{ route('backend.users.create') }}" role="tab">ADD USERS</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab-9" role="tab">Tab 9</a></li>
                         </ul>
                     </div>
-                    <div class="card-body">
+                    <div class="card-block">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab-7">
+                                <br>
+                                <div class="table-responsive m-b-40">
+                                    @include('backend.users.table')
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab-8">
+                             2
+                            </div>
+                            <div class="tab-pane" id="tab-9">
+                              3
+                            </div>
+                        </div>
 
-          <div class="row">
-            <div class="col-md-12">
-                <!-- DATA TABLE-->
-            <div class="table-responsive m-b-40">
-                @include('backend.users.table')
-            </div>
-        @endif
-           </div>
-         </div>
-
+                     @endif
 
                     </div>
+
                 </div>
 
 

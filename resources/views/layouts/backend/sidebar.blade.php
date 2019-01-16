@@ -5,16 +5,21 @@
         </a>
     </div>
     <div class="menu-sidebar__content js-scrollbar1">
-        <nav class="navbar-sidebar">
+        <nav class="navbar-sidebar2">
             <ul class="list-unstyled navbar__list">
                 <li class="active has-sub">
                     <a class="js-arrow" href="/home">
                         <i class="fas fa-tachometer-alt"></i>Dashboard
+
                     </a>
                 </li>
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fa fa-suitcase"></i>Employees</a>
+                        <i class="fa fa-suitcase"></i>Employees
+                        <span class="arrow">
+                                    <i class="fas fa-angle-down"></i>
+                                </span>
+                    </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
                             <a href="{{ route('backend.employees.index') }}">
@@ -28,7 +33,11 @@
                 </li>
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fa fa-group"></i>User Management</a>
+                        <i class="fa fa-group"></i>User Management
+                        <span class="arrow">
+                                    <i class="fas fa-angle-down"></i>
+                                </span>
+                    </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
                             <a href="{{ route('backend.users.index') }}">
@@ -46,7 +55,11 @@
                 </li>
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fa fa-pencil-square-o"></i>Appointments</a>
+                        <i class="fa fa-pencil-square-o"></i>Appointments
+                        <span class="arrow">
+                                    <i class="fas fa-angle-down"></i>
+                                </span>
+                    </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
                             <a href="{{ route('backend.appointments.index')}}">
@@ -55,15 +68,16 @@
                         <li>
                             <a href="{{ route('backend.events.index')}}"><i class="fa fa-calendar" aria-hidden="true"></i>Events</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa  fa-calendar"></i>Calendar</a>
-                        </li>
                     </ul>
                 </li>
 
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fa fa-user-md" aria-hidden="true"></i>Patient Management</a>
+                        <i class="fa fa-user-md" aria-hidden="true"></i>Patient Management
+                        <span class="arrow">
+                                    <i class="fas fa-angle-down"></i>
+                                </span>
+                    </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
                             <a href="{{ route('backend.patients.index')}}">
@@ -76,10 +90,15 @@
                 </li>
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fas fa-user"></i>Administrator</a>
+                        <i class="fas fa-user"></i>Administrator
+                        <span class="arrow">
+                                    <i class="fas fa-angle-down"></i>
+                                </span>
+
+                    </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="{{ url('event')}}"><i class="fa  fa-calendar"></i>Calendar</a>
+                            <a href="#"><i class="fa  fa-calendar"></i>Calendar</a>
                         </li>
 
                     </ul>
@@ -102,11 +121,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="active has-sub">
-                    <a class="js-arrow" href="/home">
-                        <i class="fas fa-tachometer-alt"></i>Calendar
-                    </a>
-                </li>
+
             </ul>
         </nav>
     </div>

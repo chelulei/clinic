@@ -108,6 +108,7 @@
         <span class="help-block">{{ $errors->first('diagnostics') }}</span>
     @endif
 </div>
+<hr>
 <h5 class="text-center">Prescriptions</h5>
 <hr>
 <div class="form-group {{ $errors->has('prescriptions') ? 'has-error' : ''}}">

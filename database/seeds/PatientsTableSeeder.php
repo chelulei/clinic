@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Patient;
 class PatientsTableSeeder extends Seeder
 {
     /**
@@ -11,46 +11,24 @@ class PatientsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        //reset the users table
-        DB::table('patients')->truncate();
+        for ($i=0; $i < 10; $i++ ){
 
-        //generate 3 users
-        DB::table('patients')->insert([
-                [
-                    'name'=>'josken prono',
-                    'email'=>'bomo@gmail.com',
-                    'image'=>'default.png',
-                ],
-                [
-                    'name'=>'josk sikilai',
-                    'email'=>'bomor@gmail.com',
-                    'image'=>'default.png',
-                ],
-                [
-                    'name'=>'joken ptum',
-                    'email'=>'bomori@gmail.com',
-                    'image'=>'default.png',
-                ],
-                [
-                    'name'=>'joen rono',
-                    'email'=>'omo@gmail.com',
-                    'image'=>'default.png',
-                ],
-                [
-                    'name'=>'jsk sikilai',
-                    'email'=>'bmor@gmail.com',
-                    'image'=>'default.png',
-                ],
-                [
-                    'name'=>'oken ptum',
-                    'email'=>'bomoi@gmail.com',
-                    'image'=>'default.png',
-                ]
+            $patient= new Patient;
+            $patient->name=str_random(10);
+            $patient->age=rand(10,60);
+            $patient->sex='male';
+            $patient-> status='single';
+            $patient->address='200b';
+            $patient->date_birth='08/27/1984';
+            $patient->course='comb';
+            $patient->year='2019';
+            $patient->religion='muslim';
+            $patient-> name2='cosmas kiprono';
+            $patient-> contact=rand(1000,465895);
+            $patient-> address2='40bb';
+            $patient->save();
+        }
 
-            ]
 
-        );
-    }
-
+  }
 }

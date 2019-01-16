@@ -12,14 +12,12 @@ class PermissionTableSeeder extends Seeder
     public function run()
     {
         $permissions = [
-            'role-list',
-            'role-create',
-            'role-edit',
-            'role-delete',
-            'service-list',
-            'service-create',
-            'service-edit',
-            'service-delete'
+
+            'patient-list',
+            'patient-create',
+            'patient-edit',
+            'patient-delete',
+            'Administer roles & permissions'
         ];
 
 
