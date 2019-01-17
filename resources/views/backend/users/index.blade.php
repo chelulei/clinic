@@ -3,16 +3,26 @@
 @section('title', 'Norsu Clinic | Users index')
 
 @section('content')
-    <div class="row">
-        <div class="col-md-12">
-            <div class="overview-wrap">
-                <h2 class="title-1">User Management</h2>
-                <a href="{{ route('backend.users.create') }}"><button class="au-btn au-btn-icon au-btn--blue">
-                    <i class="zmdi zmdi-plus"></i>add user</button></a>
+    <div class="breadcrumbs">
+            <div class="page-header float-left pl-2">
+                <div class="page-title">
+                  <h1 class="bread-head"> <i class="fas fa-tachometer-alt"></i> Dashboard</h1>
+                </div>
             </div>
-        </div>
+            <div class="float-right pr-2">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb" id="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <a href="{{ route('backend.users.create') }}"><button class="au-btn au-btn-icon au-btn--blue">
+                                        <i class="zmdi zmdi-plus"></i>Add User</button></a>
+                            </li>
+                        </ol>
+                    </nav>
+            </div>
     </div>
-    <br>
+    <div class="content mt-3">
+        <div class="row">
+        <div class="col-sm-12">
     @include('backend_partials.messages')
             @if(! $users->count())
                 <div class="alert alert-danger m-2">
@@ -21,37 +31,36 @@
                 <!-- /.alert alert-danger -->
             @else
 
-                <div class="card card-tabs-3">
-                    <div class="card-header">
-                        <ul class="nav nav-tabs">
-                            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tab-7" role="tab">LIST OF USERS</a></li>
-                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab-8 {{ route('backend.users.create') }}" role="tab">ADD USERS</a></li>
-                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab-9" role="tab">Tab 9</a></li>
+                <div class="card">
+                    <div class="card-header bg-primary">
+                        <ul class="nav nav-tabs card-header-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">
+                                    <i class="zmdi zmdi-format-align-justify"></i>
+                                    LIST OF USERS
+                                </a>
+                            </li>
                         </ul>
                     </div>
-                    <div class="card-block">
+
+                    <div class="card-block p-4">
                         <div class="tab-content">
-                            <div class="tab-pane active" id="tab-7">
-                                <br>
-                                <div class="table-responsive m-b-40">
-                                    @include('backend.users.table')
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tab-8">
-                             2
-                            </div>
-                            <div class="tab-pane" id="tab-9">
-                              3
-                            </div>
+                        <div class="table-responsive m-b-40">
+                            @include('backend.users.table')
                         </div>
 
+                        </div>
                      @endif
 
                     </div>
 
                 </div>
 
-
+         </div> <!-- /.12 -->
+        </div>
+        <!-- /.row -->
+        </div>
+        <!-- /.content mt-3 -->
 @endsection
 
 

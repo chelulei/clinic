@@ -62,13 +62,13 @@ class User extends Authenticatable
         return   $imageUrl;
     }
 
-    public function setPasswordAttribute($password)
-    {
-        if ( $password !== null & $password !== "" )
-        {
-            $this->attributes['password'] = Hash::make($password);
-        }
-    }
+//    public function setPasswordAttribute($password)
+//    {
+//        if ( $password !== null & $password !== "" )
+//        {
+//            $this->attributes['password'] = Hash::make($password);
+//        }
+//    }
 
     public function patients()
     {

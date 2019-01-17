@@ -107,5 +107,10 @@ class AppointmentsController extends Controller
         return redirect("/appointments")->with("message", "Appointment deleted successfully!");
     }
 
+    public function save()
+    {
+        //
+
+    }
     
 }

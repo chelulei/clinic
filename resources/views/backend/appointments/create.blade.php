@@ -3,18 +3,23 @@
 @section('title', 'Norsu Clinic | Users index')
 
 @section('content')
-    <div class="row">
-        <div class="col-md-12">
-            <div class="overview-wrap">
-                <h3 class="title-1 text-center">CREATE APPOINTMENT</h3>
-                <div class="overview-wrap float-lg-right">
-                    <a href="{{ route('backend.appointments.index') }}"><button class="au-btn au-btn-icon au-btn--blue">
-                            <i class="zmdi zmdi-arrow-left"></i>BACK</button></a>
-                </div>
+    <div class="breadcrumbs">
+        <div class="page-header float-left pl-2">
+            <div class="page-title">
+                <h1 class="bread-head"> <i class="fas fa-tachometer-alt"></i> Dashboard</h1>
             </div>
         </div>
+        <div class="float-right pr-2">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" id="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a href="{{ route('backend.appointments.index') }}"><button class="au-btn au-btn-icon au-btn--blue">
+                                <i class="fa fa-arrow-left"></i>BACK</button></a>
+                    </li>
+                </ol>
+            </nav>
+        </div>
     </div>
-    <br>
     <div class="row m-t-30">
         <div class="col-md-8 offset-2">
             {!! Form::model($appointment, [

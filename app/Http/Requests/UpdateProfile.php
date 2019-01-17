@@ -24,7 +24,6 @@ class UpdateProfile extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
             'password' => 'nullable|required_with:password_confirmation|string|confirmed',
             'current_password' => 'required',
         ];
@@ -43,7 +42,9 @@ class UpdateProfile extends FormRequest
         // before making changes
         $validator->after(function ($validator) {
             if ( !Hash::check($this->current_password, $this->user()->password) ) {
+
                 $validator->errors()->add('current_password', 'Your current password is incorrect.');
+
             }
         });
         return;

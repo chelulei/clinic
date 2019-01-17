@@ -2,9 +2,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\UpdateProfile;
 use App\User;
-
+use Hash;
 class ProfileController extends Controller
 {
     //
@@ -38,12 +37,29 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(UpdateProfile $request, User $user){
+    public function update(Request $request, User $user){
 
-        $data = $request->all();
-        $user->update($data);
-        return redirect(route('profile-edit', ['user' => $user]))
-            ->with('message', 'Your profile has been updated successfully.');
+        if (!(Hash::check($request->get('current-password'), $user->password))) {
+            // The passwords matches
+            return redirect()->back()->with("error","Your current password does not matches with the password you provided. Please try again.");
+        }
+
+        if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
+            //Current password and new password are same
+            return redirect()->back()->with("error","New Password cannot be same as your current password. Please choose a different password.");
+        }
+
+         $request->validate([
+            'current-password' => 'required',
+            'new-password' => 'required|string|min:6|confirmed',
+        ]);
+
+        //Change Password
+         $user->password = Hash::make($request->get('new-password'));
+
+        $user->save();
+
+        return redirect()->back()->with("success","Password changed successfully !");;
 
 
     }

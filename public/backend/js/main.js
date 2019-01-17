@@ -1440,6 +1440,8 @@
     console.log(error);
   }
 })(jQuery);
+
+
 (function ($) {
   // Use Strict
   "use strict";
@@ -1469,6 +1471,8 @@
   } catch (err) {
     console.log(err);
   }
+
+
 })(jQuery);
 (function ($) {
   // USE STRICT

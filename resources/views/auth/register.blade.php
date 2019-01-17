@@ -24,6 +24,39 @@
                                     </span>
                             @endif
                         </div>
+                        <div class="form-group {{ $errors->has('slug') ? 'has-error' : '' }}">
+                            {{ Form::hidden('slug', null, array('id' => 'slug')) }}
+                        </div>
+                        <div class="form-group">
+                            <label>{{ __('UserName') }}</label>
+                            <input id="username" type="text" class="au-input au-input--full{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" placeholder="UserName" required autofocus>
+
+                            @if ($errors->has('username'))
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label>{{ __('Address') }}</label>
+                            <input id="address" type="text" class="au-input au-input--full{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('address') }}" placeholder="Address" required autofocus>
+
+                            @if ($errors->has('address'))
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label>{{ __('Phone') }}</label>
+                            <input id="phone" type="text" class="au-input au-input--full{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="{{ old('phone') }}" placeholder="Phone" required autofocus>
+
+                            @if ($errors->has('phone'))
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
                         <div class="form-group">
                             <label>{{ __('E-Mail Address') }}</label>
                             <input id="email" type="email" class="au-input au-input--full{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Email" required>
@@ -62,4 +95,18 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+    <script type="text/javascript">
+        $('#username').on('blur', function() {
+            var theTitle = this.value.toLowerCase().trim(),
+                slugInput = $('#slug'),
+                theSlug = theTitle.replace(/&/g, '-and-')
+                    .replace(/[^a-z0-9-]+/g, '-')
+                    .replace(/\-\-+/g, '-')
+                    .replace(/^-+|-+$/g, '');
+
+            slugInput.val(theSlug);
+        });
+    </script>
 @endsection

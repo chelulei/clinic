@@ -63,7 +63,7 @@
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
                             <a href="{{ route('backend.appointments.index')}}">
-                                <i class="fa fa-users" aria-hidden="true"></i>Patients</a>
+                                <i class="fa fa-users" aria-hidden="true"></i>ALL Appointments</a>
                         </li>
                         <li>
                             <a href="{{ route('backend.events.index')}}"><i class="fa fa-calendar" aria-hidden="true"></i>Events</a>

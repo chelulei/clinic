@@ -33,10 +33,10 @@ Route::get('/contact', [
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth']], function() {
 
+    Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/doctors', ['as' => 'doctor', 'uses' => 'DoctorsController@index']);
 Route::get('/dentists', ['as' => 'dentist', 'uses' => 'DoctorsController@dentists']);
@@ -50,9 +50,15 @@ Route::resource('/events', 'EventController',['as'=>'backend']);
 Route::resource('/slots', 'TimeslotController',['as'=>'backend']);
 Route::resource('/users', 'UsersController',['as'=>'backend']);
 Route::resource('/account', 'AccountController',['as'=>'backend']);
+Route::resource('/bookings', 'BookAppointmentController',['as'=>'backend']);
 Route::put('/profile/{user}', 'ProfileController@update')->name('profile.update');
 Route::get('/profile/{user}/edit', [
         'uses' => 'ProfileController@edit',
         'as'   => 'profile-edit'
     ]);
 });
+
+Route::get('/doctor', [
+    'uses' => 'PagesController@doctor',
+    'as'   => 'main'
+]);

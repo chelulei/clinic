@@ -34,8 +34,10 @@ class AccountController extends Controller
      */
 
     public function update(UpdateProfile $request, User $user){
+
         $data = $request->all();
         $user->update($data);
+
         return redirect(route('backend.account.password', ['user' => $user]))
             ->with('message', 'Your profile has been updated successfully.');
 

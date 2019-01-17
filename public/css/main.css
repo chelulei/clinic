@@ -55,7 +55,7 @@ $black			: #222;
 }
 
 ::selection {
-  background-color: #69be00;
+  background-color: #006CFF;
   color: #fff;
 }
 
@@ -92,7 +92,7 @@ $black			: #222;
 }
 
 body {
-  color: #777777;
+  color: #f9f9ff;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 300;
@@ -2672,7 +2672,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*-------- End facilities Area ------------*/
 /*-------- Start offered-service Area ------------*/
 .offered-service-area {
-  background: #006cff;
+  background: #1f5caf;
 }
 
 .offered-service-area .offered-left p {
@@ -2688,7 +2688,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .offered-service-area .offered-right .overlay-bg {
-  background: rgba(16, 7, 136, 0.5);
+  background: rgba(68, 66, 97, 0.5);
 }
 
 .offered-service-area .offered-right .dep-list {
@@ -4500,7 +4500,7 @@ dl.toggle.time-line:before {
 /* =================================== */
 .footer-area {
   padding-top: 100px;
-  background-color: #222222;
+  background-color: #020f20;;
 }
 
 .footer-area .footer-nav li {
@@ -4641,8 +4641,8 @@ dl.toggle.time-line:before {
 }
 
 .single-footer-widget ::selection {
-  background-color: #69be00;
-  color: #777777;
+  background-color: #1F5CAF;
+  color: #ffffff;
 }
 
 .single-footer-widget ::-webkit-input-placeholder {

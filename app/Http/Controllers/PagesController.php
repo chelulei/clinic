@@ -19,4 +19,9 @@ class PagesController extends Controller
         return view('pages.contact');
 
     }
+    public function doctor(){
+
+        return view('doctor');
+
+    }
 }

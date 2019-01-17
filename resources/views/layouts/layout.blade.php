@@ -10,5 +10,6 @@
     <!-- END PAGE CONTAINER-->
 </div>
 @include('backend_partials._scripts');
+@yield('script')
 </body>
 </html>
