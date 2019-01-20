@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Immunization;
 class ImmunizationTableSeeder extends Seeder
 {
     /**
@@ -11,39 +11,17 @@ class ImmunizationTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        //reset the users table
-        DB::table('immunizations')->truncate();
+        $immunes = [
+            'BCG',
+            'DPT',
+            'opv',
+            'Hep. B',
+            'Measles',
+            'TT',
+        ];
 
-        //generate 3 users
-        DB::table('immunizations')->insert([
-                [
-                    'name'=>'BCG'
-                   
-                ],
-                [
-                    'name'=>'DPT'
-                    
-                ],
-                [
-                    'name'=>'opv'
-                    
-                ],
-                [
-                    'name'=>'Hep. B'
-                   
-                ],
-                [
-                    'name'=>'Measles'
-                   
-                ],
-                [
-                    'name'=>'TT'
-                    
-                ]
-
-            ]
-
-        );
+        foreach ($immunes as $immune) {
+            Immunization::create(['name' => $immune]);
+        }
     }
 }

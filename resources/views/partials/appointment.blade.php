@@ -24,15 +24,16 @@
                 </ul>
             </div>
             <div class="col-lg-6 col-md-6 appointment-right pt-60 pb-60">
-                <form class="form-wrap" action="{{ route('backend.bookings.store') }}">
+                <form class="form-wrap" method="POST" action="{{ route('backend.bookings.store') }}">
+                    @csrf
                     <h3 class="pb-20 text-center mb-30">Book an Appointment</h3>
                     <input type="text" class="form-control" name="name" placeholder="Patient Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Patient Name'" required>
                     <input type="text" class="form-control" name="phone" placeholder="Phone " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'" required>
                     <input type="email" class="form-control" name="email" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'" required>
                     <input id="datepicker1" name="dop" class="dates form-control"  placeholder="Date of Birth" type="text">
-                    <input id="datepicker2" class="dates form-control"  placeholder="appointment Date" type="text" name="date">
-                    <textarea name="messege" class="" rows="5" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required></textarea>
-                    <button class="primary-btn text-uppercase">Confirm Booking</button>
+                    <input id="datepicker2" class="dates form-control"  name="date" placeholder="appointment Date" type="text">
+                    <textarea class="" rows="5"  placeholder="Messege" name="messege"  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required></textarea>
+                    <button type="submit" class="primary-btn text-uppercase">Confirm Booking</button>
                 </form>
             </div>
         </div>

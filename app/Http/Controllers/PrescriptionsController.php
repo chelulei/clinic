@@ -66,13 +66,20 @@ class PrescriptionsController extends Controller
 
             $image = $request->file('image');
 
-            $fileName = $image->getClientOriginalName();
+            $filenameWithExt = $image->getClientOriginalName();
+
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            $extension = $image->getClientOriginalExtension();
+
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
 
             $destination = $this->uploadPath;
 
-            $image->move($destination,$fileName);
+            $image->move($destination,$fileNameToStore);
 
-            $data['image'] =  $fileName;
+
+            $data['image'] = $fileNameToStore;
 
         }
         return $data;

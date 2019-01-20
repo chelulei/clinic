@@ -1,6 +1,6 @@
 <?php
-
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 class EmployeeTableSeeder extends Seeder
 {
@@ -13,7 +13,7 @@ class EmployeeTableSeeder extends Seeder
     {
         //
         $faker = Faker::create();
-        foreach (range(1,10) as $index) {
+        foreach (range(1,20) as $index) {
             DB::table('employees')->insert([
                 'name'=>$faker->name,
                 'designation'=>$faker->word,

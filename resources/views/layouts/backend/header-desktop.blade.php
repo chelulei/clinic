@@ -79,18 +79,20 @@
                         </div>
                         <div class="noti__item js-item-menu">
                             <i class="zmdi zmdi-notifications"></i>
-                            <span class="quantity">3</span>
+{{--                            <span class="quantity">You have{{/$user->notifications->count()}} New Notifications</span>--}}
                             <div class="notifi-dropdown js-dropdown">
                                 <div class="notifi__title">
-                                    <p>You have 3 Notifications</p>
+                                    {{--<p>{{$user->notifications->count()}}</p>--}}
                                 </div>
                                 <div class="notifi__item">
                                     <div class="bg-c1 img-cir img-40">
                                         <i class="zmdi zmdi-email-open"></i>
                                     </div>
                                     <div class="content">
-                                        <p>You got a email notification</p>
-                                        <span class="date">April 12, 2018 06:50</span>
+                                        {{--@foreach ($user->notifications as $notification)--}}
+                                            {{--<p>{{$notification->data['name']}}</p>--}}
+                                            {{--<span class="date">{{$notification->created_at ->toFormattedDateString()}}</span>--}}
+                                        {{--@endforeach--}}
                                     </div>
                                 </div>
                                 <div class="notifi__item">

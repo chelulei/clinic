@@ -11,6 +11,7 @@ class PatientNotify extends Notification
 {
     use Queueable;
 
+//     protected $patient;
     /**
      * Create a new notification instance.
      *
@@ -30,7 +31,7 @@ class PatientNotify extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['database'];
     }
 
     /**
@@ -55,14 +56,15 @@ class PatientNotify extends Notification
      */
     public function toArray($notifiable)
     {
-        return [
-            //
-            'name' => $this->patient->name,
-            'phone' => $this->patient->phone,
-            'email' => $this->patient->email,
-            'dop' => $this->patient->dop,
-            'message' => $this->patient->message
+            return [
+                //
+                'name' => $this->patient->name,
+                'phone' => $this->patient->phone,
+                'email' => $this->patient->email,
+                'dop' => $this->patient->dop,
+                'message' => $this->patient->message
 
-        ];
+
+            ];
     }
 }

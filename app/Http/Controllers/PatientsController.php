@@ -55,11 +55,22 @@ class PatientsController extends Controller
      private function handleRequest($request){
          $data = $request->all();
          if($request->hasFile('image')){
-            $image = $request->file('image');
-            $fileName = $image->getClientOriginalName();
+             $image = $request->file('image');
+
+             $filenameWithExt = $image->getClientOriginalName();
+
+             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+             $extension = $image->getClientOriginalExtension();
+
+             $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+
              $destination = $this->uploadPath;
-            $image->move($destination,$fileName);
-            $data['image'] =  $fileName;
+
+             $image->move($destination,$fileNameToStore);
+
+
+             $data['image'] = $fileNameToStore;
          }
          return $data;
      }

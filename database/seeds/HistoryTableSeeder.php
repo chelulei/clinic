@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\History;
 class HistoryTableSeeder extends Seeder
 {
     /**
@@ -10,39 +11,21 @@ class HistoryTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        //reset the users table
-        DB::table('histories')->truncate();
 
-        //generate 3 users
-        DB::table('histories')->insert([
-                [
-                    'name'=>'HPN'
-                    
-                ],
-                [
-                    'name'=>'Diabetes'
-                   
-                ],
-                [
-                    'name'=>'Asthma'
-                   
-                ],
-                [
-                    'name'=>'Allergies'
-                    
-                ],
-                [
-                    'name'=>'Cardiac problems'
-                    
-                ],
-                [
-                    'name'=>'Arthritis'
-                    
-                ]
+        $histories = [
 
-            ]
+            'HPN',
+            'Diabetes',
+            'Asthma',
+            'Allergies',
+            'Cardiac problems',
+            'Arthritis',
 
-        );
+        ];
+
+
+        foreach ($histories as $history) {
+            History::create(['name' => $history]);
+        }
     }
 }

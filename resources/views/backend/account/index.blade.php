@@ -40,7 +40,6 @@
                                      ]) !!}
                                     @csrf
                                     {{ Form::hidden('slug', null, array('id' => 'slug')) }}
-                                    UserName: <strong><input class="effect-1"  name="username" type="text" value="{{$user->username}}"></strong><hr>
                                     Name: <strong><input class="effect-1"  name="name" type="text" value="{{$user->name}}"></strong><hr>
                                     Email: <strong><input class="effect-1" name="email" type="text" value="{{$user->email}}"></strong><hr>
                                     Phone: <strong><input class="effect-1" name="phone" type="text" value="{{$user->phone}}"></strong><hr>

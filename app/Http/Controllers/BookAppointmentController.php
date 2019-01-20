@@ -1,11 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\BookAppointment;
 use Illuminate\Http\Request;
 use App\Notifications\PatientNotify;
 use Auth;
+use Validator;
 class BookAppointmentController extends Controller
 {
     /**
@@ -16,6 +15,7 @@ class BookAppointmentController extends Controller
     public function index()
     {
         //
+
     }
 
     /**
@@ -37,21 +37,31 @@ class BookAppointmentController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'name' => 'required|min:3',
+        Validator::make($request,[
+            'name' => 'required',
             'phone' => 'required',
             'email' => 'required',
             'dop' => 'required',
             'date' => 'required',
-            'message' => 'required',
+            'message' => 'required'
         ]);
 
-        // Create patient
-        $patient = $request->all();
+        //
+
+        $patient = new BookAppointment;
+        $patient->name = $request->input('name');
+        $patient->phone = $request->input('phone');
+        $patient->email = $request->input('email');
+        $patient->dop = $request->input('dop');
+        $patient->date = $request->input('date');
+        $patient->message = $request->input('message');
+        
+//        $patient ->save();
 
         /*notification*/
-        $admin = User::first();
-        $admin->notify(new PatientNotify($patient));
+        $user = Auth::user();
+
+        $user->notify(new PatientNotify($patient));
 
 
     }

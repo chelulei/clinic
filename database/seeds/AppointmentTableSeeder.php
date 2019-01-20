@@ -1,7 +1,8 @@
 <?php
+
 use Illuminate\Database\Seeder;
-use App\Patient;
-class PatientsTableSeeder extends Seeder
+use App\Appointment;
+class AppointmentTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -10,7 +11,7 @@ class PatientsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Patient::class, 50)->create();
-
-  }
+        //
+        factory(Appointment::class, 5)->create();
+    }
 }

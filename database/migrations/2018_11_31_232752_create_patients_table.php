@@ -27,7 +27,7 @@ class CreatePatientsTable extends Migration
             $table->string('year');
             $table->string('religion')->nullable();
             $table->string('name2');
-            $table->integer('contact');
+            $table->string('contact');
             $table->text('address2');
             $table->string('history')->nullable();
             $table->text('others')->nullable();
