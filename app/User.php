@@ -84,6 +84,12 @@ class User extends Authenticatable
 
         return $this->hasMany(Appointment::class);
     }
+
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class,'patient_id');
+    }
+
     public  function slots(){
 
         return $this->hasMany(Timeslot::class);

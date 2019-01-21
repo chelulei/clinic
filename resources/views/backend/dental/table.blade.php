@@ -3,6 +3,8 @@
     <tr>
         <th>Action</th>
         <th>Name</th>
+        <th>Teeth</th>
+        <th>Treatment</th>
         <th>Assesment</th>
     </tr>
     </thead>
@@ -24,8 +26,13 @@
                 <!-- /.btn bt-danger -->
                 {!! Form::close() !!}
             </td>
-            {{--<td>{{ $dental->patient->name}}</td>--}}
-            {{--<td>{{ $dental->assessment}}</td>--}}
+            <td>{{$dental->patient->name}}</td>
+            <td>
+                {{$dental->patient->pivot->teeth
+                }}
+            </td>
+            <td>{{$dental->treat}}</td>
+            <td>{{$dental->notes}}</td>
             @endforeach
         </tr>
     </tbody>

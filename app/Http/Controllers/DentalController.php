@@ -18,8 +18,9 @@ class DentalController extends Controller
     public function index()
     {
         //
-        $dentals= Dental::all();
+        $dentals= Dental::with('patient')->get();
         $user = Auth::user();
+
         return view('backend.dental.index',compact('dentals','user'));
     }
 
@@ -51,7 +52,7 @@ class DentalController extends Controller
 
         Dental::create($request->all());
 
-        return redirect("/services")->with("message", "New Service created successfully!");
+        return redirect("/dental")->with("message", "New Service created successfully!");
     }
 
     /**

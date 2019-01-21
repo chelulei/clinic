@@ -103,9 +103,9 @@
                                 Add Patient</a>
                         </li>
                         <li>
-                            <a href="{{ route('backend.dental.create')}}">
+                            <a href="{{ route('backend.dental.index')}}">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
-                                Add Service</a>
+                                All Services</a>
                         </li>
                     </ul>
 

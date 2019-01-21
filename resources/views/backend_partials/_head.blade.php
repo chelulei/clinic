@@ -17,8 +17,9 @@
 
 <!-- dataTables-->
 {{--<link rel="stylesheet" href="{{ asset('/backend/vendor/dataTables/jquery.dataTables.min.css') }}">--}}
-<link rel="stylesheet" href="{{ asset('/backend/vendor/dataTables/buttons.dataTables.min.css') }}">
 <link rel="stylesheet" href="{{ asset('/backend/vendor/dataTables/dataTables.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="{{ asset('/backend/vendor/dataTables/buttons.dataTables.min.css') }}">
+
 
 
 <!-- Bootstrap CSS-->
