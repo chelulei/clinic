@@ -15,10 +15,16 @@
 <link href="{{asset('/backend/vendor/font-awesome-5/css/fontawesome-all.min.css')}}" rel="stylesheet" media="all">
 <link href="{{asset('/backend/vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
 
+<!-- dataTables-->
+{{--<link rel="stylesheet" href="{{ asset('/backend/vendor/dataTables/jquery.dataTables.min.css') }}">--}}
+<link rel="stylesheet" href="{{ asset('/backend/vendor/dataTables/buttons.dataTables.min.css') }}">
+<link rel="stylesheet" href="{{ asset('/backend/vendor/dataTables/dataTables.bootstrap4.min.css') }}">
+
+
 <!-- Bootstrap CSS-->
-<link href="{{asset('/backend/vendor/dataTables/dataTables.bootstrap4.min.css')}}" rel="stylesheet" media="all">
 <link href="{{asset('/backend/vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
+
 
 <!-- Vendor CSS-->
 <link href="{{asset('/backend/vendor/animsition/animsition.min.css')}}" rel="stylesheet" media="all">

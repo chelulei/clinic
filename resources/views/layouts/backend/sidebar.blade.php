@@ -90,7 +90,7 @@
                 </li>
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fas fa-user"></i>Administrator
+                        <i class="fas fa-user"></i>Dental Management
                         <span class="arrow">
                                     <i class="fas fa-angle-down"></i>
                                 </span>
@@ -98,9 +98,15 @@
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="#"><i class="fa  fa-calendar"></i>Calendar</a>
+                            <a href="{{ route('backend.dental.create')}}">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                Add Patient</a>
                         </li>
-
+                        <li>
+                            <a href="{{ route('backend.dental.create')}}">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                Add Service</a>
+                        </li>
                     </ul>
 
                 </li>

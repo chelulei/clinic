@@ -1,13 +1,27 @@
 <!-- Jquery JS-->
 <script src="{{asset('/backend/vendor/jquery-3.2.1.min.js')}}"></script>
+
+
+<!-- dataTables JS-->
+
 <script src="{{asset('/backend/vendor/dataTables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('/backend/vendor/dataTables/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('/backend/vendor/dataTables/dataTables.buttons.min.js')}}"></script>
+<script src="{{asset('/backend/vendor/dataTables/buttons.flash.min.js')}}"></script>
+<script src="{{asset('/backend/vendor/dataTables/jszip.min.js')}}"></script>
+<script src="{{asset('/backend/vendor/dataTables/pdfmake.min.js')}}"></script>
+<script src="{{asset('/backend/vendor/dataTables/vfs_fonts.js')}}"></script>
+<script src="{{asset('/backend/vendor/dataTables/buttons.html5.min.js')}}"></script>
+<script src="{{asset('/backend/vendor/dataTables/buttons.print.min.js')}}"></script>
+
 
 <!-- Bootstrap JS-->
 <script src="{{asset('/backend/vendor/bootstrap-4.1/popper.min.js')}}"></script>
 <script src="{{asset('/backend/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+<script src="{{asset('/backend/vendor/dataTables/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('/backend/vendor/dataTables/buttons.colVis.min.js')}}"></script>
+
 
 <script src="{{asset('/backend/vendor/slick/slick.min.js')}}">
 </script>
@@ -28,7 +42,17 @@
 <script src="{{asset('/backend/js/main.js')}}"></script>
 
 <script>
-    $('#DataTable').DataTable();
+
+
+    $(document).ready(function() {
+        $('#DataTable').DataTable( {
+            dom: 'lBfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        } );
+    } );
+
 
     $('select').select2({
         theme: "classic"
@@ -62,4 +86,43 @@
     $("#slot").datetimepicker({
         format: "LT"
     });
+
+
+        $(document).ready(function () {
+            $('[data-toggle=confirmation]').confirmation({
+                rootSelector: '[data-toggle=confirmation]',
+                onConfirm: function (event, element) {
+                    element.trigger('confirm');
+                }
+            });
+
+
+            $(document).on('confirm', function (e) {
+                var ele = e.target;
+                e.preventDefault();
+
+
+                $.ajax({
+                    url: ele.href,
+                    type: 'DELETE',
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                    success: function (data) {
+                        if (data['success']) {
+                            $("#" + data['tr']).slideUp("slow");
+                            alert(data['success']);
+                        } else if (data['error']) {
+                            alert(data['error']);
+                        } else {
+                            alert('Whoops Something went wrong!!');
+                        }
+                    },
+                    error: function (data) {
+                        alert(data.responseText);
+                    }
+                });
+
+
+                return false;
+            });
+        });
 </script>

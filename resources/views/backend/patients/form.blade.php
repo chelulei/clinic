@@ -1,5 +1,15 @@
 @csrf
 <div class="row">
+    <div class="col-md-2">
+        <div class="form-group {{ $errors->has('idno') ? 'has-error' : '' }}">
+            {!! Form::label('id no') !!}
+            {!! Form::number('idno', null, ['class' => 'form-control']) !!}
+
+            @if($errors->has('idno'))
+                <span class="help-block">{{ $errors->first('idno') }}</span>
+            @endif
+        </div>
+    </div>
     <div class="col-md-4">
         <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
             {!! Form::label('name') !!}
@@ -22,7 +32,7 @@
         </div>
     </div>
 <!-- /.col-md-4 -->
-    <div class="col-md-3">
+    <div class="col-md-2">
          <label for="">Sex</label>
         <br>
            <div class="form-check-inline">
@@ -36,7 +46,7 @@
                </label>
            </div>
      </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
         <div class="form-group {{ $errors->has('status') ? 'has-error' : '' }}">
             {!! Form::label('status') !!}
             {!! Form::text('status', null, ['class' => 'form-control']) !!}
@@ -48,12 +58,14 @@
     </div>
 <!-- /.col-md-4 -->
 </div>
+
+
 <!-- /.row -->
 <div class="row">
     <div class="col-md-4">
         <div class="form-group {{ $errors->has('address') ? 'has-error' : ''}}">
             {!! Form::label('address') !!}
-            {!! Form::textarea('address', null, ['class' => 'form-control','rows' => 1, 'cols' =>5]) !!}
+            {!! Form::textarea('address', null, ['class' => 'form-control','rows' => 2, 'cols' =>5]) !!}
 
             @if($errors->has('address'))
                 <span class="help-block">{{ $errors->first('address') }}</span>

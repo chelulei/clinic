@@ -47,6 +47,7 @@ class PatientsController extends Controller
         $data= $this->handleRequest($request);
         $patient = Patient::create($data);
         $patient->histories()->attach($request->histo);
+
         $patient->immunizations()->attach($request->immun);
 
         return redirect("/patients")->with("message", "New patient was created successfully!");
