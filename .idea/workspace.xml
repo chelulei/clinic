@@ -12,8 +12,6 @@
       <change beforePath="$PROJECT_DIR$/app/Teeth.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Teeth.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/dental/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/dental/table.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/prescriptions/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/prescriptions/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/users/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/users/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/backend/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/backend/main.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,18 +28,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="form.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/backend/patients/form.blade.php">
+      <file leaf-file-name="table.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend/dental/table.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4259" />
+            <state relative-caret-position="61">
+              <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/backend/prescriptions/form.blade.php">
+      <file leaf-file-name="Dental.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Dental.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="601">
-              <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
+            <state relative-caret-position="440">
+              <caret line="22" column="31" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Teeth.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Teeth.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="15" column="35" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Patient.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Patient.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="41">
+              <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -50,7 +68,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>employee</find>
       <find>col-md-4</find>
       <find>col-md-5</find>
       <find>patient</find>
@@ -60,18 +77,18 @@
       <find>#header.header-scrolled</find>
       <find>offered-service-area</find>
       <find>header-de</find>
-      <find />
+      <find>menu-sidebar .logo</find>
       <find>header-desktop</find>
-      <find />
+      <find>.menu-sidebar .logo</find>
       <find>services</find>
-      <find />
-      <find />
+      <find>Servicing Hours</find>
+      <find>Book an Appointment</find>
       <find>body</find>
       <find>load</find>
       <find>footer-area</find>
       <find>.offer</find>
-      <find />
-      <find />
+      <find>offered-right .overlay-bg</find>
+      <find>single-footer-widget ::selection</find>
       <find>li</find>
       <find>a:h</find>
       <find>bug</find>
@@ -80,6 +97,7 @@
       <find>histor</find>
       <find>symptoms</find>
       <find>assessment</find>
+      <find>case_history</find>
     </findStrings>
     <replaceStrings>
       <replace>arthritis</replace>
@@ -110,8 +128,8 @@
       <replace>history</replace>
       <replace>immune</replace>
       <replace>case_history</replace>
-      <replace>assessment</replace>
       <replace>medication</replace>
+      <replace>assessment</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -162,15 +180,15 @@
         <option value="$PROJECT_DIR$/resources/views/backend_partials/_scripts.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/backend/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/DentalController.php" />
-        <option value="$PROJECT_DIR$/app/Teeth.php" />
-        <option value="$PROJECT_DIR$/app/Dental.php" />
-        <option value="$PROJECT_DIR$/app/Patient.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend/dental/table.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/backend/main.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/users/form.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/dental/form.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/prescriptions/form.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DentalController.php" />
+        <option value="$PROJECT_DIR$/app/Dental.php" />
+        <option value="$PROJECT_DIR$/app/Patient.php" />
+        <option value="$PROJECT_DIR$/app/Teeth.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/dental/table.blade.php" />
       </list>
     </option>
   </component>
@@ -279,7 +297,7 @@
       <path value="$PROJECT_DIR$/vendor/laracasts/generators" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="25" />
     <option name="y" value="437" />
     <option name="width" value="1936" />
@@ -298,40 +316,6 @@
             <path>
               <item name="clinic" type="b2602c69:ProjectViewProjectNode" />
               <item name="clinic" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="clinic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="clinic" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="clinic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="clinic" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="clinic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="clinic" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="clinic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="clinic" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="prescriptions" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="clinic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="clinic" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="users" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -427,7 +411,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="592159000" />
+    <option name="totallyTimeSpent" value="596545000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -738,48 +722,6 @@
     <entry file="file://$PROJECT_DIR$/app/BookAppointment.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DentalController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/dental/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="32" column="10" lean-forward="true" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Dental.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Teeth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Patient.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="87" column="44" selection-start-line="87" selection-start-column="44" selection-end-line="87" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/dental/table.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="30" column="43" lean-forward="true" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/backend/header-mobile.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -804,15 +746,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/prescriptions/form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="831">
+          <caret line="70" column="35" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/dental/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="32" column="10" lean-forward="true" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DentalController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend/patients/form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4259" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/prescriptions/form.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/dental/table.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
+        <state relative-caret-position="61">
+          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Dental.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Teeth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="35" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Patient.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
         </state>
       </provider>
     </entry>

@@ -28,8 +28,9 @@
             </td>
             <td>{{$dental->patient->name}}</td>
             <td>
-                {{$dental->patient->teeth}}
-
+                @foreach($dental->patient->teeths as $teeth)
+                    {{$teeth->name}}
+                @endforeach
             </td>
             <td>{{$dental->treat}}</td>
             <td>{{$dental->notes}}</td>

@@ -49,7 +49,7 @@ class DentalController extends Controller
         //
         $patient = Patient::findOrFail($request->patient_id);
 
-        $patient->teeth()->attach($request->teeth);
+//        $patient->teeth()->attach($request->teeth);
 
         Dental::create($request->all());
 

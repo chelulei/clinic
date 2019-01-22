@@ -67,12 +67,12 @@
          </div>
      </div>
      <!-- /.row -->
-<div class="form-group {{ $errors->has('case_history') ? 'has-error' : ''}}">
-    {!! Form::label('case history','Case History') !!}
-    {!! Form::textarea('case_history', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
+<div class="form-group {{ $errors->has('assessment') ? 'has-error' : ''}}">
+    {!! Form::label('assessment','Assessment') !!}
+    {!! Form::textarea('assessment', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
 
-    @if($errors->has('case_history'))
-        <span class="help-block">{{ $errors->first('case_history') }}</span>
+    @if($errors->has('assessment'))
+        <span class="help-block">{{ $errors->first('assessment') }}</span>
     @endif
 </div>
 

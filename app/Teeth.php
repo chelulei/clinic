@@ -6,9 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Teeth extends Model
 {
-    //
-    public function patients()
+    protected $fillable = [
+        'name'
+    ];
+
+    public function patient()
     {
+
         return $this->belongsToMany(Patient::class, 'patient_teeth');
     }
 
