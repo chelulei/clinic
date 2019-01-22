@@ -67,52 +67,26 @@
          </div>
      </div>
      <!-- /.row -->
-     <hr>
-     <h5 class="text-center">HPI/ROSE/PE</h5>
-     <hr>
-    <div class="form-group {{ $errors->has('hpi') ? 'has-error' : ''}}">
+<div class="form-group {{ $errors->has('case_history') ? 'has-error' : ''}}">
+    {!! Form::label('case history','Case History') !!}
+    {!! Form::textarea('case_history', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
 
-        {!! Form::textarea('hpi', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
-        @if($errors->has('hpi'))
-            <span class="help-block">{{ $errors->first('hpi') }}</span>
-        @endif
-    </div>
-     <hr>
-     <h5 class="text-center">ASSESSMENT</h5>
-     <hr>
-<div class="form-group {{ $errors->has('assessment') ? 'has-error' : ''}}">
-    {!! Form::textarea('assessment', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
-
-    @if($errors->has('assessment'))
-        <span class="help-block">{{ $errors->first('assessment') }}</span>
-    @endif
-</div>
-<hr>
-<h5 class="text-center">Symptoms</h5>
-<hr>
-<div class="form-group {{ $errors->has('symptoms') ? 'has-error' : ''}}">
-    {!! Form::textarea('symptoms', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
-
-    @if($errors->has('symptoms'))
-        <span class="help-block">{{ $errors->first('symptoms') }}</span>
+    @if($errors->has('case_history'))
+        <span class="help-block">{{ $errors->first('case_history') }}</span>
     @endif
 </div>
 
-<hr>
-<h5 class="text-center">Diagnostics</h5>
-<hr>
-<div class="form-group {{ $errors->has('diagnostics') ? 'has-error' : ''}}">
-    {!! Form::textarea('diagnostics', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
-
-    @if($errors->has('diagnostics'))
-        <span class="help-block">{{ $errors->first('diagnostics') }}</span>
+<div class="form-group {{ $errors->has('medication') ? 'has-error' : ''}}">
+    {!! Form::label('medication','Medication') !!}
+    {!! Form::textarea('medication', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
+    @if($errors->has('medication'))
+        <span class="help-block">{{ $errors->first('medication') }}</span>
     @endif
 </div>
-<hr>
-<h5 class="text-center">Prescriptions</h5>
-<hr>
+
 <div class="form-group {{ $errors->has('prescriptions') ? 'has-error' : ''}}">
-    {!! Form::textarea('diagnostics', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
+    {!! Form::label('prescriptions','Prescriptions') !!}
+    {!! Form::textarea('prescriptions', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
 
     @if($errors->has('prescriptions'))
         <span class="help-block">{{ $errors->first('prescriptions') }}</span>

@@ -4,7 +4,7 @@
     @include('backend_partials._head')
     @yield('style')
 </head>
-<body class="animsition">
+<body class="imsition">
 <div class="page-wrapper">
     <!-- HEADER MOBILE-->
 @include('layouts.backend.header-mobile')

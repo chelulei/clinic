@@ -82,11 +82,11 @@ class Patient extends Model
         return $this->hasMany(Dental::class);
     }
 
-    public function teeth()
-    {
-        return $this->belongsToMany(Teeth::class, 'patient_teeth');
-    }
 
+    public function teeths()
+    {
+        return $this->hasMany(Teeth::class);
+    }
 
     public function users()
     {

@@ -12,4 +12,6 @@ class Teeth extends Model
         return $this->belongsToMany(Patient::class, 'patient_teeth');
     }
 
+
+
 }

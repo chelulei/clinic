@@ -22,4 +22,6 @@ class Dental extends Model
     {
         return $this->belongsTo(Patient::class,'patient_id');
     }
+
+
 }

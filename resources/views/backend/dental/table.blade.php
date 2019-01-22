@@ -28,8 +28,8 @@
             </td>
             <td>{{$dental->patient->name}}</td>
             <td>
-                {{$dental->patient->pivot->teeth
-                }}
+                {{$dental->patient->teeth}}
+
             </td>
             <td>{{$dental->treat}}</td>
             <td>{{$dental->notes}}</td>

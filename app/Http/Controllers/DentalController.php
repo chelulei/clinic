@@ -19,6 +19,7 @@ class DentalController extends Controller
     {
         //
         $dentals= Dental::with('patient')->get();
+
         $user = Auth::user();
 
         return view('backend.dental.index',compact('dentals','user'));
