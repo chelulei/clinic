@@ -49,7 +49,7 @@ class DentalController extends Controller
         //
         $patient = Patient::findOrFail($request->patient_id);
 
-//        $patient->teeth()->attach($request->teeth);
+        $patient->teeths()->attach($request->teeth);
 
         Dental::create($request->all());
 
@@ -65,6 +65,7 @@ class DentalController extends Controller
     public function show(Dental $dental)
     {
         //
+        return view('backend.dental.show',compact('dental',$dental));
     }
 
     /**
@@ -76,6 +77,8 @@ class DentalController extends Controller
     public function edit(Dental $dental)
     {
         //
+        $user = Auth::user();
+        return view('backend.dental.edit',compact('dental','user',$dental));
     }
 
     /**
@@ -99,5 +102,8 @@ class DentalController extends Controller
     public function destroy(Dental $dental)
     {
         //
+        $dental->delete();
+        return redirect()->route('backend.dental.index')
+            ->with('message','Service deleted successfully');
     }
 }

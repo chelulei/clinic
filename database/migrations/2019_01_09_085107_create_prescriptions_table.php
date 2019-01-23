@@ -27,8 +27,7 @@ class CreatePrescriptionsTable extends Migration
             $table->string('wt')->nullable();
             $table->text('hpi')->nullable();
             $table->text('assessment')->nullable();
-            $table->text('symptoms')->nullable();
-            $table->text('diagnostics')->nullable();
+            $table->text('medication')->nullable();
             $table->text('prescriptions')->nullable();
             $table->timestamps();
         });

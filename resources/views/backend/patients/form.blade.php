@@ -1,8 +1,18 @@
 @csrf
 <div class="row">
-    <div class="col-md-2">
-        <div class="form-group {{ $errors->has('idno') ? 'has-error' : '' }}">
-            {!! Form::label('id no') !!}
+    <div class="col-md-4">
+        <div class="form-group {{ $errors->has('type') ? 'has-error' : ''}}">
+            {!! Form::label('type') !!}
+            {!! Form::text('type', null, ['class' => 'form-control']) !!}
+
+            @if($errors->has('type'))
+                <span class="help-block">{{ $errors->first('type') }}</span>
+            @endif
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group {{ $errors->has('type') ? 'has-error' : ''}}">
+            {!! Form::label('idno','ID NO') !!}
             {!! Form::number('idno', null, ['class' => 'form-control']) !!}
 
             @if($errors->has('idno'))
@@ -10,6 +20,16 @@
             @endif
         </div>
     </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for=""><br></label>
+          <input type="text" name="" id="" class="form-control" disabled>
+          <!-- /# -->
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+<div class="row">
     <div class="col-md-4">
         <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
             {!! Form::label('name') !!}
@@ -21,7 +41,7 @@
         </div>
     </div>
 <!-- /.col-md-4 -->
-    <div class="col-md-2">
+    <div class="col-md-4">
         <div class="form-group {{ $errors->has('age') ? 'has-error' : '' }}">
             {!! Form::label('age') !!}
             {!! Form::text('age', null, ['class' => 'form-control']) !!}
@@ -196,6 +216,15 @@
         </label>
         <br>
       @endforeach
+        <div class="form-group {{ $errors->has('allergies') ? 'has-error' : ''}}">
+            {!! Form::label('allergies') !!}
+            {!! Form::textarea('allergies', null, ['class' => 'form-control','rows' => 2, 'cols' =>5]) !!}
+
+            @if($errors->has('allergies'))
+                <span class="help-block">{{ $errors->first('allergies') }}</span>
+            @endif
+        </div>
+        <!-- /# -->
     </div>
     <!-- /.col-md-6 -->
     <div class="col-md-6">
@@ -210,6 +239,14 @@
         <br>
 
       @endforeach
+        <div class="form-group {{ $errors->has('meds') ? 'has-error' : ''}}">
+            {!! Form::label('meds','Meds Taken') !!}
+            {!! Form::textarea('meds', null, ['class' => 'form-control','rows' => 2, 'cols' =>5]) !!}
+
+            @if($errors->has('meds'))
+                <span class="help-block">{{ $errors->first('meds') }}</span>
+            @endif
+        </div>
     </div>
 </div>
     <!-- /.col-md-6 -->

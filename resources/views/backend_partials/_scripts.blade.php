@@ -67,7 +67,7 @@
 
     $("#datepicker").datetimepicker({
 
-        // useCurrent: false,
+        useCurrent: false,
         format: "L"
     });
     $("#datepick").datetimepicker({

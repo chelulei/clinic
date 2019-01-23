@@ -19,9 +19,14 @@ class Prescription extends Model
               'hpi',
               'assessment',
               'symptoms',
-              'diagnostics',
+              'medication',
               'prescriptions',
     ];
+
+    public function getDateAttribute($value)
+    {
+        return $this->created_at->toFormattedDateString();
+    }
 
 
     public function patient()

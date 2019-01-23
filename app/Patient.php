@@ -9,6 +9,8 @@ class Patient extends Model
     //
     //
     protected $fillable = [
+        'type',
+        'idno',
         'name',
         'age'  ,
         'sex',
@@ -23,11 +25,8 @@ class Patient extends Model
         'name2',
         'contact',
         'address2',
-        'others',
         'allergies',
         'illness',
-        'immune',
-        'others2',
         'medics',
         'hospital'
     ];

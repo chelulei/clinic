@@ -34,8 +34,7 @@ class PrescriptStoreRequest extends FormRequest
             'wt'=> 'nullable',
             'hpi'=> 'nullable',
             'assessment'=> 'nullable',
-            'symptoms'=> 'nullable',
-            'diagnostics'=> 'nullable',
+            'medication'=> 'nullable',
             'prescriptions'=> 'nullable'
     ];
 

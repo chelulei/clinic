@@ -16,12 +16,12 @@
             <td>
 
                 {!! Form::open(['method' => 'DELETE', 'route' => ['backend.appointments.destroy', $appointment->id]]) !!}
-                <a href="{{ route('backend.appointments.edit',$appointment->id)}}" class="btn btn-outline-primary btn-sm">
+                <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('backend.appointments.edit',$appointment->id)}}" class="btn btn-outline-primary btn-sm">
                     <i class="fa fa-edit"></i>
                     <!-- /.fa fa-edit -->
                 </a>
                 <!-- /.btn  btn-default -->
-                <button onclick="return confirm('Are you sure?');" type="submit" class="btn btn-sm btn-outline-danger">
+                <button data-toggle="tooltip" data-placement="top" title="Delete" onclick="return confirm('Are you sure?');" type="submit" class="btn btn-sm btn-outline-danger">
                     <i class="fa fa-times"></i>
                 </button>
 

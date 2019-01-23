@@ -98,15 +98,21 @@
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="{{ route('backend.dental.create')}}">
+                            <a href="{{ route('backend.dental.index')}}">
+                                <i class="fa fa-list" aria-hidden="true"></i>
+                                All Services</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('backend.patients.create')}}">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
                                 Add Patient</a>
                         </li>
                         <li>
-                            <a href="{{ route('backend.dental.index')}}">
+                            <a href="{{ route('backend.dental.create')}}">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
-                                All Services</a>
+                                Add Service</a>
                         </li>
+
                     </ul>
 
                 </li>

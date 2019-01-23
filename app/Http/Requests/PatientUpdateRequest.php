@@ -24,6 +24,8 @@ class PatientUpdateRequest extends FormRequest
     public function rules()
     {
         return [
+            'type'    => 'required',
+            'idno'    => 'required',
             'name' => 'required|string|max:255',
             'age'    => 'required',
             'sex'    => 'required',
@@ -34,15 +36,12 @@ class PatientUpdateRequest extends FormRequest
             'height'    => 'nullable',
             'course'    => 'required',
             'year'    => 'required',
-            'religion'    => 'nullable',
+            'religion'    =>'nullable',
             'name2'    => 'required',
             'contact'    => 'required',
             'address2'    => 'required',
-            'others'    => 'nullable',
             'allergies'    => 'nullable',
             'illness'    => 'nullable',
-            'immune'    => 'nullable',
-            'others2'    => 'nullable',
             'medics'    => 'nullable',
             'hospital'    => 'nullable'
         ];

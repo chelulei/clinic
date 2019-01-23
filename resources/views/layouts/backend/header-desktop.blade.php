@@ -79,20 +79,24 @@
                         </div>
                         <div class="noti__item js-item-menu">
                             <i class="zmdi zmdi-notifications"></i>
-{{--                            <span class="quantity">You have{{/$user->notifications->count()}} New Notifications</span>--}}
+                            @if(auth()->user()->unreadNotifications->count())
+                            <span class="quantity">You have{{auth()->user()->unreadNotifications->count()}} New Notifications</span>
+                            @endif
                             <div class="notifi-dropdown js-dropdown">
                                 <div class="notifi__title">
-                                    {{--<p>{{$user->notifications->count()}}</p>--}}
+                                    @if(auth()->user()->unreadNotifications->count())
+                                    <p>{{auth()->user()->unreadNotifications->count()}}</p>
+                                    @endif
                                 </div>
                                 <div class="notifi__item">
                                     <div class="bg-c1 img-cir img-40">
                                         <i class="zmdi zmdi-email-open"></i>
                                     </div>
                                     <div class="content">
-                                        {{--@foreach ($user->notifications as $notification)--}}
-                                            {{--<p>{{$notification->data['name']}}</p>--}}
-                                            {{--<span class="date">{{$notification->created_at ->toFormattedDateString()}}</span>--}}
-                                        {{--@endforeach--}}
+                                        @foreach (auth()->user()->unreadNotifications as $notification)
+                                            <p>{{$notification->data['name']}}</p>
+                                            <span class="date">{{$notification->created_at ->toFormattedDateString()}}</span>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="notifi__item">

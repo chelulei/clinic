@@ -90,9 +90,10 @@ class PrescriptionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Prescription $prescription)
     {
         //
+        return view('backend.prescriptions.show',compact('prescription',$prescription));
     }
 
     /**
@@ -101,12 +102,11 @@ class PrescriptionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Prescription $prescription)
     {
         //
-        $prescription = prescription::findOrFail($id);
-
-        return view("backend.prescriptions.edit", compact('prescription'));
+        $user = Auth::user();
+        return view('backend.prescriptions.edit',compact('prescription','user',$prescription));
     }
 
     /**

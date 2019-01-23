@@ -5,6 +5,8 @@ use Faker\Generator as Faker;
 $factory->define(App\Patient::class, function (Faker $faker) {
     return [
         //
+        'type'=>$faker->name,
+        'idno'=>$faker->numberBetween(5,10),
         'name'=>$faker->name,
         'age'=>$faker->numberBetween(1,50),
         'sex'=>$faker->name('male'|'female') ,

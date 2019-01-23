@@ -13,8 +13,7 @@ $factory->define(App\Prescription::class, function (Faker $faker) {
             return factory('App\Patient')->create()->id;
         },
         'assessment' => $faker->text,
-        'symptoms' => $faker->text,
-        'diagnostics' => $faker->text,
+        'medication' => $faker->text,
         'prescriptions' => $faker->text,
     ];
 });

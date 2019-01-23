@@ -36,7 +36,7 @@
                             <ul class="nav nav-tabs card-header-tabs">
                                 <li class="nav-item">
                                     <a class="nav-link active" href="#"><i class="zmdi zmdi-format-align-justify"></i>
-                                        LIST OF ROLES</a>
+                                        LIST OF PRESCRIPTIONS</a>
                                 </li>
                             </ul>
                         </div>
