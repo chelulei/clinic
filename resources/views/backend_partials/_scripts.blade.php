@@ -14,7 +14,7 @@
 <script src="{{asset('/backend/vendor/dataTables/buttons.html5.min.js')}}"></script>
 <script src="{{asset('/backend/vendor/dataTables/buttons.print.min.js')}}"></script>
 
-
+<script src="{{asset('/backend/js/sweetalert.min.js')}}"></script>
 <!-- Bootstrap JS-->
 <script src="{{asset('/backend/vendor/bootstrap-4.1/popper.min.js')}}"></script>
 <script src="{{asset('/backend/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
@@ -43,6 +43,32 @@
 
 <script>
 
+    $(document).ready(function(){
+        $( "#confirm_delete" ).submit(function( event ) {
+            event.preventDefault();
+            swal({
+                title: 'Are you sure?',
+                text: "Please click confirm to delete this item",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                confirmButtonClass: 'btn btn-success',
+                cancelButtonClass: 'btn btn-danger',
+                buttonsStyling: true
+            }).then(function() {
+                $("#confirm_delete").off("submit").submit();
+            }, function(dismiss) {
+                // dismiss can be 'cancel', 'overlay',
+                // 'close', and 'timer'
+                if (dismiss === 'cancel') {
+                    swal('Cancelled', 'Delete Cancelled :)', 'error');
+                }
+            })
+        });
+    });
 
     $(document).ready(function() {
         $('#DataTable').DataTable( {

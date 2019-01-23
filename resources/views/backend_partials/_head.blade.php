@@ -37,7 +37,7 @@
 <link href="{{asset('/backend/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
 <link href="{{asset('/backend/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
 <link href="{{asset('/backend/vendor/jasny-bootstrap/css/jasny-bootstrap.css')}}" rel="stylesheet" media="all">
-
+<link href="{{asset('/backend/css/sweetalert.min.css')}}" rel="stylesheet" media="all">
 <!-- Main CSS-->
 <link href="{{asset('/backend/css/theme.css')}}" rel="stylesheet" media="all">
 

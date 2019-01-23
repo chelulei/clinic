@@ -68,3 +68,5 @@ Route::resource('/bookings', 'BookAppointmentController',['as'=>'backend']);
 //Route::get('/notice', [
 //    'uses' => 'BookAppointmentController@store',
 //]);
+
+Route::post('/destroy','UserController@destroy');
