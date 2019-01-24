@@ -5,9 +5,9 @@
         <div class="login-wrap">
             <div class="login-content">
                 <div class="login-logo">
-                    <a href="/">
-                        <img src="/backend/images/icon/logo.png" alt="CoolAdmin">
-                    </a>
+                    {{--<a href="/">--}}
+                        {{--<img src="/backend/images/icon/logo.png" alt="CoolAdmin">--}}
+                    {{--</a>--}}
                 </div>
                 <div class="login-form">
                     <form action="{{ route('login') }}" method="post">

@@ -1,13 +1,13 @@
 @csrf
 <div class="row">
     <div class="col-md-4">
-        <div class="form-group {{ $errors->has('type') ? 'has-error' : ''}}">
-            {!! Form::label('type') !!}
-            {!! Form::text('type', null, ['class' => 'form-control']) !!}
-
-            @if($errors->has('type'))
-                <span class="help-block">{{ $errors->first('type') }}</span>
-            @endif
+        <div class="form-group">
+            <label for="exampleInputEmail1">Type</label>
+            <select name="type"  class="form-control" required="" required="">
+                <option value="">--Select Type---</option>
+                <option value="student" @if ($patient->type == "student")selected="selected" @endif>Student</option>
+                <option value="staff" @if ($patient->type == "staff")selected="selected" @endif>Staff</option>
+            </select>
         </div>
     </div>
     <div class="col-md-4">

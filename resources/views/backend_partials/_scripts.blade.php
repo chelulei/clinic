@@ -81,7 +81,7 @@
 
 
     $('select').select2({
-        theme: "classic"
+        // theme: "classic"
     });
 
     //Remove alert

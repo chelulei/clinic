@@ -7,6 +7,7 @@ use App\Patient;
 use App\Teeth;
 use Illuminate\Http\Request;
 use Auth;
+use DB;
 use App\Http\Requests;
 class DentalController extends Controller
 {
@@ -74,11 +75,24 @@ class DentalController extends Controller
      * @param  \App\Dental  $dental
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dental $dental)
+    public function edit($id)
     {
         //
+        $dental = Dental::findOrFail($id);
+
         $user = Auth::user();
-        return view('backend.dental.edit',compact('dental','user',$dental));
+
+        $teeth = Teeth::pluck('name','name')->all();
+
+        $patient_id = Dental::where('id', '=', $id)
+
+            ->first(['patient_id']);
+
+        $patient = Patient::findOrFail($patient_id )->first();
+
+        $patientTeeth = $patient->teeths->pluck('name','name')->all();
+
+        return view('backend.dental.edit',compact('dental','user','teeth','patientTeeth'));
     }
 
     /**
@@ -88,9 +102,27 @@ class DentalController extends Controller
      * @param  \App\Dental  $dental
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dental $dental)
+    public function update(Requests\DentalUpdateRequest $request, $id)
     {
         //
+
+
+        $dental = Dental::findOrFail($id);
+
+        $patient_id = Dental::where('id', '=', $id)
+
+            ->first(['patient_id']);
+
+        $patient = Patient::findOrFail($patient_id )->first();
+
+        $patient->teeths()->detach($request->teeth);
+
+        $dental->update($request->all());
+
+//        $patient->teeths->()->sync($request->input('teeth'));
+
+
+        return redirect("/dental")->with("message", "Patient was updated successfully!!");
     }
 
     /**
