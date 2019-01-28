@@ -25,10 +25,11 @@ class CreatePrescriptionsTable extends Migration
             $table->string('rr')->nullable();
             $table->string('temp')->nullable();
             $table->string('wt')->nullable();
+            $table->text('complaints')->nullable();
             $table->text('hpi')->nullable();
+            $table->text('examination')->nullable();
             $table->text('assessment')->nullable();
-            $table->text('medication')->nullable();
-            $table->text('prescriptions')->nullable();
+            $table->text('treatment')->nullable();
             $table->timestamps();
         });
     }

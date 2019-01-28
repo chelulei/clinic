@@ -3,17 +3,18 @@
     <div class="col-md-4">
         <div class="form-group">
             <label for="exampleInputEmail1">Type</label>
-            <select name="type"  class="form-control" required="" required="">
+            <select name="type"  class="form-control" id="seeAnotherFieldGroup" required>
                 <option value="">--Select Type---</option>
                 <option value="student" @if ($patient->type == "student")selected="selected" @endif>Student</option>
                 <option value="staff" @if ($patient->type == "staff")selected="selected" @endif>Staff</option>
+                <option value="staff" @if ($patient->type == "guest")selected="selected" @endif>Guest</option>
             </select>
         </div>
     </div>
     <div class="col-md-4">
         <div class="form-group {{ $errors->has('type') ? 'has-error' : ''}}">
             {!! Form::label('idno','ID NO') !!}
-            {!! Form::number('idno', null, ['class' => 'form-control']) !!}
+            {!! Form::number('idno', null, ['class' => 'form-control','id' => 'otherFieldDiv']) !!}
 
             @if($errors->has('idno'))
                 <span class="help-block">{{ $errors->first('idno') }}</span>
@@ -41,10 +42,10 @@
         </div>
     </div>
 <!-- /.col-md-4 -->
-    <div class="col-md-4">
+    <div class="col-md-2">
         <div class="form-group {{ $errors->has('age') ? 'has-error' : '' }}">
             {!! Form::label('age') !!}
-            {!! Form::text('age', null, ['class' => 'form-control']) !!}
+            {!! Form::number('age', null, ['class' => 'form-control']) !!}
 
             @if($errors->has('age'))
                 <span class="help-block">{{ $errors->first('age') }}</span>
@@ -52,7 +53,8 @@
         </div>
     </div>
 <!-- /.col-md-4 -->
-    <div class="col-md-2">
+    <div class="col-md-4">
+        <div  class="form-group{{ $errors->has('sex') ? ' has-error' : '' }}">
          <label for="">Sex</label>
         <br>
            <div class="form-check-inline">
@@ -65,6 +67,12 @@
                    <input type=radio name="sex" value="Female" {{ $patient->sex == 'Female' ? 'checked' : ''}}>Female</option>
                </label>
            </div>
+        @if ($errors->has('sex'))
+            <span class="help-block">
+           <strong>{{ $errors->first('sex') }}</strong>
+           </span>
+        @endif
+      </div>
      </div>
     <div class="col-md-2">
         <div class="form-group {{ $errors->has('status') ? 'has-error' : '' }}">
@@ -85,7 +93,7 @@
     <div class="col-md-4">
         <div class="form-group {{ $errors->has('address') ? 'has-error' : ''}}">
             {!! Form::label('address') !!}
-            {!! Form::textarea('address', null, ['class' => 'form-control','rows' => 2, 'cols' =>5]) !!}
+            {!! Form::textarea('address', null, ['class' => 'form-control','rows' => 3, 'cols' =>5]) !!}
 
             @if($errors->has('address'))
                 <span class="help-block">{{ $errors->first('address') }}</span>
@@ -126,45 +134,42 @@
         </div>
     </div>
 </div>
-<!-- /.row -->
-<div class="row">
-    <div class="col-md-4">
-        <div class="form-group {{ $errors->has('course') ? 'has-error' : ''}}">
+
+<div class="form-group" id="otherFieldGroupDiv">
+    <div class="row">
+        <div class="col-4">
             {!! Form::label('course') !!}
-            {!! Form::text('course', null, ['class' => 'form-control']) !!}
-            @if($errors->has('course'))
-                <span class="help-block">{{ $errors->first('course') }}</span>
-            @endif
+            {!! Form::text('course', null, ['class' => 'form-control','id' => 'otherField1']) !!}
         </div>
-    </div>
-    <!-- /.col-md-4 -->
-    <div class="col-md-4">
-        <div class="form-group">
+        <div class="col-4">
             <label for="exampleInputEmail1">Year Level</label>
-            <select name="year"  class="form-control" required="" required="">
-                <option value="">--Select Year---</option>
-                <option value="1st" @if ($patient->year == "1st")selected="selected" @endif>1st Year</option>
-                <option value="2nd" @if ($patient->year == "2nd")selected="selected" @endif>2nd Year</option>
-                <option value="3rd" @if ($patient->year == "3rd")selected="selected" @endif>3rd Year</option>
-                <option value="4th" @if ($patient->year == "4th")selected="selected" @endif>4th Year</option>
-                <option value="5th" @if ($patient->year == "5th")selected="selected" @endif>5th Year</option>
+            <select name="year"  class="form-control" id="otherField2">
+            <option value="">--Select Year---</option>
+            <option value="1st" @if ($patient->year == "1st")selected="selected" @endif>1st Year</option>
+            <option value="2nd" @if ($patient->year == "2nd")selected="selected" @endif>2nd Year</option>
+            <option value="3rd" @if ($patient->year == "3rd")selected="selected" @endif>3rd Year</option>
+            <option value="4th" @if ($patient->year == "4th")selected="selected" @endif>4th Year</option>
+            <option value="5th" @if ($patient->year == "5th")selected="selected" @endif>5th Year</option>
             </select>
         </div>
-    </div>
-    <!-- /.col-md-4 -->
-    <div class="col-md-4">
-        <div class="form-group {{ $errors->has('religion') ? 'has-error' : '' }}">
+        <div class="col-4">
             {!! Form::label('religion') !!}
             {!! Form::text('religion', null, ['class' => 'form-control']) !!}
-
-            @if($errors->has('religion'))
-                <span class="help-block">{{ $errors->first('religion') }}</span>
-            @endif
         </div>
     </div>
-    <!-- /.col-md-4 -->
 </div>
-<!-- /.row -->
+<div class="form-group" id="staffFieldGroupDiv">
+    <div class="row">
+        <div class="col-6">
+            {!! Form::label('work') !!}
+            {!! Form::text('work', null, ['class' => 'form-control','id' => 'staffField1']) !!}
+        </div>
+        <div class="col-6">
+            {!! Form::label('religion') !!}
+            {!! Form::text('religion', null, ['class' => 'form-control']) !!}
+        </div>
+    </div>
+</div>
 <h5 class="">Person to contact in case of Emergency</h5>
 <hr>
 <div class="row">
@@ -194,7 +199,7 @@
     <div class="col-md-4">
         <div class="form-group {{ $errors->has('address2') ? 'has-error' : ''}}">
             {!! Form::label('address') !!}
-            {!! Form::textarea('address2', null, ['class' => 'form-control','rows' => 1, 'cols' =>5]) !!}
+            {!! Form::textarea('address2', null, ['class' => 'form-control','rows' => 3, 'cols' =>5]) !!}
 
             @if($errors->has('address2'))
                 <span class="help-block">{{ $errors->first('address2') }}</span>
@@ -239,12 +244,12 @@
         <br>
 
       @endforeach
-        <div class="form-group {{ $errors->has('meds') ? 'has-error' : ''}}">
-            {!! Form::label('meds','Meds Taken') !!}
-            {!! Form::textarea('meds', null, ['class' => 'form-control','rows' => 2, 'cols' =>5]) !!}
+        <div class="form-group {{ $errors->has('medics') ? 'has-error' : ''}}">
+            {!! Form::label('medics','Meds Taken') !!}
+            {!! Form::textarea('medics', null, ['class' => 'form-control','rows' => 2, 'cols' =>5]) !!}
 
-            @if($errors->has('meds'))
-                <span class="help-block">{{ $errors->first('meds') }}</span>
+            @if($errors->has('medics'))
+                <span class="help-block">{{ $errors->first('medics') }}</span>
             @endif
         </div>
     </div>

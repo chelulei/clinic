@@ -22,6 +22,7 @@ class Patient extends Model
         'course',
         'year',
         'religion',
+        'work',
         'name2',
         'contact',
         'address2',
@@ -40,11 +41,10 @@ class Patient extends Model
         'password', 'remember_token',
     ];
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
+//    public function getRouteKeyName()
+//    {
+//        return 'slug';
+//    }
 
 
     public function getImageUrlAttribute($value){

@@ -2,9 +2,9 @@
     <thead>
     <tr>
         <th>Action</th>
-        <th>Date</th>
+        <th>DATE</th>
+        <th>ID NO</th>
         <th>Name</th>
-        <th>Assesment</th>
     </tr>
     </thead>
     <tbody>
@@ -14,7 +14,7 @@
 
                 {!! Form::open(['method' => 'DELETE', 'route' => ['backend.prescriptions.destroy', $prescription->id]]) !!}
 
-                <a data-toggle="tooltip" data-placement="top" title="View Details" href="{{ route('backend.prescriptions.show',$prescription->id)}}" class="btn btn-outline-info btn-sm">
+                <a data-toggle="tooltip" data-placement="top" title="View Details" href="{{ route('records',$prescription->patient_id)}}" class="btn btn-outline-info btn-sm">
                     <i class="fa fa-search"></i>
                     <!-- /.fa fa-edit -->
                 </a>
@@ -30,9 +30,13 @@
                 <!-- /.btn bt-danger -->
                 {!! Form::close() !!}
             </td>
-            <td>{{$prescription->date}}</td>
+            <td>
+                <a data-toggle="tooltip" data-placement="top" title="View Details" href="{{ route('backend.prescriptions.show',$prescription->id)}}">
+                {{ $prescription->date}}
+                </a>
+            </td>
+            <td>{{ $prescription->patient->idno}}</td>
             <td>{{ $prescription->patient->name}}</td>
-            <td>{{ str_limit($prescription->assessment, 50)}}</td>
             @endforeach
         </tr>
     </tbody>

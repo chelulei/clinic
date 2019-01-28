@@ -43,45 +43,57 @@
 
 <script>
 
-    $(document).ready(function(){
-        $( "#confirm_delete" ).submit(function( event ) {
-            event.preventDefault();
-            swal({
-                title: 'Are you sure?',
-                text: "Please click confirm to delete this item",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: 'No, cancel!',
-                confirmButtonClass: 'btn btn-success',
-                cancelButtonClass: 'btn btn-danger',
-                buttonsStyling: true
-            }).then(function() {
-                $("#confirm_delete").off("submit").submit();
-            }, function(dismiss) {
-                // dismiss can be 'cancel', 'overlay',
-                // 'close', and 'timer'
-                if (dismiss === 'cancel') {
-                    swal('Cancelled', 'Delete Cancelled :)', 'error');
-                }
-            })
-        });
-    });
-
     $(document).ready(function() {
+
+        $("#seeAnotherFieldGroup").change(function() {
+            if ($(this).val() == "student") {
+                $('#otherFieldGroupDiv').show();
+                $('#otherField1').attr('required','');
+                $('#otherField1').attr('data-error', 'This field is required.');
+                $('#otherField2').attr('required','');
+                $('#otherField2').attr('data-error', 'This field is required.');
+            } else {
+                $('#otherFieldGroupDiv').hide();
+                $('#otherField1').removeAttr('required');
+                $('#otherField1').removeAttr('data-error');
+                $('#otherField2').removeAttr('required');
+                $('#otherField2').removeAttr('data-error');
+            }
+        });
+
+        $("#seeAnotherFieldGroup").trigger("change");
+
+
+        $("#seeAnotherFieldGroup").change(function() {
+
+            if ($(this).val() == "staff" || $(this).val() == "guest") {
+                $('#staffFieldGroupDiv').show();
+                $('#staffField1').attr('required','');
+                $('#staffField1').attr('data-error', 'This field is required.');
+                $('#staffField2').attr('required','');
+                $('#staffField2').attr('data-error', 'This field is required.');
+            } else {
+                $('#staffFieldGroupDiv').hide();
+                $('#staffField1').removeAttr('required');
+                $('#staffField1').removeAttr('data-error');
+                $('#staffField2').removeAttr('required');
+                $('#staffField2').removeAttr('data-error');
+            }
+        });
+
+        $("#seeAnotherFieldGroup").trigger("change");
+
+        
         $('#DataTable').DataTable( {
             dom: 'lBfrtip',
             buttons: [
                 'copy', 'csv', 'excel', 'pdf', 'print'
             ]
         } );
-    } );
 
 
     $('select').select2({
-        // theme: "classic"
+        theme: "classic"
     });
 
     //Remove alert
@@ -93,7 +105,7 @@
 
     $("#datepicker").datetimepicker({
 
-        useCurrent: false,
+        // useCurrent: false,
         format: "L"
     });
     $("#datepick").datetimepicker({
@@ -113,4 +125,7 @@
         format: "LT"
     });
 
+
+
+    });
 </script>

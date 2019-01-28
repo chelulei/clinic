@@ -67,31 +67,46 @@
          </div>
      </div>
      <!-- /.row -->
+<div class="form-group {{ $errors->has('complaints') ? 'has-error' : ''}}">
+    {!! Form::label('complaints') !!}
+    {!! Form::textarea('complaints', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
+    @if($errors->has('complaints'))
+        <span class="help-block">{{ $errors->first('complaints') }}</span>
+    @endif
+</div>
+<div class="form-group {{ $errors->has('hpi') ? 'has-error' : ''}}">
+    {!! Form::label('hpi','HPI/ROS/PE') !!}
+    {!! Form::textarea('hpi', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
+
+    @if($errors->has('hpi'))
+        <span class="help-block">{{ $errors->first('hpi') }}</span>
+    @endif
+</div>
+<div class="form-group {{ $errors->has('examination') ? 'has-error' : ''}}">
+    {!! Form::label('examination','Physical Examination') !!}
+    {!! Form::textarea('examination', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
+
+    @if($errors->has('examination'))
+        <span class="help-block">{{ $errors->first('examination') }}</span>
+    @endif
+</div>
 <div class="form-group {{ $errors->has('assessment') ? 'has-error' : ''}}">
-    {!! Form::label('assessment','Assessment') !!}
+    {!! Form::label('assessment','Assessment / Primary Immunisation') !!}
     {!! Form::textarea('assessment', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
 
     @if($errors->has('assessment'))
         <span class="help-block">{{ $errors->first('assessment') }}</span>
     @endif
 </div>
+<div class="form-group {{ $errors->has('treatment') ? 'has-error' : ''}}">
+    {!! Form::label('treatment') !!}
+    {!! Form::textarea('treatment', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
 
-<div class="form-group {{ $errors->has('medication') ? 'has-error' : ''}}">
-    {!! Form::label('medication','Medication') !!}
-    {!! Form::textarea('medication', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
-    @if($errors->has('medication'))
-        <span class="help-block">{{ $errors->first('medication') }}</span>
+    @if($errors->has('treatment'))
+        <span class="help-block">{{ $errors->first('treatment') }}</span>
     @endif
 </div>
 
-<div class="form-group {{ $errors->has('prescriptions') ? 'has-error' : ''}}">
-    {!! Form::label('prescriptions','Prescriptions') !!}
-    {!! Form::textarea('prescriptions', null, ['class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
-
-    @if($errors->has('prescriptions'))
-        <span class="help-block">{{ $errors->first('prescriptions') }}</span>
-    @endif
-</div>
 <div class="form-group">
     <button type="submit" class="btn btn-outline-primary btn-lg">{{ $prescription->exists ? 'Update' : 'Save' }}</button>
     <a href="{{ route('backend.prescriptions.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>

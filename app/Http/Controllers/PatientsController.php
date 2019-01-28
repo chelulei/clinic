@@ -84,6 +84,11 @@ class PatientsController extends Controller
     public function show(Patient $patient)
     {
         //
+        $histories = History::all();
+        $immunizations = Immunization::all();
+        return view("backend.patients.show",
+            compact('patient','histories','immunizations'));
+
     }
 
     /**

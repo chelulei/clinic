@@ -57,6 +57,12 @@ Route::get('/profile/{user}/edit', [
         'uses' => 'ProfileController@edit',
         'as'   => 'profile-edit'
     ]);
+
+    Route::get('/records/{id}', [
+        'uses' => 'RecordsController@details',
+        'as'   => 'records'
+    ]);
+
 });
 
 Route::get('/doctor', [

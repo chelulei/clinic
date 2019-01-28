@@ -32,10 +32,11 @@ class PrescriptStoreRequest extends FormRequest
             'rr'=> 'nullable',
             'temp'=> 'nullable',
             'wt'=> 'nullable',
+            'complaints'=> 'nullable',
             'hpi'=> 'nullable',
+            'examination'=> 'nullable',
             'assessment'=> 'nullable',
-            'medication'=> 'nullable',
-            'prescriptions'=> 'nullable'
+            'treatment'=> 'nullable'
     ];
 
     }

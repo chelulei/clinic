@@ -1,6 +1,6 @@
 @extends('layouts.backend.main')
 
-@section('title', 'Norsu Clinic | employees index')
+@section('title', 'Norsu Clinic | patients index')
 
 @section('content')
     <div class="breadcrumbs">
@@ -13,8 +13,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" id="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
-                        <a href="{{ route('backend.employees.create') }}"><button class="au-btn au-btn-icon au-btn--blue">
-                                <i class="zmdi zmdi-plus"></i>Add Employee</button></a>
+                        <a href="{{ route('backend.patients.index') }}"><button class="au-btn au-btn-icon au-btn--blue">
+                                <i class="zmdi zmdi-arrow-back"></i>Back To ALL Patients</button></a>
                     </li>
                 </ol>
             </nav>
@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-sm-12">
     @include('backend_partials.messages')
-            @if(! $employees->count())
+            @if(! $patient->count())
                 <div class="alert alert-danger m-2">
                     No Records
                 </div>
@@ -34,24 +34,28 @@
                     <div class="card-header bg-primary">
                         <ul class="nav nav-tabs card-header-tabs">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#"><i class="zmdi zmdi-format-align-justify"></i>
-                                    LIST OF EMPLOYEES</a>
+                                <a class="nav-link active" href="#">
+                                    <i class="zmdi zmdi-format-align-justify"></i>
+                                   PATIENT DETAILS</a>
                             </li>
 
                         </ul>
                     </div>
-                    <div class="card-body">
-    <div class="row">
-        <div class="col-md-12">
-                <!-- DATA TABLE-->
-            <div class="table-responsive m-b-40">
-                @include('backend.employees.table')
-            </div>
-    @endif
-    </div>
-    </div>
-                    </div></div>
+                    <div class="card-body p-4">
+                   <div class="row">
+                       <div class="table-responsive m-b-40">
+                           @include('backend.patients.show-table')
+                       </div>
+                   </div>
+                   <!-- /.row -->
+                    @endif
+                    </div>
+                </div>
     <!-- /.row -->
+            </div> <!-- /.12 -->
+        </div>
+        <!-- /.row -->
+    </div>
 @endsection
 
 

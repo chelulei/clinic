@@ -16,11 +16,11 @@ class Prescription extends Model
               'rr',
               'temp',
               'wt',
+              'complaints',
               'hpi',
+              'examination',
               'assessment',
-              'symptoms',
-              'medication',
-              'prescriptions',
+              'treatment'
     ];
 
     public function getDateAttribute($value)

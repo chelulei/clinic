@@ -25,7 +25,7 @@ class PatientUpdateRequest extends FormRequest
     {
         return [
             'type'    => 'required',
-            'idno'    => 'required',
+            'idno'    => 'nullable',
             'name' => 'required|string|max:255',
             'age'    => 'required',
             'sex'    => 'required',
@@ -36,6 +36,7 @@ class PatientUpdateRequest extends FormRequest
             'height'    => 'nullable',
             'course'    => 'required',
             'year'    => 'required',
+            'work'    =>'nullable',
             'religion'    =>'nullable',
             'name2'    => 'required',
             'contact'    => 'required',

@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Prescription;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -93,7 +91,7 @@ class PrescriptionsController extends Controller
     public function show(Prescription $prescription)
     {
         //
-        return view('backend.prescriptions.show',compact('prescription',$prescription));
+        return view('backend.prescriptions.show',compact('prescription'));
     }
 
     /**

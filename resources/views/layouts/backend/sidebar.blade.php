@@ -15,24 +15,6 @@
                 </li>
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fa fa-suitcase"></i>Employees
-                        <span class="arrow">
-                                    <i class="fas fa-angle-down"></i>
-                                </span>
-                    </a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="{{ route('backend.employees.index') }}">
-                                <i class="fa fa-group"></i>All Employees</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('backend.employees.create') }}">
-                                <i class="fa fa-briefcase"></i>Add Employee</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="has-sub">
-                    <a class="js-arrow" href="#">
                         <i class="fa fa-group"></i>User Management
                         <span class="arrow">
                                     <i class="fas fa-angle-down"></i>
@@ -84,7 +66,14 @@
                                 <i class="fa fa-user-circle" aria-hidden="true"></i>All Patients</a>
                         </li>
                         <li>
-                            <a href="{{ route('backend.prescriptions.index')}}"><i class="fa fa-file-text" aria-hidden="true"></i>Patient Prescription</a>
+                            <a href="{{ route('backend.patients.create')}}">
+                               <i class="fa fa-user-plus" aria-hidden="true"></i></i>Add Patient</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('backend.prescriptions.index')}}"><i class="fa fa-file-text" aria-hidden="true"></i>ALL Patient Prescription</a>
+                        </li>
+                         <li>
+                            <a href="{{ route('backend.prescriptions.create')}}"><i class="fa fa-file-text" aria-hidden="true"></i>Add Prescriptions</a>
                         </li>
                     </ul>
                 </li>
