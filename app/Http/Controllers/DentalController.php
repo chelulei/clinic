@@ -79,20 +79,18 @@ class DentalController extends Controller
     {
         //
         $dental = Dental::findOrFail($id);
-
         $user = Auth::user();
 
-        $teeth = Teeth::pluck('name','name')->all();
-
         $patient_id = Dental::where('id', '=', $id)
-
             ->first(['patient_id']);
 
         $patient = Patient::findOrFail($patient_id )->first();
 
-        $patientTeeth = $patient->teeths->pluck('name','name')->all();
+        $pTeeths = $patient->teeths->pluck('id');
 
-        return view('backend.dental.edit',compact('dental','user','teeth','patientTeeth'));
+        $teeths = Teeth::pluck('name', 'id');
+
+        return view('backend.dental.edit',compact('dental','user','pTeeths','teeths'));
     }
 
     /**
@@ -115,12 +113,9 @@ class DentalController extends Controller
 
         $patient = Patient::findOrFail($patient_id )->first();
 
-        $patient->teeths()->detach($request->teeth);
+        $patient->teeths()->sync($request->input('teeth'));
 
         $dental->update($request->all());
-
-//        $patient->teeths->()->sync($request->input('teeth'));
-
 
         return redirect("/dental")->with("message", "Patient was updated successfully!!");
     }

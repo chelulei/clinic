@@ -25,7 +25,6 @@
                   'id'     => 'dental-form'
 
               ]) !!}
-
                     @include('backend.dental.form2')
 
                     {!! Form::close() !!}

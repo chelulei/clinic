@@ -3,7 +3,7 @@
     <tr>
         <th>Teeth</th>
         <th>Treatment</th>
-        <th>Assesment</th>
+        <th>Notes</th>
     </tr>
     </thead>
     <tbody>

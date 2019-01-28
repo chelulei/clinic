@@ -48,6 +48,10 @@
                                 <i class="fa fa-users" aria-hidden="true"></i>ALL Appointments</a>
                         </li>
                         <li>
+                            <a href="{{ route('backend.appointments.create')}}">
+                                <i class="fa fa-plus" aria-hidden="true"></i>Add Appointment</a>
+                        </li>
+                        <li>
                             <a href="{{ route('backend.events.index')}}"><i class="fa fa-calendar" aria-hidden="true"></i>Events</a>
                         </li>
                     </ul>
@@ -73,7 +77,7 @@
                             <a href="{{ route('backend.prescriptions.index')}}"><i class="fa fa-file-text" aria-hidden="true"></i>ALL Patient Prescription</a>
                         </li>
                          <li>
-                            <a href="{{ route('backend.prescriptions.create')}}"><i class="fa fa-file-text" aria-hidden="true"></i>Add Prescriptions</a>
+                            <a href="{{ route('backend.prescriptions.create')}}"><i class="fa fa-plus" aria-hidden="true"></i>Add Prescriptions</a>
                         </li>
                     </ul>
                 </li>
@@ -90,6 +94,35 @@
                             <a href="{{ route('backend.dental.index')}}">
                                 <i class="fa fa-list" aria-hidden="true"></i>
                                 All Services</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('backend.patients.create')}}">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                Add Patient</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('backend.dental.create')}}">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                Add Service</a>
+                        </li>
+
+                    </ul>
+
+                </li>
+                <li class="has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fas fa-user"></i>
+                        Inventory
+                        <span class="arrow">
+                                    <i class="fas fa-angle-down"></i>
+                                </span>
+
+                    </a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a href="{{ route('inventory.index')}}">
+                                <i class="fa fa-list" aria-hidden="true"></i>
+                                All Items</a>
                         </li>
                         <li>
                             <a href="{{ route('backend.patients.create')}}">

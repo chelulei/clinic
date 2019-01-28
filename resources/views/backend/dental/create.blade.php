@@ -1,6 +1,6 @@
 @extends('layouts.backend.main')
 
-@section('title', 'Clinic | Add new Assessments')
+@section('title', 'Clinic | Add new service')
 
 @section('content')
     <nav aria-label="breadcrumb">
@@ -10,7 +10,7 @@
         </ol>
     </nav>
     <div class="row mb-10">
-    <div class="col-lg-8 offset-2">
+    <div class="col-lg-12">
         @if (count($errors) > 0)
             <div class="alert alert-danger">
                 <strong>Whoops!</strong> There were some problems with your input.<br><br>

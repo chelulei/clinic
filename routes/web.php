@@ -44,7 +44,6 @@ Route::resource('/patients', 'PatientsController',['as'=>'backend']);
 Route::resource('/prescriptions', 'PrescriptionsController',['as'=>'backend']);
 Route::resource('/roles', 'RolesController',['as'=>'backend']);
 Route::resource('/permissions', 'permissionsController',['as'=>'backend']);
-Route::resource('/employees', 'EmployeesController',['as'=>'backend']);
 Route::resource('/appointments', 'AppointmentsController',['as'=>'backend']);
 Route::resource('/events', 'EventController',['as'=>'backend']);
 Route::resource('/slots', 'TimeslotController',['as'=>'backend']);
@@ -76,3 +75,6 @@ Route::resource('/bookings', 'BookAppointmentController',['as'=>'backend']);
 //]);
 
 Route::post('/destroy','UserController@destroy');
+
+Route::get('inventory', 'InventoryController@index')->name('inventory.index');
+Route::get('inventory/data', 'InventoryController@data')->name('inventory.data');

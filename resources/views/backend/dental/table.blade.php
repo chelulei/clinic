@@ -5,7 +5,7 @@
         <th>ID NO</th>
         <th>Name</th>
         <th>Teeth</th>
-        <th>Assesment</th>
+        <th>Notes</th>
     </tr>
     </thead>
     <tbody>

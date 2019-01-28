@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
+
         $this->call([
 
             UsersTableSeeder::class,
@@ -20,12 +21,11 @@ class DatabaseSeeder extends Seeder
             AppointmentTableSeeder::class,
             RolesTableSeeder::class,
             PermissionTableSeeder::class,
-            EmployeeTableSeeder::class,
             HistoryTableSeeder::class,
             ImmunizationTableSeeder::class,
             TeethTableSeeder::class,
 //        AddDummyEvent::class
         ]);
-
+        factory (App\Inventory::class, 50)->create();
     }
 }

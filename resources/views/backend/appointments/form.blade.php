@@ -8,7 +8,7 @@
     </div>
     <div class="form-group">
         <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-            {!! Form::label('title','Description') !!}
+            {!! Form::label('title','Notes') !!}
             {!! Form::textarea('title', null, ['class' => 'form-control','form-control','rows' => 4, 'cols' =>5]) !!}
 
             @if($errors->has('title'))

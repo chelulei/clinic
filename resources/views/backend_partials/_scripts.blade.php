@@ -45,6 +45,18 @@
 
     $(document).ready(function() {
 
+        $('#inventory_table').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": "{{ route('inventory.data') }}",
+            "columns":[
+                { "data": "name" },
+                { "data": "quantity" },
+                { "data": "body" }
+            ]
+        });
+
+
         $("#seeAnotherFieldGroup").change(function() {
             if ($(this).val() == "student") {
                 $('#otherFieldGroupDiv').show();

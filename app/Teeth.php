@@ -17,5 +17,4 @@ class Teeth extends Model
     }
 
 
-
 }
