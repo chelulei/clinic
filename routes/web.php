@@ -50,6 +50,8 @@ Route::resource('/slots', 'TimeslotController',['as'=>'backend']);
 Route::resource('/users', 'UsersController',['as'=>'backend']);
 Route::resource('/account', 'AccountController',['as'=>'backend']);
 Route::resource('/dental', 'DentalController',['as'=>'backend']);
+Route::resource('/inventories', 'InventoryController',['as'=>'backend']);
+Route::resource('/medicines', 'MedicineController',['as'=>'backend']);
 
 Route::put('/profile/{user}', 'ProfileController@update')->name('profile.update');
 Route::get('/profile/{user}/edit', [
@@ -76,5 +78,4 @@ Route::resource('/bookings', 'BookAppointmentController',['as'=>'backend']);
 
 Route::post('/destroy','UserController@destroy');
 
-Route::get('inventory', 'InventoryController@index')->name('inventory.index');
-Route::get('inventory/data', 'InventoryController@data')->name('inventory.data');
+

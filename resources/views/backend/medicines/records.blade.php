@@ -1,6 +1,6 @@
 @extends('layouts.backend.main')
 
-@section('title', 'Norsu Clinic | inventories index')
+@section('title', 'Norsu Clinic | prescriptions show')
 
 @section('content')
     <div class="breadcrumbs">
@@ -13,8 +13,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" id="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
-                        <a href="{{ route('backend.inventories.create') }}"><button class="au-btn au-btn-icon au-btn--blue">
-                                <i class="zmdi zmdi-plus"></i>Add Item</button></a>
+                        <a href="{{ route('backend.prescriptions.index') }}"><button class="au-btn au-btn-icon au-btn--blue">
+                                <i class="fa fa-arrow-left"></i>BACK</button></a>
                     </li>
                 </ol>
             </nav>
@@ -23,33 +23,26 @@
     <div class="content mt-3">
         <div class="row">
             <div class="col-sm-12">
-                @include('backend_partials.messages')
-                @if(! $inventories->count())
-                    <div class="alert alert-danger m-2">
-                        No Records
-                    </div>
-                    <!-- /.alert alert-danger -->
-                @else
                     <div class="card">
                         <div class="card-header bg-primary">
                             <ul class="nav nav-tabs card-header-tabs">
                                 <li class="nav-item">
                                     <a class="nav-link active" href="#"><i class="zmdi zmdi-format-align-justify"></i>
-                                        LIST OF ITEMS</a>
-                                </li>
+                                              DETAILS OF  <h3>{{$patient->name}}</h3>
 
+                                    </a>
+                                </li>
                             </ul>
                         </div>
-                        <div class="card-body p-4">
-                            <!-- DATA TABLE-->
-                            <div class="table-responsive m-b-40">
-                                @include('backend.inventory.table')
-                            </div>
-                            @endif
+                        <div class="card-body P4">
+            <div class="table-responsive m-b-40">
+                @include('backend.prescriptions.records-table')
 
+            </div>
                         </div>
                     </div>
-                    <!-- /.row -->
+
+
             </div> <!-- /.12 -->
         </div>
         <!-- /.row -->

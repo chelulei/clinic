@@ -14660,3 +14660,37 @@ section {
     background: #fff;
     text-transform: capitalize;
 }
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu> a:after {
+    content: ">";
+    float: right;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu:hover>.dropdown-menu .dropdown-item {
+    color: white;
+    background-color: #1d4bbb;
+}
+
+.dropdown .dropdown-menu a{color: #000; text-decoration: none;}
+
+.dropdown-menu a:hover
+{
+    color: #fff;
+    background-color: #0d44b9;
+    border-color: #fff;
+}

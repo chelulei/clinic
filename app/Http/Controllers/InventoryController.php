@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Inventory;
 use Illuminate\Http\Request;
-use Datatables;
+use App\Http\Requests;
+use Auth;
 class InventoryController extends Controller
 {
     /**
@@ -15,24 +16,21 @@ class InventoryController extends Controller
     public function index()
     {
         //
-        return view('backend.inventory.index');
+        $inventories= Inventory::all();
+        return view('backend.inventory.index',compact('inventories'));
     }
 
-    public function data()
-    {
-        $items = Inventory::select('name', 'quantity','body');
-
-        return Datatables::of($items)->make(true);
-    }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Inventory $inventory)
     {
         //
+        $user = Auth::user();
+        return view('backend.inventory.create',compact('inventory','user'));
     }
 
     /**
@@ -41,9 +39,14 @@ class InventoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\InventoryStoreRequest $request)
     {
         //
+        $data=$request->all();
+
+        Inventory::create($data);
+
+        return redirect("/inventories")->with("message", "New Item created successfully!");
     }
 
     /**
@@ -55,6 +58,7 @@ class InventoryController extends Controller
     public function show(Inventory $inventory)
     {
         //
+        return view('backend.inventories.show',compact('inventory'));
     }
 
     /**
@@ -66,6 +70,7 @@ class InventoryController extends Controller
     public function edit(Inventory $inventory)
     {
         //
+        return view('backend.inventory.edit',compact('inventory'));
     }
 
     /**
@@ -75,9 +80,12 @@ class InventoryController extends Controller
      * @param  \App\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Inventory $inventory)
+    public function update(Requests\InventoryStoreRequest $request, Inventory $inventory)
     {
         //
+        $inventory->update($request->all());
+        return redirect("/inventories")
+            ->with("message", "Item  Updated successfully!!");
     }
 
     /**
@@ -88,6 +96,8 @@ class InventoryController extends Controller
      */
     public function destroy(Inventory $inventory)
     {
-        //
+        $inventory->delete();
+        return redirect("/inventories")
+            ->with('message','Item deleted successfully');
     }
 }

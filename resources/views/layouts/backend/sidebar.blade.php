@@ -120,19 +120,14 @@
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="{{ route('inventory.index')}}">
+                            <a href="{{ route('backend.inventories.index')}}">
                                 <i class="fa fa-list" aria-hidden="true"></i>
                                 All Items</a>
                         </li>
                         <li>
-                            <a href="{{ route('backend.patients.create')}}">
+                            <a href="{{ route('backend.inventories.create')}}">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
-                                Add Patient</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('backend.dental.create')}}">
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                                Add Service</a>
+                                Add Item</a>
                         </li>
 
                     </ul>

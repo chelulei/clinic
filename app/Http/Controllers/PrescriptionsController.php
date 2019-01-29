@@ -51,7 +51,7 @@ class PrescriptionsController extends Controller
         //
 
         $data= $this->handleRequest($request);
-        prescription::create($data);
+        Prescription::create($data);
 
         return redirect("/prescriptions")->with("message", "New prescription created successfully!");
     }

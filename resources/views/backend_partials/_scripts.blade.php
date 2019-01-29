@@ -45,17 +45,6 @@
 
     $(document).ready(function() {
 
-        $('#inventory_table').DataTable({
-            "processing": true,
-            "serverSide": true,
-            "ajax": "{{ route('inventory.data') }}",
-            "columns":[
-                { "data": "name" },
-                { "data": "quantity" },
-                { "data": "body" }
-            ]
-        });
-
 
         $("#seeAnotherFieldGroup").change(function() {
             if ($(this).val() == "student") {
@@ -137,7 +126,15 @@
         format: "LT"
     });
 
-
+        $(".btn-group, .dropdown").hover(
+            function () {
+                $('>.dropdown-menu', this).stop(true, true).fadeIn("fast");
+                $(this).addClass('open');
+            },
+            function () {
+                $('>.dropdown-menu', this).stop(true, true).fadeOut("fast");
+                $(this).removeClass('open');
+            });
 
     });
 </script>
