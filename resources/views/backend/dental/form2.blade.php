@@ -9,7 +9,7 @@
     {{ Form::hidden('user_id', $user->id) }}
 </div>
 
-<div class="form-group {{ $errors->has('contact') ? 'has-error' : '' }}">
+<div class="form-group {{ $errors->has('teeth') ? 'has-error' : '' }}">
     {!! Form::label('teeth','Teeth*') !!}
     {{ Form::select('teeth[]', $teeths, $pTeeths, ['id' => 'teeth', 'multiple' => 'multiple']) }}
     @if($errors->has('teeth'))

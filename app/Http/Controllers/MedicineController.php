@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Medicine;
 use Illuminate\Http\Request;
-
+use App\Inventory;
+use Auth;
 class MedicineController extends Controller
 {
     /**
@@ -25,6 +26,9 @@ class MedicineController extends Controller
     public function create()
     {
         //
+        $user = Auth::user();
+        $medicines = Inventory::pluck('name', 'id');
+        return view('backend.medicines.create',compact('user','medicines'));
     }
 
     /**

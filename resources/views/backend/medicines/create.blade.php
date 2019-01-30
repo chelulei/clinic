@@ -10,20 +10,20 @@
         </ol>
     </nav>
     <div class="row mb-10">
-    <div class="col-lg-12">
+    <div class="col-lg-8 offset-2">
         <div class="card">
             <div class="card-header">
                 <strong>Add Prescriptions</strong>
             </div>
             <div class="card-body card-block">
-                {!! Form::model($prescription, [
+                {!! Form::model( [
                     'method' => 'POST',
                     'route'  => 'backend.prescriptions.store',
                     'files'  => TRUE,
                     'id'     => 'user-form'
                 ]) !!}
                 @csrf
-                @include('backend.prescriptions.form')
+                @include('backend.medicines.form')
 
                 {!! Form::close() !!}
             </div>
