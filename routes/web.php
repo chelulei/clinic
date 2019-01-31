@@ -52,6 +52,7 @@ Route::resource('/account', 'AccountController',['as'=>'backend']);
 Route::resource('/dental', 'DentalController',['as'=>'backend']);
 Route::resource('/inventories', 'InventoryController',['as'=>'backend']);
 Route::resource('/medicines', 'MedicineController',['as'=>'backend']);
+//Route::get('MedicineController@create')->name('medicines.create');->except('create')
 
 Route::put('/profile/{user}', 'ProfileController@update')->name('profile.update');
 Route::get('/profile/{user}/edit', [

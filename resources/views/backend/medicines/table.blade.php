@@ -3,22 +3,23 @@
     <tr>
         <th>Action</th>
         <th>DATE</th>
-        <th>ID NO</th>
-        <th>Name</th>
+        <th>Patient Name</th>
+        <th>Medicine</th>
+        <th>Quantity</th>
     </tr>
     </thead>
     <tbody>
-    @foreach($prescriptions as $prescription)
+    @foreach($medicines as $medicine)
         <tr>
             <td width="120">
 
-                {!! Form::open(['method' => 'DELETE', 'route' => ['backend.prescriptions.destroy', $prescription->id]]) !!}
+                {!! Form::open(['method' => 'DELETE', 'route' => ['backend.medicines.destroy', $medicine->id]]) !!}
 
-                <a data-toggle="tooltip" data-placement="top" title="View Details" href="{{ route('records',$prescription->patient_id)}}" class="btn btn-outline-info btn-sm">
+                <a data-toggle="tooltip" data-placement="top" title="View Details" href="{{ route('records',$medicine->patient_id)}}" class="btn btn-outline-info btn-sm">
                     <i class="fa fa-search"></i>
                     <!-- /.fa fa-edit -->
                 </a>
-                <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('backend.prescriptions.edit',$prescription->id)}}" class="btn btn-outline-primary btn-sm">
+                <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('backend.medicines.edit',$medicine->id)}}" class="btn btn-outline-primary btn-sm">
                     <i class="fa fa-edit"></i>
                     <!-- /.fa fa-edit -->
                 </a>
@@ -31,12 +32,11 @@
                 {!! Form::close() !!}
             </td>
             <td>
-                <a data-toggle="tooltip" data-placement="top" title="View Details" href="{{ route('backend.prescriptions.show',$prescription->id)}}">
-                {{ $prescription->date}}
-                </a>
+                {{ $medicine->date}}
             </td>
-            <td>{{ $prescription->patient->idno}}</td>
-            <td>{{ $prescription->patient->name}}</td>
+            <td>{{ $medicine->patient->name}}</td>
+            <td>{{ $medicine->getMedicineName($medicine->med_id)}}</td>
+            <td>{{ $medicine->quantity}}</td>
             @endforeach
         </tr>
     </tbody>

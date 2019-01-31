@@ -129,7 +129,11 @@
                                 <i class="fa fa-plus" aria-hidden="true"></i>
                                 Add Item</a>
                         </li>
-
+                        <li>
+                            <a href="{{ route('backend.medicines.index')}}">
+                                <i class="fa fa-history" aria-hidden="true"></i>
+                                Medical History</a>
+                        </li>
                     </ul>
 
                 </li>

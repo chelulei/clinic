@@ -6,7 +6,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/home">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('backend.prescriptions.index') }}">All Prescriptions</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('backend.medicines.index') }}">All Prescriptions</a></li>
         </ol>
     </nav>
     <div class="row mb-10">
@@ -17,16 +17,16 @@
                     <small> Form</small>
                 </div>
                 <div class="card-body card-block">
-                    {!! Form::model($prescription, [
+                    {!! Form::model($medicine, [
 
                   'method' => 'PUT',
-                  'route'  => ['backend.prescriptions.update', $prescription->id],
+                  'route'  => ['backend.medicines.update', $medicine->id],
                   'files'  => TRUE,
                   'id'     => 'prescription-form'
 
               ]) !!}
 
-                    @include('backend.prescriptions.form')
+                    @include('backend.medicines.form')
 
                     {!! Form::close() !!}
                 </div>

@@ -80,7 +80,15 @@ class Patient extends Model
     {
         return $this->hasMany(Dental::class);
     }
+    public function inventories()
+    {
+        return $this->hasMany(Inventory::class);
+    }
 
+    public function medicines()
+    {
+        return $this->hasMany(Medicine::class);
+    }
 
     public function teeths()
     {

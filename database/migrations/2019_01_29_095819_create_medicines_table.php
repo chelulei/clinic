@@ -16,12 +16,13 @@ class CreateMedicinesTable extends Migration
         Schema::create('medicines', function (Blueprint $table) {
 
             $table->increments('id');
-            $table->unsignedInteger('patient_id')->unsigned()->nullable();
+            $table->unsignedInteger('user_id')->unsigned();
+            $table->unsignedInteger('patient_id')->unsigned();
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('restrict');
-            $table->unsignedInteger('med_id')->unsigned()->nullable();
-            $table->foreign('med_id')->references('id')->on('inventories')->onDelete('restrict');
+            $table->unsignedInteger('med_id')->unsigned();
             $table->string('quantity');
             $table->timestamps();
+
         });
     }
 

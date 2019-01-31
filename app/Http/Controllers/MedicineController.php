@@ -16,6 +16,8 @@ class MedicineController extends Controller
     public function index()
     {
         //
+        $medicines= Medicine::with('patient')->get();
+        return view('backend.medicines.index',compact('medicines'));
     }
 
     /**
@@ -23,12 +25,12 @@ class MedicineController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Medicine $medicine)
     {
         //
         $user = Auth::user();
-        $medicines = Inventory::pluck('name', 'id');
-        return view('backend.medicines.create',compact('user','medicines'));
+
+        return view('backend.medicines.create',compact('user','medicine'));
     }
 
     /**
@@ -40,6 +42,15 @@ class MedicineController extends Controller
     public function store(Request $request)
     {
         //
+
+          Medicine::create($request->validate([
+                'user_id' =>'required',
+                'patient_id' =>'required',
+                'med_id' =>'required',
+                'quantity' =>'required',
+
+        ]));
+        return redirect("/medicines")->with("message", "Record Saved successfully");
     }
 
     /**
@@ -62,6 +73,8 @@ class MedicineController extends Controller
     public function edit(Medicine $medicine)
     {
         //
+        $user = Auth::user();
+        return view('backend.medicines.edit',compact('medicine','user'));
     }
 
     /**
@@ -73,7 +86,16 @@ class MedicineController extends Controller
      */
     public function update(Request $request, Medicine $medicine)
     {
-        //
+        $request->validate([
+            'user_id' =>'required',
+            'patient_id' =>'required',
+            'med_id' =>'required',
+            'quantity' =>'required',
+        ]);
+
+        $medicine->update($request->all());
+
+        return redirect("/medicines")->with("message", "Record Updated successfully");
     }
 
     /**
@@ -84,6 +106,8 @@ class MedicineController extends Controller
      */
     public function destroy(Medicine $medicine)
     {
-        //
+        $medicine->delete();
+        return redirect()->route('backend.dental.index')
+            ->with('message','Record deleted successfully');
     }
 }

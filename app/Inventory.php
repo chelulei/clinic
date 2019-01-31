@@ -8,4 +8,12 @@ class Inventory extends Model
 {
     //
     protected $fillable=['name','quantity','body'];
+
+
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class);
+    }
+
+
 }

@@ -13,8 +13,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" id="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
-                        <a href="{{ route('backend.prescriptions.create') }}"><button class="au-btn au-btn-icon au-btn--blue">
-                                <i class="zmdi zmdi-plus"></i>Add Prescriptions</button></a>
+                        <a href="{{ route('backend.medicines.create') }}"><button class="au-btn au-btn-icon au-btn--blue">
+                                <i class="zmdi zmdi-plus"></i>Give Medicine</button></a>
                     </li>
                 </ol>
             </nav>
@@ -25,7 +25,7 @@
             <div class="col-sm-12">
 
     @include('backend_partials.messages')
-            @if(! $prescriptions->count())
+            @if(! $medicines->count())
                 <div class="alert alert-danger m-2">
                     No Records
                 </div>
@@ -36,14 +36,14 @@
                             <ul class="nav nav-tabs card-header-tabs">
                                 <li class="nav-item">
                                     <a class="nav-link active" href="#"><i class="zmdi zmdi-format-align-justify"></i>
-                                        LIST OF PRESCRIPTIONS</a>
+                                        Medicine Records</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="card-body P4">
                 <!-- DATA TABLE-->
             <div class="table-responsive m-b-40">
-                @include('backend.prescriptions.table')
+                @include('backend.medicines.table')
             </div>
     @endif
                         </div>

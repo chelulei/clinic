@@ -30,7 +30,7 @@
                 <!-- /.btn bt-danger -->
                 {!! Form::close() !!}
             </td>
-            <td>888888888888</td>
+            <td>{{$dental->patient->idno}}</td>
             <td>{{$dental->patient->name}}</td>
             <td>
                 @foreach($dental->patient->teeths as $teeth)

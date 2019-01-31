@@ -16,9 +16,9 @@
                 <strong>Add Prescriptions</strong>
             </div>
             <div class="card-body card-block">
-                {!! Form::model( [
+                {!! Form::model( $medicine,[
                     'method' => 'POST',
-                    'route'  => 'backend.prescriptions.store',
+                    'route'  => 'backend.medicines.store',
                     'files'  => TRUE,
                     'id'     => 'user-form'
                 ]) !!}
