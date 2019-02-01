@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             AppointmentTableSeeder::class,
             RolesTableSeeder::class,
             PermissionTableSeeder::class,
+            SuperadminPermissionSeeder::class,
             HistoryTableSeeder::class,
             ImmunizationTableSeeder::class,
             TeethTableSeeder::class,

@@ -12,7 +12,10 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(App\User::class, 10)->create();
+
+        factory(App\User::class, 10)->create()->each(function ($user) {
+            $user->prescriptions()->save(factory(App\Prescription::class)->make());
+        });
 
     }
 }
