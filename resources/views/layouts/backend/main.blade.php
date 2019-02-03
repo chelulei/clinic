@@ -39,6 +39,16 @@
 </div>
 @include('backend_partials._scripts')
 @yield('script')
+
+<!-- ckeditor-->
+<script src="{{asset('/backend/vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
+<script>
+    CKEDITOR.replace( 'article-ckeditor' );
+    CKEDITOR.replace( 'article-ckeditor1' );
+    CKEDITOR.replace( 'article-ckeditor2' );
+    CKEDITOR.replace( 'article-ckeditor3' );
+    CKEDITOR.replace( 'article-ckeditor4' );
+</script>
 </body>
 </html>
 <!-- end document-->

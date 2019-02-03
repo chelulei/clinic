@@ -4,22 +4,20 @@
             {{--<img src="/backend/images/icon/logo.png" alt="Cool Admin" />--}}
         {{--</a>--}}
     </div>
+
+
     <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar2">
             <ul class="list-unstyled navbar__list">
-                <li class="active has-sub">
-                    <a class="js-arrow" href="/home">
-                        <i class="fas fa-tachometer-alt"></i>Dashboard
-
-                    </a>
-                </li>
                 <li class="has-sub">
+                    @role('doctor|dentists|superadmin')
                     <a class="js-arrow" href="#">
                         <i class="fa fa-group"></i>User Management
                         <span class="arrow">
                                     <i class="fas fa-angle-down"></i>
                                 </span>
                     </a>
+                    @endrole
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
                             <a href="{{ route('backend.users.index') }}">
@@ -36,12 +34,14 @@
                     </ul>
                 </li>
                 <li class="has-sub">
+                    @role('doctor|dentists|superadmin')
                     <a class="js-arrow" href="#">
                         <i class="fa fa-pencil-square-o"></i>Appointments
                         <span class="arrow">
                                     <i class="fas fa-angle-down"></i>
                                 </span>
                     </a>
+                    @endrole
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
                             <a href="{{ route('backend.appointments.index')}}">
@@ -82,6 +82,7 @@
                     </ul>
                 </li>
                 <li class="has-sub">
+                    @role('dentists|doctor|superadmin')
                     <a class="js-arrow" href="#">
                         <i class="fas fa-user"></i>Dental Management
                         <span class="arrow">
@@ -89,6 +90,7 @@
                                 </span>
 
                     </a>
+                    @endrole
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
                             <a href="{{ route('backend.dental.index')}}">
@@ -122,12 +124,17 @@
                         <li>
                             <a href="{{ route('backend.inventories.index')}}">
                                 <i class="fa fa-list" aria-hidden="true"></i>
-                                All Items</a>
+                                All Medicines</a>
                         </li>
                         <li>
                             <a href="{{ route('backend.inventories.create')}}">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
-                                Add Item</a>
+                                Add Medicine</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('backend.medicines.create')}}">
+                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                Give Medicine</a>
                         </li>
                         <li>
                             <a href="{{ route('backend.medicines.index')}}">
@@ -137,23 +144,23 @@
                     </ul>
 
                 </li>
-                <li class="has-sub">
-                    <a class="js-arrow" href="#">
-                        <i class="fas fa-th-list"></i>Reports</a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="{{ route('backend.users.index') }}">
-                                <i class="fa fa-group"></i>Doctors</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('backend.patients.index') }}">
-                                <i class="fa fa-group"></i>Patients</a>
-                        </li>
-                        <li>
-                            <a href="register.html"> <i class="fa fa-calendar-plus-o"></i>Appointments</a>
-                        </li>
-                    </ul>
-                </li>
+                {{--<li class="has-sub">--}}
+                    {{--<a class="js-arrow" href="#">--}}
+                        {{--<i class="fas fa-th-list"></i>Reports</a>--}}
+                    {{--<ul class="list-unstyled navbar__sub-list js-sub-list">--}}
+                        {{--<li>--}}
+                            {{--<a href="{{ route('backend.users.index') }}">--}}
+                                {{--<i class="fa fa-group"></i>Doctors</a>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<a href="{{ route('backend.patients.index') }}">--}}
+                                {{--<i class="fa fa-group"></i>Patients</a>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<a href="register.html"> <i class="fa fa-calendar-plus-o"></i>Appointments</a>--}}
+                        {{--</li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
 
             </ul>
         </nav>

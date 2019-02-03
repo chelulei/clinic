@@ -8,17 +8,16 @@
     @endif
 </div>
 <div class="form-group">
-    {!! Form::label('med_id', 'Patient', ['class' => 'control-label']) !!}
-    {!! Form::select('med_id',  App\Inventory::pluck('name', 'id'),  old('medicine'), ['class' => 'form-control', 'placeholder' => 'Choose medicine']) !!}
+    {!! Form::label('med_id', 'Medicine*', ['class' => 'control-label']) !!}
+    {!! Form::select('med_id',  App\Patient::pluck('name', 'id'),  old('medicine'), ['class' => 'form-control', 'placeholder' => 'Choose medicine']) !!}
     @if($errors->has('med_id'))
         <span class="help-block">{{ $errors->first('med_id') }}</span>
     @endif
 </div>
 <div class="form-group">
-
     {!! Form::label('quantity') !!}
-    {!! Form::number('quantity', null, ['class' => 'form-control','placeholder'=>'']) !!}
-
+    <input type="number" name="quantity" class="form-control" placeholder="Choose Quantity">
+    {!! Form::number('quantity', null, ['class' => 'form-control']) !!}
     @if($errors->has('quantity'))
         <span class="help-block">{{ $errors->first('quantity') }}</span>
     @endif

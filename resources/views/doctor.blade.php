@@ -14,7 +14,9 @@
                 <div class="row">
                     <div class="col-md-6 col-lg-3">
                         <div class="statistic__item">
-                            <h2 class="number">300</h2>
+                            <h2 class="number">
+                                <div id="patients"></div>
+                            <!-- /#patients --></h2>
                             <span class="desc">Patients</span>
                             <div class="icon">
                                 <i class="zmdi zmdi-accounts-alt"></i>
@@ -23,7 +25,11 @@
                     </div>
                     <div class="col-md-6 col-lg-3">
                         <div class="statistic__item">
-                            <h2 class="number">100</h2>
+                            <h2 class="number">
+                                <div id="appointments">
+                                    <!-- /#appointments -->
+                                </div>
+                            </h2>
                             <span class="desc">Appointments</span>
                             <div class="icon">
                                 <i class="zmdi zmdi-border-color"></i>
@@ -32,7 +38,10 @@
                     </div>
                     <div class="col-md-6 col-lg-3">
                         <div class="statistic__item">
-                            <h2 class="number">1,086</h2>
+                            <h2 class="number">
+                                <div id="events"></div>
+                                <!-- /#events -->
+                            </h2>
                             <span class="desc">Events</span>
                             <div class="icon">
                                 <i class="zmdi zmdi-calendar-note"></i>
@@ -41,7 +50,7 @@
                     </div>
                     <div class="col-md-6 col-lg-3">
                         <div class="statistic__item">
-                            <h2 class="number">100</h2>
+                            <h2 class="number" id="prescriptions"></h2>
                             <span class="desc">Prescriptions</span>
                             <div class="icon">
                                 <i class="zmdi zmdi-file-text"></i>

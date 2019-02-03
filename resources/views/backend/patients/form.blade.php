@@ -1,4 +1,7 @@
 @csrf
+<div class="form-group">
+    {{ Form::hidden('user_id', $user->id) }}
+</div>
 <div class="row">
     <div class="col-md-4">
         <div class="form-group">

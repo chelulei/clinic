@@ -52,7 +52,7 @@ Route::resource('/account', 'AccountController',['as'=>'backend']);
 Route::resource('/dental', 'DentalController',['as'=>'backend']);
 Route::resource('/inventories', 'InventoryController',['as'=>'backend']);
 Route::resource('/medicines', 'MedicineController',['as'=>'backend']);
-//Route::get('MedicineController@create')->name('medicines.create');->except('create')
+
 
 Route::put('/profile/{user}', 'ProfileController@update')->name('profile.update');
 Route::get('/profile/{user}/edit', [
@@ -67,16 +67,21 @@ Route::get('/profile/{user}/edit', [
 
 });
 
-Route::get('/doctor', [
-    'uses' => 'PagesController@doctor',
-    'as'   => 'main'
-]);
-Route::resource('/bookings', 'BookAppointmentController',['as'=>'backend']);
-//
-//Route::get('/notice', [
-//    'uses' => 'BookAppointmentController@store',
-//]);
 
-Route::post('/destroy','UserController@destroy');
+Route::get('/admin', 'PagesController@admin')->name('admin');
+Route::get('/doctor', 'PagesController@doctor')->name('doctor');
+Route::get('/dentists', 'PagesController@dentists')->name('dentists');
+Route::get('/count', 'PagesController@getCount');
+
+Route::any('activate/{id}','ActivateController@activate')->name('activate');
+Route::any('deactivate/{id}','ActivateController@deactivate')->name('deactivate');
+
+Route::resource('/bookings', 'BookAppointmentController',['as'=>'backend']);
+
+Route::get('/notice', [
+    'uses' => 'BookAppointmentController@store',
+]);
+
+
 
 

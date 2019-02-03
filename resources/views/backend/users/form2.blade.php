@@ -1,18 +1,13 @@
 @csrf
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
+<div class="col-sm-8 offset-2">
         <div class="form-group">
             <strong>Name:</strong>
             {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Email:</strong>
             {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group {{ $errors->has('username') ? 'has-error' : '' }}">
             {!! Form::label('username') !!}
             {!! Form::text('username', null, ['class' => 'form-control','placeholder' => 'Username','required' => '']) !!}
@@ -21,19 +16,15 @@
                 <span class="help-block">{{ $errors->first('username') }}</span>
             @endif
         </div>
-    </div>
 
     <div class="form-group {{ $errors->has('slug') ? 'has-error' : '' }}">
         {{ Form::hidden('slug', null, array('id' => 'slug')) }}
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Role:</strong>
             {!! Form::select('roles[]', $roles,$userRole, array('class' => 'form-control','multiple')) !!}
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group {{ $errors->has('image') ? 'has-error' : '' }}">
             {!! Form::label('image') !!}
             <br>
@@ -57,9 +48,8 @@
                 <span class="help-block">{{ $errors->first('image') }}</span>
             @endif
         </div>
-    </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+    <div class="text-center">
         <button type="submit" class="btn btn-outline-primary btn-lg">{{ $user->exists ? 'Update' : 'Save' }}</button>
         <a href="{{ route('backend.users.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>
     </div>

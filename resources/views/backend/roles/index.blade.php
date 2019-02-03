@@ -5,7 +5,23 @@
     <div class="breadcrumbs">
         <div class="page-header float-left pl-2">
             <div class="page-title">
-                <h1 class="bread-head"> <i class="fas fa-tachometer-alt"></i> Dashboard</h1>
+                <h1 class="bread-head">
+                    @role('secretary')
+                    <a href="{{route('home')}}">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                    @endrole
+                    @role('doctor')
+                    <a href="{{route('doctor')}}">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                    @endrole
+                    @role('dentists')
+                    <a href="{{route('dentists')}}">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                    @endrole
+                </h1>
             </div>
         </div>
         <div class="float-right pr-2">

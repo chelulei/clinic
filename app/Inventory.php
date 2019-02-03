@@ -10,9 +10,9 @@ class Inventory extends Model
     protected $fillable=['name','quantity','body'];
 
 
-    public function patient()
+    public function user()
     {
-        return $this->belongsTo(Patient::class);
+        return $this->belongsTo(User::class);
     }
 
 

@@ -1,4 +1,6 @@
 @csrf
+<div class="col-sm-8 offset-2">
+    <!-- /.col-sm-8 -->
     <div class="form-group">
         {!! Form::label('patient_id', 'Patient', ['class' => 'control-label']) !!}
         {!! Form::select('patient_id',  App\Patient::pluck('name', 'id'),  old('patient'), ['class' => 'form-control', 'placeholder' => 'Choose patient']) !!}
@@ -16,7 +18,7 @@
             @endif
         </div>
     </div>
-<input type="hidden" name="user_id" value="{{$user->id}}" >
+    <input type="hidden" name="user_id" value="{{$user->id}}" >
     <div class="form-group">
         <div class="col-xs-12 form-group">
             {!! Form::label('date', 'Date*', ['class' => 'control-label']) !!}
@@ -54,7 +56,9 @@
         </div>
     </div>
     <div class="form-group">
-            <button type="submit" class="btn btn-outline-primary btn-lg">{{ $appointment->exists ? 'Update' : 'Save' }}</button>
-            <a href="{{ route('backend.appointments.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>
+        <button type="submit" class="btn btn-outline-primary btn-lg">{{ $appointment->exists ? 'Update' : 'Save' }}</button>
+        <a href="{{ route('backend.appointments.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>
 
     </div>
+</div>
+

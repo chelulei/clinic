@@ -25,6 +25,7 @@ class PatientStoreRequest extends FormRequest
     {
 
         return [
+            'user_id'    => 'required',
             'type'    => 'required',
             'idno'    => 'nullable',
             'name' => 'required|string|max:255',

@@ -5,10 +5,15 @@
 @section('content')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
+            $role('secretary')
             <li class="breadcrumb-item"><a href="/home">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="#">Patient List</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="#">Appointments</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="#">Calendar</a></li>
+            $endrole
+            $role('doctor')
+            <li class="breadcrumb-item"><a href="/doctor">Home</a></li>
+            $endrole
+            $role('dentists')
+            <li class="breadcrumb-item"><a href="/dentists">Home</a></li>
+            $endrole
         </ol>
     </nav>
 

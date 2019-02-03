@@ -3,23 +3,27 @@
 @section('title', 'Norsu Clinic | inventories index')
 
 @section('content')
-    <div class="breadcrumbs">
-        <div class="page-header float-left pl-2">
-            <div class="page-title">
-                <h1 class="bread-head"> <i class="fas fa-tachometer-alt"></i> Dashboard</h1>
-            </div>
-        </div>
-        <div class="float-right pr-2">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb" id="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">
-                        <a href="{{ route('backend.inventories.create') }}"><button class="au-btn au-btn-icon au-btn--blue">
-                                <i class="zmdi zmdi-plus"></i>Add Item</button></a>
-                    </li>
-                </ol>
-            </nav>
-        </div>
-    </div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            @role('secretary')
+            <li class="breadcrumb-item"> <a href="{{route('home')}}">
+                <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a></li>
+            @endrole
+            @role('doctor')
+            <li class="breadcrumb-item"> <a href="{{route('doctor')}}">
+                <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a></li>
+            @endrole
+            @role('dentists')
+            <li class="breadcrumb-item"> <a href="{{route('dentists')}}">
+                <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a></li>
+            @endrole
+            <li class="breadcrumb-item"><a href="{{ route('backend.medicines.create') }}">Give Medicine</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('backend.inventories.create') }}">Add Medicine</a></li>
+        </ol>
+    </nav>
     <div class="content mt-3">
         <div class="row">
             <div class="col-sm-12">
@@ -35,7 +39,7 @@
                             <ul class="nav nav-tabs card-header-tabs">
                                 <li class="nav-item">
                                     <a class="nav-link active" href="#"><i class="zmdi zmdi-format-align-justify"></i>
-                                        LIST OF ITEMS</a>
+                                        LIST OF MEDICINES</a>
                                 </li>
 
                             </ul>

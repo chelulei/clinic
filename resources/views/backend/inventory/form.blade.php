@@ -1,4 +1,5 @@
 @csrf
+{{ Form::hidden('user_id', $user->id) }}
         <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
             {!! Form::label('name') !!}
             {!! Form::text('name', null, ['class' => 'form-control','placeholder'=>'']) !!}

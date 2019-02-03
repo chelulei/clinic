@@ -23,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','username','slug','email','address','phone','password','image'
+       'name','username','slug','email','address','phone','password','image'
     ];
 
 
@@ -37,6 +37,11 @@ class User extends Authenticatable
     ];
 
     public function getNameAttribute($value)
+    {
+        return ucwords($value);
+    }
+
+    public function getUserNameAttribute($value)
     {
         return ucwords($value);
     }
@@ -93,6 +98,11 @@ class User extends Authenticatable
     public  function slots(){
 
         return $this->hasMany(Timeslot::class);
+    }
+
+    public  function inventories(){
+
+        return $this->hasMany(Inventory::class);
     }
 
 

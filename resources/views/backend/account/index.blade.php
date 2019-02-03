@@ -1,6 +1,6 @@
 @extends('layouts.backend.main')
 
-@section('title', 'Norsu Clinic | employees index')
+@section('title', 'Norsu Clinic | account index')
 @section('css')
 @endsection
 @section('content')

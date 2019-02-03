@@ -29,7 +29,7 @@ class SuperadminPermissionSeeder extends Seeder
 
         //3) Create Admin User
         $user = ['name' => 'superadmin','username' => 'superadmin',
-            'slug' => 'superadmin','email' => 'superadmin@coredev.ph','address' =>300, 'password' => Hash::make('123456')];
+            'slug' => 'superadmin','status' =>1,'email' => 'superadmin@coredev.ph','address' =>300, 'password' => Hash::make('123456')];
         $user = User::create($user);
 
         //4) Set User Role

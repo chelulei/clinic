@@ -5,6 +5,7 @@
         <th>Image</th>
         <th>Name</th>
         <th>Username</th>
+        <th>Satus</th>
         <th>Role</th>
        
     </tr>
@@ -38,9 +39,16 @@
             <td>{{$user->name}}</td>
             <td>{{$user->username}}</td>
             <td>
+                @if($user->status == 1)
+                    <a href="{{route('deactivate',[$user->id])}}" ><span class="badge badge-success">Active</span></a>
+                    @else
+                    <a href="{{route('activate',[$user->id])}}" ><span class="badge badge-danger">Inactive</span></a>
+                    @endif
+            </td>
+            <td>
                 @if(!empty($user->getRoleNames()))
                     @foreach($user->getRoleNames() as $v)
-                        <label class="badge badge-success">{{ $v }}</label>
+                        <label class="badge badge-success">{{ ucwords($v) }}</label>
                     @endforeach
                 @endif
             </td>

@@ -6,6 +6,7 @@ use App\Medicine;
 use Illuminate\Http\Request;
 use App\Inventory;
 use Auth;
+use DB;
 class MedicineController extends Controller
 {
     /**
@@ -26,10 +27,9 @@ class MedicineController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Medicine $medicine)
-    {
-        //
-        $user = Auth::user();
+    {//
 
+        $user = Auth::user();
         return view('backend.medicines.create',compact('user','medicine'));
     }
 

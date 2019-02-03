@@ -14,12 +14,14 @@
 <script src="{{asset('/backend/vendor/dataTables/buttons.html5.min.js')}}"></script>
 <script src="{{asset('/backend/vendor/dataTables/buttons.print.min.js')}}"></script>
 
+
 <script src="{{asset('/backend/js/sweetalert.min.js')}}"></script>
 <!-- Bootstrap JS-->
 <script src="{{asset('/backend/vendor/bootstrap-4.1/popper.min.js')}}"></script>
 <script src="{{asset('/backend/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
 
 
 
@@ -135,6 +137,26 @@
                 $('>.dropdown-menu', this).stop(true, true).fadeOut("fast");
                 $(this).removeClass('open');
             });
+
+
+        /*counter dashboard*/
+        function getCount() {
+            $.ajax({
+                url: "/count",
+                success: function (data) {
+                    $('#patients').text(data.patientCount);
+                    $('#prescriptions').text(data.prescriptionCount);
+                    $('#appointments').text(data.appointmentCount);
+                    $('#events').text(data.eventCountCount);
+                    setTimeout(getCount, 1000);
+                }
+            });
+        }
+
+        getCount();
+
+
+
 
     });
 </script>

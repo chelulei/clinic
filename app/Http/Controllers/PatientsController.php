@@ -4,6 +4,7 @@ use App\Patient;
 use App\History;
 use App\Immunization;
 use App\Http\Requests;
+use Auth;
 class PatientsController extends Controller
 {
 
@@ -29,10 +30,11 @@ class PatientsController extends Controller
     public function create(Patient $patient)
     {
         //
+        $user = Auth::user();
         $histories=History::all();
         $immunizations=Immunization::all();
         return view('backend.patients.create',compact('patient','histories',
-            'immunizations'));
+            'immunizations','user'));
     }
 
     /**

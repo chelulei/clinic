@@ -25,10 +25,7 @@
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ route('backend.inventories.edit',$inventory->id)}}"><i class="fa fa-pencil-square" aria-hidden="true"></i> Update Product</a>
-                        <a class="dropdown-item" href="{{ route('backend.medicines.create') }}"><i class="fa fa-thumbs-up" aria-hidden="true"></i> Give Medicine</a>
                         <a class="dropdown-item" href="{{ route('backend.medicines.index') }}">  <i class="fa fa-info-circle" aria-hidden="true"></i> Medical History</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
                     </div>
                 </div>
             <td>{{$inventory->name}}</td>

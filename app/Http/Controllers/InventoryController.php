@@ -44,7 +44,7 @@ class InventoryController extends Controller
         //
         $data=$request->all();
 
-        Inventory::create($data);
+         $request->user()->create($data);
 
         return redirect("/inventories")->with("message", "New Item created successfully!");
     }

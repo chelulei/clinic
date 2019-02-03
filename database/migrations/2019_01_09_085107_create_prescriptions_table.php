@@ -18,6 +18,7 @@ class CreatePrescriptionsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('patient_id')->unsigned()->nullable();
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('restrict');
+            $table->integer('status')->default(0);
             $table->unsignedInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
             $table->string('bp')->nullable();

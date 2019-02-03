@@ -25,6 +25,7 @@ class InventoryUpdateRequest extends FormRequest
     {
 
         return [
+            'user_id'    => 'required',
             'name'    => 'required',
             'quantity'    => 'nullable',
             'body' => 'required',

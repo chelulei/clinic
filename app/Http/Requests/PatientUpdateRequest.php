@@ -24,6 +24,7 @@ class PatientUpdateRequest extends FormRequest
     public function rules()
     {
         return [
+            'user_id'    => 'required',
             'type'    => 'required',
             'idno'    => 'nullable',
             'name' => 'required|string|max:255',

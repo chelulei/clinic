@@ -22,7 +22,7 @@
                 {!! Form::close() !!}
 
             </td>
-            <td>{{ $role->name }}</td>
+            <td>{{ ucwords($role->name)}}</td>
             <td>{{ str_replace(array('[',']','"'),'', $role->permissions()->pluck('name')) }}<br></td>
         </tr>
     @endforeach

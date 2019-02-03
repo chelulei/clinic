@@ -17,6 +17,22 @@ class PermissionTableSeeder extends Seeder
             'patient-create',
             'patient-edit',
             'patient-delete',
+            'prescriptions-list',
+            'prescriptions-create',
+            'prescriptions-edit',
+            'prescriptions-delete',
+            'appointments-list',
+            'appointments-create',
+            'appointments-edit',
+            'appointments-delete',
+            'inventory-list',
+            'inventory-create',
+            'inventory-edit',
+            'inventory-delete',
+            'users-list',
+            'users-create',
+            'users-edit',
+            'users-delete',
             'Administer roles & permissions'
         ];
 
