@@ -68,7 +68,7 @@
 
                 @endforeach
             </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                <div class="col-xs-12 col-sm-12 col-md-12">
                     <button type="submit" class="btn btn-outline-primary btn-lg">save</button>
                     <a href="{{ route('backend.roles.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cance</a>
                 </div>

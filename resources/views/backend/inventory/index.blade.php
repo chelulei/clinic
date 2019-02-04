@@ -22,6 +22,7 @@
             @endrole
             <li class="breadcrumb-item"><a href="{{ route('backend.medicines.create') }}">Give Medicine</a></li>
             <li class="breadcrumb-item"><a href="{{ route('backend.inventories.create') }}">Add Medicine</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('backend.medicines.index') }}">Medicine History</a></li>
         </ol>
     </nav>
     <div class="content mt-3">

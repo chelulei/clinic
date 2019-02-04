@@ -22,6 +22,8 @@
                         <i class="fas fa-tachometer-alt"></i> Dashboard
                     </a>
                     @endrole
+
+                    <a href="{{ route('backend.inventories.index') }}" class="btn btn-outline-primary ml-2">All Medicines</a>
                 </h1>
             </div>
         </div>

@@ -29,7 +29,7 @@
                 {!! Form::close() !!}
             </td>
             <td>{{$appointment->user->name}}</td>
-            <td>{{$appointment->title}}</td>
+            <td>{!!$appointment->title!!}</td>
             <td>{{$appointment->date}}</td>
             <td>{{$appointment->start_time}}</td>
             <td>{{$appointment->finish_time}}</td>

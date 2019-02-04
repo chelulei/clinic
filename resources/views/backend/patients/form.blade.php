@@ -96,7 +96,7 @@
     <div class="col-md-4">
         <div class="form-group {{ $errors->has('address') ? 'has-error' : ''}}">
             {!! Form::label('address') !!}
-            {!! Form::textarea('address', null, ['class' => 'form-control','rows' => 3, 'cols' =>5]) !!}
+            {!! Form::text('address', null, ['class' => 'form-control','rows' => 3, 'cols' =>5]) !!}
 
             @if($errors->has('address'))
                 <span class="help-block">{{ $errors->first('address') }}</span>
@@ -202,7 +202,7 @@
     <div class="col-md-4">
         <div class="form-group {{ $errors->has('address2') ? 'has-error' : ''}}">
             {!! Form::label('address') !!}
-            {!! Form::textarea('address2', null, ['class' => 'form-control','rows' => 3, 'cols' =>5]) !!}
+            {!! Form::text('address2', null, ['class' => 'form-control','rows' => 3, 'cols' =>5]) !!}
 
             @if($errors->has('address2'))
                 <span class="help-block">{{ $errors->first('address2') }}</span>
@@ -226,7 +226,7 @@
       @endforeach
         <div class="form-group {{ $errors->has('allergies') ? 'has-error' : ''}}">
             {!! Form::label('allergies') !!}
-            {!! Form::textarea('allergies', null, ['class' => 'form-control','rows' => 2, 'cols' =>5]) !!}
+            {!! Form::text('allergies', null, ['class' => 'form-control','rows' => 2, 'cols' =>5]) !!}
 
             @if($errors->has('allergies'))
                 <span class="help-block">{{ $errors->first('allergies') }}</span>
@@ -249,7 +249,7 @@
       @endforeach
         <div class="form-group {{ $errors->has('medics') ? 'has-error' : ''}}">
             {!! Form::label('medics','Meds Taken') !!}
-            {!! Form::textarea('medics', null, ['class' => 'form-control','rows' => 2, 'cols' =>5]) !!}
+            {!! Form::text('medics', null, ['class' => 'form-control','rows' => 2, 'cols' =>5]) !!}
 
             @if($errors->has('medics'))
                 <span class="help-block">{{ $errors->first('medics') }}</span>
@@ -284,7 +284,7 @@
 <!-- /.row -->
     <div class="form-group">
         <button type="submit" class="btn btn-outline-primary btn-lg">{{ $patient->exists ? 'Update' : 'Save' }}</button>
-        <a href="{{ route('backend.patients.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cance</a>
+        <a href="{{ route('backend.patients.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>
     </div>
     <!-- /.form-group -->
 

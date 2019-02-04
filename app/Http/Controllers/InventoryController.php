@@ -70,7 +70,8 @@ class InventoryController extends Controller
     public function edit(Inventory $inventory)
     {
         //
-        return view('backend.inventory.edit',compact('inventory'));
+        $user = Auth::user();
+        return view('backend.inventory.edit',compact('inventory','user'));
     }
 
     /**

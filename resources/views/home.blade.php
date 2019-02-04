@@ -2,10 +2,13 @@
 {{--@section('title', 'Cab | Dashboard')--}}
 @section('content')
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-9">
             <div class="overview-wrap">
                 <h2 class="title-1">overview</h2>
             </div>
+        </div>
+        <div class="col-md-3">
+            <div id="clockbox" class="text-danger text-center  rounded border border-primary"></div>
         </div>
     </div>
     <section class="statistic">

@@ -8,15 +8,13 @@
             <span class="help-block">{{ $errors->first('patient_id') }}</span>
         @endif
     </div>
-    <div class="form-group">
-        <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-            {!! Form::label('title','Notes') !!}
-            {!! Form::textarea('title', null, ['class' => 'form-control','form-control','rows' => 4, 'cols' =>5]) !!}
+    <div class="form-group {{ $errors->has('title') ? 'has-error' : ''}}">
+        {!! Form::label('title','Notes') !!}
+        {!! Form::textarea('title', null, ['id' => 'article-ckeditor5','class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
 
-            @if($errors->has('title'))
-                <span class="help-block">{{ $errors->first('title') }}</span>
-            @endif
-        </div>
+        @if($errors->has('title'))
+            <span class="help-block">{{ $errors->first('title') }}</span>
+        @endif
     </div>
     <input type="hidden" name="user_id" value="{{$user->id}}" >
     <div class="form-group">

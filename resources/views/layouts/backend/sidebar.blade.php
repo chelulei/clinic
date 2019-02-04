@@ -8,6 +8,9 @@
 
     <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar2">
+            <li class="nav-link breadcrumb-item"> <a class="nav-link"  href="{{route('home')}}">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a></li>
             <ul class="list-unstyled navbar__list">
                 <li class="has-sub">
                     @role('doctor|dentists|superadmin')
@@ -165,4 +168,5 @@
             </ul>
         </nav>
     </div>
+
 </aside>

@@ -3,6 +3,11 @@
 <head>
     @include('backend_partials._head')
     @yield('style')
+    <script src="{{asset('/backend/vendor/tinymce/plugin/tinymce/tinymce.min.js')}}"></script>
+    <script>tinymce.init({
+            selector:'textarea',
+            menubar:'false'
+    });</script>
 </head>
 <body class="imsition">
 <div class="page-wrapper">
@@ -22,9 +27,7 @@
         <div class="main-content">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
-
                  @yield('content')
-
                     <div class="row">
                         <div class="col-md-12">
                             @include('backend_partials._footer')
@@ -39,16 +42,6 @@
 </div>
 @include('backend_partials._scripts')
 @yield('script')
-
-<!-- ckeditor-->
-<script src="{{asset('/backend/vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
-<script>
-    CKEDITOR.replace( 'article-ckeditor' );
-    CKEDITOR.replace( 'article-ckeditor1' );
-    CKEDITOR.replace( 'article-ckeditor2' );
-    CKEDITOR.replace( 'article-ckeditor3' );
-    CKEDITOR.replace( 'article-ckeditor4' );
-</script>
 </body>
 </html>
 <!-- end document-->

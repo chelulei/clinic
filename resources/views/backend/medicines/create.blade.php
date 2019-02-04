@@ -18,7 +18,7 @@
         </ol>
     </nav>
     <div class="row mb-10">
-    <div class="col-lg-8 offset-2">
+    <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
                 <strong>Give Medicine</strong>

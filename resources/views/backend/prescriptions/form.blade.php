@@ -69,14 +69,14 @@
      <!-- /.row -->
 <div class="form-group {{ $errors->has('complaints') ? 'has-error' : ''}}">
     {!! Form::label('complaints') !!}
-    {!! Form::textarea('complaints', null, ['id' => 'article-ckeditor','class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
+    {!! Form::textarea('complaints', null, ['class' => 'form-control']) !!}
     @if($errors->has('complaints'))
         <span class="help-block">{{ $errors->first('complaints') }}</span>
     @endif
 </div>
 <div class="form-group {{ $errors->has('hpi') ? 'has-error' : ''}}">
     {!! Form::label('hpi','HPI/ROS/PE') !!}
-    {!! Form::textarea('hpi', null, ['id' => 'article-ckeditor1','class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
+    {!! Form::textarea('hpi', null, ['class' => 'form-control']) !!}
 
     @if($errors->has('hpi'))
         <span class="help-block">{{ $errors->first('hpi') }}</span>
@@ -84,7 +84,7 @@
 </div>
 <div class="form-group {{ $errors->has('examination') ? 'has-error' : ''}}">
     {!! Form::label('examination','Physical Examination') !!}
-    {!! Form::textarea('examination', null, ['id' => 'article-ckeditor2','class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
+    {!! Form::textarea('examination', null, ['class' => 'form-control']) !!}
 
     @if($errors->has('examination'))
         <span class="help-block">{{ $errors->first('examination') }}</span>
@@ -92,7 +92,7 @@
 </div>
 <div class="form-group {{ $errors->has('assessment') ? 'has-error' : ''}}">
     {!! Form::label('assessment','Assessment / Primary Immunisation') !!}
-    {!! Form::textarea('assessment', null, ['id' => 'article-ckeditor3','class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
+    {!! Form::textarea('assessment', null, ['class' => 'form-control']) !!}
 
     @if($errors->has('assessment'))
         <span class="help-block">{{ $errors->first('assessment') }}</span>
@@ -100,7 +100,7 @@
 </div>
 <div class="form-group {{ $errors->has('treatment') ? 'has-error' : ''}}">
     {!! Form::label('treatment') !!}
-    {!! Form::textarea('treatment', null, ['id' => 'article-ckeditor4','class' => 'form-control','rows' => 5, 'cols' =>5]) !!}
+    {!! Form::textarea('treatment', null, ['class' => 'form-control']) !!}
 
     @if($errors->has('treatment'))
         <span class="help-block">{{ $errors->first('treatment') }}</span>

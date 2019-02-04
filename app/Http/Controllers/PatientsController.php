@@ -5,6 +5,7 @@ use App\History;
 use App\Immunization;
 use App\Http\Requests;
 use Auth;
+
 class PatientsController extends Controller
 {
 
@@ -17,7 +18,7 @@ class PatientsController extends Controller
     public function index()
     {
         //
-        $patients= Patient::all();
+        $patients= Patient::orderBy('id', 'desc')->get();
         $patientCount=Patient::count();
         return view('backend.patients.index',compact('patients','patientCount'));
     }
@@ -101,11 +102,12 @@ class PatientsController extends Controller
      */
     public function edit($id)
     {
+        $user = Auth::user();
         $patient = Patient::with('histories','immunizations')->findOrFail($id);
         $histories = History::all();
         $immunizations = Immunization::all();
         return view("backend.patients.edit", 
-            compact('patient','histories','immunizations'));
+            compact('patient','histories','immunizations','user'));
     }
 
     /**

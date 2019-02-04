@@ -3,7 +3,7 @@
     <div class="col-sm-8 offset-2">
         <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
             {!! Form::label('title','Title') !!}
-            {!! Form::textarea('title', null, ['class' => 'form-control','form-control','rows' => 2, 'cols' =>5]) !!}
+            {!! Form::text('title', null, ['class' => 'form-control','form-control','rows' => 2, 'cols' =>5]) !!}
 
             @if($errors->has('title'))
                 <span class="help-block">{{ $errors->first('title') }}</span>

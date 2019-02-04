@@ -78,8 +78,8 @@
             <span class="help-block">{{ $errors->first('image') }}</span>
         @endif
     </div>
+    <div class="form-group">
 
-    <div class="text-center">
         <button type="submit" class="btn btn-outline-primary btn-lg">{{ $user->exists ? 'Update' : 'Save' }}</button>
         <a href="{{ route('backend.users.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>
     </div>

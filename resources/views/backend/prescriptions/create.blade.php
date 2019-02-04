@@ -59,5 +59,11 @@
     </div>
     <br><br>
 @endsection
-
-
+@section('style')
+<style type="text/css" media="print">
+    @media print {
+        @page { margin: 0; }
+        body { margin: 1.6cm; }
+    }
+</style>
+@endsection
