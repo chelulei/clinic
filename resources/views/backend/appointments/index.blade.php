@@ -1,7 +1,6 @@
 @extends('layouts.backend.main')
 
 @section('title', 'Norsu Clinic | Appointments index')
-
 @section('content')
     <div class="breadcrumbs">
         <div class="page-header float-left pl-2">
@@ -27,8 +26,10 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" id="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
-                        <a href="{{ route('backend.appointments.create') }}"><button class="au-btn au-btn-icon au-btn--blue">
+                      <a>
+                            <button class="au-btn au-btn-icon au-btn--blue" data-toggle="modal" data-target="#timeModal">
                                 <i class="zmdi zmdi-plus"></i>Add appointment</button></a>
+
                     </li>
                 </ol>
             </nav>
@@ -68,3 +69,5 @@
         <!-- /.row -->
     </div>
 @endsection
+
+@include('backend.appointments.script')

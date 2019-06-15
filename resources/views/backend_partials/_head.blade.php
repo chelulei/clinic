@@ -16,16 +16,12 @@
 <link href="{{asset('/backend/vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
 
 <!-- dataTables-->
-{{--<link rel="stylesheet" href="{{ asset('/backend/vendor/dataTables/jquery.dataTables.min.css') }}">--}}
+<link rel="stylesheet" href="{{ asset('/backend/vendor/dataTables/jquery.dataTables.min.css') }}">
 <link rel="stylesheet" href="{{ asset('/backend/vendor/dataTables/dataTables.bootstrap4.min.css') }}">
-<link rel="stylesheet" href="{{ asset('/backend/vendor/dataTables/buttons.dataTables.min.css') }}">
-
-
 
 <!-- Bootstrap CSS-->
 <link href="{{asset('/backend/vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
-
+<link href="{{asset('/backend/vendor/datetimepicker/tempusdominus-bootstrap-4.min.css')}}" rel="stylesheet" media="all">
 
 <!-- Vendor CSS-->
 <link href="{{asset('/backend/vendor/animsition/animsition.min.css')}}" rel="stylesheet" media="all">
@@ -41,6 +37,9 @@
 <!-- Main CSS-->
 <link href="{{asset('/backend/css/theme.css')}}" rel="stylesheet" media="all">
 
+{{-- <link href="{{asset('/notification/toastr.min.css')}}" rel="stylesheet" media="all"> --}}
+{{-- <script src="{{asset('/notification/toastr.min.js')}}"></script> --}}
+<!-- notifications-->
 
-<!-- Date Picker-->
+
 

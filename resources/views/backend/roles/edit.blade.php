@@ -30,7 +30,7 @@
                 </div>
                 <div class="card-body card-block">
 
-                    {{ Form::model($role, array('route' => array('backend.roles.update', $role->id), 'method' => 'PUT')) }}
+                    {{ Form::model($role, ['route' =>['backend.roles.update', $role->id], 'method' => 'PUT']) }}
 
                     <div class="form-group">
                         {{ Form::label('name', 'Role Name') }}
@@ -45,7 +45,7 @@
 
                     @endforeach
                     <br>
-                    {{ Form::submit('Edit', array('class' => 'btn btn-outline-primary btn-lg')) }}
+                    {{ Form::submit('UPDATE', ['class' => 'btn btn-primary btn-lg']) }}
 
                     {{ Form::close() }}
                 </div>

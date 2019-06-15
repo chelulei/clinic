@@ -17,12 +17,12 @@ class Medicine extends Model
     }
 
 
-    public function getMedicineName($id){
+    public function MedicineName($id){
 
-         return Inventory::where('id', $id)->pluck('name')->first();
+         return Inventory::where('id', $id)->value('name');
+
 
     }
-
 
     public function getDateAttribute($value)
     {

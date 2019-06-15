@@ -16,11 +16,11 @@ class CreatePatientteethTable extends Migration
             $table->increments('id');
             $table->integer('patient_id')->unsigned()->nullable();
             $table->foreign('patient_id')->references('id')
-                ->on('patients')->onDelete('cascade');
+                ->on('patients')->onDelete('restrict');
 
             $table->integer('teeth_id')->unsigned()->nullable();
             $table->foreign('teeth_id')->references('id')
-                ->on('teeths')->onDelete('cascade');
+                ->on('teeths')->onDelete('restrict');
 
         });
     }

@@ -15,10 +15,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
 
-            UsersTableSeeder::class,
-            PatientsTableSeeder::class,
-            PrescriptionTableSeeder::class,
-            AppointmentTableSeeder::class,
+            // UsersTableSeeder::class,
+            // PatientsTableSeeder::class,
+            // PrescriptionTableSeeder::class,
+            // AppointmentTableSeeder::class,
             RolesTableSeeder::class,
             PermissionTableSeeder::class,
             SuperadminPermissionSeeder::class,
@@ -27,6 +27,6 @@ class DatabaseSeeder extends Seeder
             TeethTableSeeder::class,
 //        AddDummyEvent::class
         ]);
-        factory (App\Inventory::class, 50)->create();
+        // factory (App\Inventory::class, 10)->create();
     }
 }

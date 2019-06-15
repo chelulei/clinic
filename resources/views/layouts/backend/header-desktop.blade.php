@@ -5,124 +5,41 @@
                 <form class="form-header">
                 </form>
                 <div class="header-button">
-                    <div class="noti-wrap">
-                        <div class="noti__item js-item-menu">
-                            <i class="zmdi zmdi-comment-more"></i>
-                            <span class="quantity">1</span>
-                            <div class="mess-dropdown js-dropdown">
-                                <div class="mess__title">
-                                    <p>You have 2 news message</p>
-                                </div>
-                                <div class="mess__item">
-                                    <div class="image img-cir img-40">
-                                        <img src="/backend/images/icon/avatar-06.jpg" alt="Michelle Moreno" />
-                                    </div>
-                                    <div class="content">
-                                        <h6>Michelle Moreno</h6>
-                                        <p>Have sent a photo</p>
-                                        <span class="time">3 min ago</span>
-                                    </div>
-                                </div>
-                                <div class="mess__item">
-                                    <div class="image img-cir img-40">
-                                        <img src="/backend/images/icon/avatar-04.jpg" alt="Diane Myers" />
-                                    </div>
-                                    <div class="content">
-                                        <h6>Diane Myers</h6>
-                                        <p>You are now connected on message</p>
-                                        <span class="time">Yesterday</span>
-                                    </div>
-                                </div>
-                                <div class="mess__footer">
-                                    <a href="#">View all messages</a>
-                                </div>
+             <div class="noti-wrap">
+           <div class="noti__item js-item-menu">
+                    <i class="zmdi zmdi-notifications"></i>
+                     @if(auth()->user()->unreadNotifications->count())
+                    <span class="quantity"> {{auth()->user()->unreadNotifications->count()}}</span>
+                      @endif
+                    <div class="notifi-dropdown js-dropdown">
+                        <div class="notifi__title">
+                              @if(auth()->user()->unreadNotifications->count())
+                            <p class="text-center">You have {{auth()->user()->unreadNotifications->count()}} Notifications</p>
+                            <p class="text-center"><a href="{{url('/markAsRead')}}">Mark All as Read</a></p>
+                              @endif
+
+                        </div>
+                        <div class="notifi__item">
+                            <div class="bg-c1 img-cir img-40">
+                             <i class="zmdi zmdi-email"></i>
+                            </div>
+                            <div class="content">
+                                @forelse(auth()->user()->unreadNotifications as $notification)
+                                <p>{{$notification->data['message']}} by {{$notification->data['name']}} </p>
+                                <span class="date">{{$notification->created_at->toDayDateTimeString()}}</span>
+                                 @empty
+                                    <p>No Notifications</p>
+                                @endforelse
                             </div>
                         </div>
-                        <div class="noti__item js-item-menu">
-                            <i class="zmdi zmdi-email"></i>
-                            <span class="quantity">1</span>
-                            <div class="email-dropdown js-dropdown">
-                                <div class="email__title">
-                                    <p>You have 3 New Emails</p>
-                                </div>
-                                <div class="email__item">
-                                    <div class="image img-cir img-40">
-                                        <img src="/backend/images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
-                                    </div>
-                                    <div class="content">
-                                        <p>Meeting about new dashboard...</p>
-                                        <span>Cynthia Harvey, 3 min ago</span>
-                                    </div>
-                                </div>
-                                <div class="email__item">
-                                    <div class="image img-cir img-40">
-                                        <img src="/backend/images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
-                                    </div>
-                                    <div class="content">
-                                        <p>Meeting about new dashboard...</p>
-                                        <span>Cynthia Harvey, Yesterday</span>
-                                    </div>
-                                </div>
-                                <div class="email__item">
-                                    <div class="image img-cir img-40">
-                                        <img src="/backend/images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
-                                    </div>
-                                    <div class="content">
-                                        <p>Meeting about new dashboard...</p>
-                                        <span>Cynthia Harvey, April 12,,2018</span>
-                                    </div>
-                                </div>
-                                <div class="email__footer">
-                                    <a href="#">See all emails</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="noti__item js-item-menu">
-                            <i class="zmdi zmdi-notifications"></i>
-                            @if(auth()->user()->unreadNotifications->count())
-                            <span class="quantity">You have{{auth()->user()->unreadNotifications->count()}} New Notifications</span>
-                            @endif
-                            <div class="notifi-dropdown js-dropdown">
-                                <div class="notifi__title">
-                                    @if(auth()->user()->unreadNotifications->count())
-                                    <p>{{auth()->user()->unreadNotifications->count()}}</p>
-                                    @endif
-                                </div>
-                                <div class="notifi__item">
-                                    <div class="bg-c1 img-cir img-40">
-                                        <i class="zmdi zmdi-email-open"></i>
-                                    </div>
-                                    <div class="content">
-                                        @foreach (auth()->user()->unreadNotifications as $notification)
-                                            <p>{{$notification->data['name']}}</p>
-                                            <span class="date">{{$notification->created_at ->toFormattedDateString()}}</span>
-                                        @endforeach
-                                    </div>
-                                </div>
-                                <div class="notifi__item">
-                                    <div class="bg-c2 img-cir img-40">
-                                        <i class="zmdi zmdi-account-box"></i>
-                                    </div>
-                                    <div class="content">
-                                        <p>Your account has been blocked</p>
-                                        <span class="date">April 12, 2018 06:50</span>
-                                    </div>
-                                </div>
-                                <div class="notifi__item">
-                                    <div class="bg-c3 img-cir img-40">
-                                        <i class="zmdi zmdi-file-text"></i>
-                                    </div>
-                                    <div class="content">
-                                        <p>You got a new file</p>
-                                        <span class="date">April 12, 2018 06:50</span>
-                                    </div>
-                                </div>
-                                <div class="notifi__footer">
-                                    <a href="#">All notifications</a>
-                                </div>
-                            </div>
+                        <div class="notifi__footer">
+                            <a href="#">All notifications</a>
                         </div>
                     </div>
+                </div>
+
+             </div>
+
                     <div class="account-wrap">
                         <div class="account-item clearfix js-item-menu">
                             <div class="image">
@@ -148,12 +65,12 @@
                                 <div class="account-dropdown__body">
                                     <div class="account-dropdown__item">
                                         <a href="{{route('backend.account.index')}}">
-                                            <i class="zmdi zmdi-account"></i>Account</a>
+                                            <i class="zmdi zmdi-account"></i>Edit Profile</a>
                                     </div>
                                     <?php $user = Auth::user(); ?>
                                     <div class="account-dropdown__item">
                                         <a href="{{ route('profile-edit', ['user' => $user]) }}">
-                                            <i class="zmdi zmdi-settings"></i>Setting</a>
+                                            <i class="zmdi zmdi-settings"></i>Edit Password</a>
                                     </div>
 
                                 </div>
@@ -173,5 +90,8 @@
                 </div>
             </div>
         </div>
+
     </div>
 </header>
+
+

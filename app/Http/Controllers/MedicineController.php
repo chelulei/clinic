@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Inventory;
 use Auth;
 use DB;
+use Session;
 class MedicineController extends Controller
 {
     /**
@@ -17,7 +18,8 @@ class MedicineController extends Controller
     public function index()
     {
         //
-        $medicines= Medicine::with('patient')->get();
+        $medicines= Medicine::with('patient')->latest()->get();
+
         return view('backend.medicines.index',compact('medicines'));
     }
 
@@ -40,17 +42,36 @@ class MedicineController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
 
-          Medicine::create($request->validate([
-                'user_id' =>'required',
+    {
+
+          $this->validate($request, [
                 'patient_id' =>'required',
                 'med_id' =>'required',
                 'quantity' =>'required',
+        ]);
+        //
+     try{
 
-        ]));
-        return redirect("/medicines")->with("message", "Record Saved successfully");
+            $med = new Medicine;
+            $med->user_id = auth()->user()->id;
+            $med->patient_id = $request->input('patient_id');
+            $med->med_id = $request->input('med_id');
+            $med->quantity = $request->input('quantity');
+            $med->save();
+
+            if ( $med->save())
+
+            $quantity = Inventory::findOrFail($request->med_id);
+            $quantity->quantity -= $request->quantity;
+            $quantity->save();
+
+         } catch (\Exception $e) {
+
+            Session::flash('error', 'Some thing is wrong. Please try again');
+
+        }
+        return redirect("/inventories")->with('success', 'Record Saved successfully');
     }
 
     /**
@@ -92,10 +113,17 @@ class MedicineController extends Controller
             'med_id' =>'required',
             'quantity' =>'required',
         ]);
+   try{
 
         $medicine->update($request->all());
 
-        return redirect("/medicines")->with("message", "Record Updated successfully");
+      } catch (\Exception $e) {
+
+           Session::flash('error', 'Some thing is wrong. Please try again');
+
+        }
+
+        return redirect("/medicines")->with('success', 'Record Updated successfully');
     }
 
     /**
@@ -104,10 +132,21 @@ class MedicineController extends Controller
      * @param  \App\Medicine  $medicine
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Medicine $medicine)
+    public function destroy($d)
     {
+        try{
+
+       $medicine = Medicine::FindOrFail($d);
+
         $medicine->delete();
-        return redirect()->route('backend.dental.index')
-            ->with('message','Record deleted successfully');
+
+
+        } catch (\Exception $e) {
+
+            Session::flash('error', 'Some thing is wrong. Please try again');
+
+        }
+        return redirect("/medicines")->with('success', 'Record Updated successfully');
+
     }
 }

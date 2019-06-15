@@ -15,9 +15,9 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
+            $table->unsignedInteger('user_id')->nullable();
             $table->string('type');
+            $table->string('slug')->nullable();
             $table->string('idno')->nullable();
             $table->string('name');
             $table->string('age');
@@ -27,8 +27,8 @@ class CreatePatientsTable extends Migration
             $table->string('date_birth');
             $table->string('weight')->nullable();
             $table->string('height')->nullable();
-            $table->string('course');
-            $table->string('year');
+            $table->string('course')->nullable();;
+            $table->string('year')->nullable();;
             $table->string('religion')->nullable();
             $table->string('work')->nullable();
             $table->string('name2');
@@ -40,6 +40,8 @@ class CreatePatientsTable extends Migration
             $table->string('hospital')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
         });
     }
 

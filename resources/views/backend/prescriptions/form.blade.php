@@ -1,9 +1,9 @@
 
 <div class="form-group">
     {!! Form::label('patient_id', 'Patient', ['class' => 'control-label']) !!}
-    {!! Form::select('patient_id',  App\Patient::pluck('name', 'id'),  old('patient'), ['class' => 'form-control', 'placeholder' => 'Choose patient']) !!}
+    {!! Form::select('patient_id',  App\Patient::pluck('name', 'id'),  old('patient'), ['id'=>'select','class' => 'form-control'.($errors->has('name')?" is-invalid":""),'placeholder' => 'Choose patient','required'=>'']) !!}
     @if($errors->has('patient_id'))
-        <span class="help-block">{{ $errors->first('patient_id') }}</span>
+        <span class="invalid-feedback">{{ $errors->first('patient_id') }}</span>
     @endif
 </div>
 <div class="form-group">
@@ -13,100 +13,91 @@
       <hr>
      <div class="row">
          <div class="col-sm-3">
-             <div class="form-group {{ $errors->has('contact') ? 'has-error' : '' }}">
+             <div class="form-group required">
                  {!! Form::label('bp','BP') !!}
-                 {!! Form::text('bp', null, ['class' => 'form-control']) !!}
-
+                 {!! Form::text('bp', null, ['class' => 'form-control'.($errors->has('bp')?" is-invalid":"")]) !!}
                  @if($errors->has('bp'))
-                     <span class="help-block">{{ $errors->first('bp') }}</span>
+                     <span class="invalid-feedback">{{ $errors->first('bp') }}</span>
                  @endif
              </div>
          </div>
          <!-- /.col-sm-3 -->
          <div class="col-sm-3">
-             <div class="form-group {{ $errors->has('pr') ? 'has-error' : '' }}">
+             <div class="form-group required">
                  {!! Form::label('pr','PR') !!}
-                 {!! Form::text('pr', null, ['class' => 'form-control']) !!}
-
+                 {!! Form::text('pr', null, ['class' => 'form-control'.($errors->has('pr')?" is-invalid":"")]) !!}
                  @if($errors->has('pr'))
-                     <span class="help-block">{{ $errors->first('pr') }}</span>
+                     <span class="invalid-feedback">{{ $errors->first('pr') }}</span>
                  @endif
              </div>
          </div>
          <!-- /.col-sm-3 -->
          <div class="col-sm-2">
-             <div class="form-group {{ $errors->has('rr') ? 'has-error' : '' }}">
+             <div class="form-group required">
                  {!! Form::label('rr','RR') !!}
-                 {!! Form::text('rr', null, ['class' => 'form-control']) !!}
-
+                 {!! Form::text('rr', null, ['class' => 'form-control'.($errors->has('rr')?" is-invalid":"")]) !!}
                  @if($errors->has('rr'))
-                     <span class="help-block">{{ $errors->first('rr') }}</span>
+                     <span class="invalid-feedback">{{ $errors->first('rr') }}</span>
                  @endif
              </div>
          </div>
          <!-- /.col-sm-3 -->
          <div class="col-sm-2">
-             <div class="form-group {{ $errors->has('contact') ? 'has-error' : '' }}">
+             <div class="form-group required">
                  {!! Form::label('temp','TEMP') !!}
-                 {!! Form::text('temp', null, ['class' => 'form-control','placeholder' =>'°C']) !!}
-
+                 {!! Form::text('temp', null, ['class' => 'form-control'.($errors->has('temp')?" is-invalid":""),'placeholder' =>'°C']) !!}
                  @if($errors->has('temp'))
-                     <span class="help-block">{{ $errors->first('temp') }}</span>
+                     <span class="invalid-feedback">{{ $errors->first('temp') }}</span>
                  @endif
              </div>
          </div>
          <div class="col-sm-2">
-             <div class="form-group {{ $errors->has('wt') ? 'has-error' : '' }}">
+             <div class="form-group required">
                  {!! Form::label('wt','WT') !!}
-                 {!! Form::text('wt', null, ['class' => 'form-control','placeholder' =>'Kg']) !!}
-
+                 {!! Form::text('wt', null, ['class' => 'form-control'.($errors->has('wt')?" is-invalid":""),'placeholder' =>'Kg']) !!}
                  @if($errors->has('wt'))
-                     <span class="help-block">{{ $errors->first('wt') }}</span>
+                     <span class="invalid-feedback">{{ $errors->first('wt') }}</span>
                  @endif
              </div>
          </div>
      </div>
      <!-- /.row -->
-<div class="form-group {{ $errors->has('complaints') ? 'has-error' : ''}}">
+<div class="form-group required">
     {!! Form::label('complaints') !!}
-    {!! Form::textarea('complaints', null, ['class' => 'form-control']) !!}
-    @if($errors->has('complaints'))
-        <span class="help-block">{{ $errors->first('complaints') }}</span>
-    @endif
+    {!! Form::textarea("complaints",null,["class"=>"form-control".($errors->has('complaints')?" is-invalid":""),'placeholder'=>'complaints','rows' => 3, 'cols' =>5]) !!}
+    {!! $errors->first('complaints','<span class="invalid-feedback">:complaints</span>') !!}
 </div>
-<div class="form-group {{ $errors->has('hpi') ? 'has-error' : ''}}">
+<div class="form-group required">
     {!! Form::label('hpi','HPI/ROS/PE') !!}
-    {!! Form::textarea('hpi', null, ['class' => 'form-control']) !!}
-
+    {!! Form::textarea('hpi', null, ['class' => 'form-control'.($errors->has('hpi')?" is-invalid":""),'rows' => 3, 'cols' =>5]) !!}
     @if($errors->has('hpi'))
-        <span class="help-block">{{ $errors->first('hpi') }}</span>
+        <span class="invalid-feedback">{{ $errors->first('hpi') }}</span>
     @endif
 </div>
-<div class="form-group {{ $errors->has('examination') ? 'has-error' : ''}}">
+<div class="form-group  required">
     {!! Form::label('examination','Physical Examination') !!}
-    {!! Form::textarea('examination', null, ['class' => 'form-control']) !!}
-
+    {!! Form::textarea('examination', null, ['class' => 'form-control'.($errors->has('examination')?" is-invalid":""),
+    'rows' => 3, 'cols' =>5]) !!}
     @if($errors->has('examination'))
-        <span class="help-block">{{ $errors->first('examination') }}</span>
+        <span class="invalid-feedback">{{ $errors->first('examination') }}</span>
     @endif
 </div>
-<div class="form-group {{ $errors->has('assessment') ? 'has-error' : ''}}">
+<div class="form-group required">
     {!! Form::label('assessment','Assessment / Primary Immunisation') !!}
-    {!! Form::textarea('assessment', null, ['class' => 'form-control']) !!}
-
+    {!! Form::textarea('assessment', null, ['class' => 'form-control'.($errors->has('assessment')?" is-invalid":""),
+    'rows' => 3, 'cols' =>5]) !!}
     @if($errors->has('assessment'))
-        <span class="help-block">{{ $errors->first('assessment') }}</span>
+        <span class="invalid-feedback">{{ $errors->first('assessment') }}</span>
     @endif
 </div>
-<div class="form-group {{ $errors->has('treatment') ? 'has-error' : ''}}">
+<div class="form-group required">
     {!! Form::label('treatment') !!}
-    {!! Form::textarea('treatment', null, ['class' => 'form-control']) !!}
-
+    {!! Form::textarea('treatment', null, ['class' => 'form-control'.($errors->has('treatment')?" is-invalid":""),
+    'rows' => 3, 'cols' =>5]) !!}
     @if($errors->has('treatment'))
-        <span class="help-block">{{ $errors->first('treatment') }}</span>
+        <span class="invalid-feedback">{{ $errors->first('treatment') }}</span>
     @endif
 </div>
-
 <div class="form-group">
     <button type="submit" class="btn btn-outline-primary btn-lg">{{ $prescription->exists ? 'Update' : 'Save' }}</button>
     <a href="{{ route('backend.prescriptions.index') }}" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Cancel</a>

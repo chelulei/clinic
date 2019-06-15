@@ -4,6 +4,7 @@ use App\BookAppointment;
 use Illuminate\Http\Request;
 use App\Notifications\PatientNotify;
 use Auth;
+use App\User;
 use Validator;
 class BookAppointmentController extends Controller
 {
@@ -37,31 +38,33 @@ class BookAppointmentController extends Controller
     public function store(Request $request)
     {
 
-        Validator::make($request,[
+             $rules = [
+
             'name' => 'required',
             'phone' => 'required',
             'email' => 'required',
             'dop' => 'required',
             'date' => 'required',
             'message' => 'required'
-        ]);
+            ];
 
-        //
+            $validator = Validator::make($request->all(), $rules);
 
-        $patient = new BookAppointment;
-        $patient->name = $request->input('name');
-        $patient->phone = $request->input('phone');
-        $patient->email = $request->input('email');
-        $patient->dop = $request->input('dop');
-        $patient->date = $request->input('date');
-        $patient->message = $request->input('message');
-        
-//        $patient ->save();
+            $patient = new  BookAppointment;
+            $patient->name = $request->name;
+            $patient->phone = $request->phone;
+            $patient->email = $request->email;
+            $patient->dop = $request->dop;
+            $patient->date = $request->date;
+            $patient->message = $request->message;
+            $patient->save();
 
-        /*notification*/
-        $user = Auth::user();
+           /*notification*/
+             $user = User::first();
 
-        $user->notify(new PatientNotify($patient));
+          $user->notify( new PatientNotify($patient));
+
+         return redirect("/")->with('success', 'Your Request has been send successfully');
 
 
     }

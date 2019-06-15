@@ -29,8 +29,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" href="#"><i class="zmdi zmdi-format-align-justify"></i>
                                               DETAILS OF
-                                       <h5> {{$dental->patient->name}}</h5>
 
+                                       <h5 class="mt-3"> <strong class="mr-2">Name:</strong>{{ ucwords($dental->patient->name)}}</h5>
+                                         <h5 class="mt-1"><strong class="mr-2">IDNO:</strong>{{$dental->patient->idno}}</h5>
                                     </a>
                                 </li>
                             </ul>

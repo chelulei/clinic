@@ -14,14 +14,14 @@ class CreateBookAppointmentsTable extends Migration
     public function up()
     {
         Schema::create('book_appointments', function (Blueprint $table) {
+
             $table->increments('id');
             $table->string('name');
-            $table->string('username');
-            $table->string('slug');
-            $table->string('email');
-            $table->string('address');
             $table->string('phone');
-            $table->string('password');
+            $table->string('email');
+            $table->string('dop');
+            $table->string('date');
+            $table->longText('message');
             $table->timestamps();
         });
     }

@@ -1,13 +1,23 @@
-@extends('layouts.app')
 
+@extends('layouts.layout')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
-
-                <div class="card-body">
+<div class="page-content--bge5">
+    <div class="container">
+        <div class="login-wrap">
+            <div class="login-content">
+                <div class="login-logo">
+                    <a href="{{url('/')}}">
+                        <img src="{{ asset('/backend/images/icon/logo.png') }}" alt="Norsu">
+                    </a>
+                </div>
+                <div class="login-form">
+                      @if($errors->any())
+                    <div   class="alert alert-danger" role="alert">
+                        @foreach ($errors->all() as $error)
+                        <strong>{{ $error }}</strong>
+                        @endforeach
+                        </div>
+                    @endif
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
 
@@ -57,9 +67,11 @@
                             </div>
                         </div>
                     </form>
-                </div>
+                       </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+

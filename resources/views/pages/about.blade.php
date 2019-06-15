@@ -1,6 +1,5 @@
 @extends('layouts.main')
 @section('content')
-
     <!-- ***** Breadcumb Area Start ***** -->
     <section class="breadcumb-area bg-img gradient-background-overlay" style="background-image: url(img/bg-img/breadcumb1.jpg);">
         <div class="container h-100">

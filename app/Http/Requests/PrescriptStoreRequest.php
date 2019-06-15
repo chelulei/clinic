@@ -23,20 +23,18 @@ class PrescriptStoreRequest extends FormRequest
      */
     public function rules()
     {
-
         return [
             'patient_id' => 'required',
-            'user_id' => 'required',
-            'bp'=> 'nullable',
-            'pr'=> 'nullable',
-            'rr'=> 'nullable',
-            'temp'=> 'nullable',
-            'wt'=> 'nullable',
-            'complaints'=> 'nullable',
-            'hpi'=> 'nullable',
-            'examination'=> 'nullable',
-            'assessment'=> 'nullable',
-            'treatment'=> 'nullable'
+            'bp'=> 'required',
+            'pr'=> 'required',
+            'rr'=> 'required',
+            'temp'=> 'required',
+            'wt'=> 'required',
+            'complaints'=> 'required',
+            'hpi'=> 'required',
+            'examination'=> 'required',
+            'assessment'=> 'required',
+            'treatment'=> 'required'
     ];
 
     }

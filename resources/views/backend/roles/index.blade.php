@@ -38,8 +38,8 @@
     <div class="content mt-3">
         <div class="row">
             <div class="col-sm-12">
+      @include('backend_partials.messages')
 
-    @include('backend_partials.messages')
     @if(! $roles->count())
         <div class="alert alert-danger m-2">
             No Records
@@ -70,3 +70,4 @@
         <!-- /.row -->
     </div>
 @endsection
+@include('backend.roles.script')

@@ -14,13 +14,16 @@ class CreateInventoriesTable extends Migration
     public function up()
     {
         Schema::create('inventories', function (Blueprint $table) {
+
             $table->increments('id');
             $table->unsignedInteger('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
             $table->string('name');
+            $table->string('slug')->nullable();
             $table->string('quantity');
             $table->text('body');
             $table->timestamps();
+
+              $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
         });
     }
 

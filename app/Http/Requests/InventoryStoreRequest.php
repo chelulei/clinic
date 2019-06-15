@@ -27,7 +27,7 @@ class InventoryStoreRequest extends FormRequest
         return [
             'user_id'    => 'required',
             'name'    => 'required',
-            'quantity'    => 'nullable',
+            'quantity'    => 'required',
             'body' => 'required',
 
 

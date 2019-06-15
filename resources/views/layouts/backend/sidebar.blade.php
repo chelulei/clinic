@@ -1,11 +1,9 @@
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
-        {{--<a href="/home">--}}
-            {{--<img src="/backend/images/icon/logo.png" alt="Cool Admin" />--}}
-        {{--</a>--}}
+        <a href="/home">
+            <img src="{{asset('/backend/images/icon/logo_blue.png')}}" alt="Norsu" title="Norsu" />
+        </a>
     </div>
-
-
     <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar2">
             <li class="nav-link breadcrumb-item"> <a class="nav-link"  href="{{route('home')}}">
@@ -50,16 +48,15 @@
                             <a href="{{ route('backend.appointments.index')}}">
                                 <i class="fa fa-users" aria-hidden="true"></i>ALL Appointments</a>
                         </li>
-                        <li>
-                            <a href="{{ route('backend.appointments.create')}}">
-                                <i class="fa fa-plus" aria-hidden="true"></i>Add Appointment</a>
+                         <li>
+                            <a href="{{ route('backend.appointments.index')}}">
+                                <i class="fa fa-users" aria-hidden="true"></i>Online Appointments</a>
                         </li>
                         <li>
                             <a href="{{ route('backend.events.index')}}"><i class="fa fa-calendar" aria-hidden="true"></i>Events</a>
                         </li>
                     </ul>
                 </li>
-
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fa fa-user-md" aria-hidden="true"></i>Patient Management
@@ -129,16 +126,7 @@
                                 <i class="fa fa-list" aria-hidden="true"></i>
                                 All Medicines</a>
                         </li>
-                        <li>
-                            <a href="{{ route('backend.inventories.create')}}">
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                                Add Medicine</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('backend.medicines.create')}}">
-                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                Give Medicine</a>
-                        </li>
+
                         <li>
                             <a href="{{ route('backend.medicines.index')}}">
                                 <i class="fa fa-history" aria-hidden="true"></i>

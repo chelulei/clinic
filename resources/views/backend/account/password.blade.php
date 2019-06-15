@@ -5,15 +5,15 @@
 @section('content')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            $role('secretary')
+            @role('secretary')
             <li class="breadcrumb-item"><a href="/home">Home</a></li>
-            $endrole
-            $role('doctor')
+            @endrole
+            @role('doctor')
             <li class="breadcrumb-item"><a href="/doctor">Home</a></li>
-            $endrole
-            $role('dentists')
+            @endrole
+            @role('dentists')
             <li class="breadcrumb-item"><a href="/dentists">Home</a></li>
-            $endrole
+            @endrole
         </ol>
     </nav>
 
@@ -23,16 +23,6 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        @if (session('error'))
-                            <div class="alert alert-danger">
-                                {{ session('error') }}
-                            </div>
-                        @endif
-                        @if (session('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
-                            </div>
-                        @endif
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="bg-primary pl-3 p-2 mb-2 text-white">

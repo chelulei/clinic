@@ -39,7 +39,7 @@
     <div class="content mt-3">
         <div class="row">
             <div class="col-sm-12">
-    @include('backend_partials.messages')
+  @include('backend_partials.messages')
             @if(! $patients->count())
                 <div class="alert alert-danger m-2">
                     No Records
@@ -61,8 +61,7 @@
             <div class="table-responsive m-b-40">
                 @include('backend.patients.table')
             </div>
-    @endif
-
+             @endif
                     </div>
                 </div>
     <!-- /.row -->
@@ -71,5 +70,5 @@
         <!-- /.row -->
     </div>
 @endsection
-
+@include('backend.patients.script')
 

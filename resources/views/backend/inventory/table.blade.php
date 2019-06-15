@@ -1,8 +1,8 @@
-<table class="table table-bordered" id="DataTable">
+<table class="table table-bordered" id="Data_Table" min-height='50%'>
     <thead>
     <tr>
         <th>Action</th>
-        <th>name</th>
+        <th>Name</th>
         <th>Quantity</th>
         <th>Descriptions</th>
     </tr>
@@ -11,26 +11,24 @@
     @foreach($inventories as $inventory)
 
         <tr>
-            <td>
-
-                {{--{!! Form::open(['method' => 'DELETE', 'route' => ['backend.inventories.destroy', $inventory->id]]) !!}--}}
-                {{--<button data-toggle="tooltip" data-placement="top" title="Delete" onclick="return confirm('Are you sure?');" type="submit" class="btn btn-sm btn-outline-danger">--}}
-                    {{--<i class="fa fa-times"></i>--}}
-                {{--</button>--}}
-                {{--<!-- /.btn bt-danger -->--}}
-                {{--{!! Form::close() !!}--}}
-                <div class="btn-group">
-                    <button type="button" id="dropdown" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-list" aria-hidden="true"></i>   More Actions
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ route('backend.inventories.edit',$inventory->id)}}"><i class="fa fa-pencil-square" aria-hidden="true"></i> Update Product</a>
-                        <a class="dropdown-item" href="{{ route('backend.medicines.index') }}">  <i class="fa fa-info-circle" aria-hidden="true"></i> Medical History</a>
-                    </div>
-                </div>
+            <td width="100">
+     <a class="btn btn-outline-primary btn-md" title="Edit" href="#modalForm" data-toggle="modal"
+                       data-href="{{url('inventorie/update/'.$inventory->id)}}">
+                    <i class="fa fa-edit"></i>
+                    <!-- /.fa fa-edit -->
+                </a>
+                   <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$inventory->id}})"
+              data-target="#DeleteModal" class="btn   btn-md  btn-outline-danger">
+              <i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete"></i>
+              </a>
             <td>{{$inventory->name}}</td>
-            <td>{{$inventory->quantity}}</td>
-            <td>{{str_limit($inventory->body,50)}}</td>
+            <td width="250">{{$inventory->quantity}}
+                <span class="float-right">
+                    <button class="btn btn-info" data-myname="{{$inventory->name}}"
+                        data-myqnty="{{$inventory->quantity}}"  data-inventoryid={{$inventory->id}} data-toggle="modal" data-target="#edit">Update</button>
+                </span>
+            </td>
+            <td>{!! $inventory->body !!}</td>
             @endforeach
         </tr>
     </tbody>

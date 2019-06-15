@@ -20,7 +20,7 @@
                     {!! Form::model($prescription, [
 
                   'method' => 'PUT',
-                  'route'  => ['backend.prescriptions.update', $prescription->id],
+                  'route'  => ['backend.prescriptions.update', $prescription->slug],
                   'files'  => TRUE,
                   'id'     => 'prescription-form'
 

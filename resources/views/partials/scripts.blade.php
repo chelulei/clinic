@@ -15,3 +15,13 @@
 <script src="{{asset('js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('js/mail-script.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>')}}
+
+
+<script>
+ //Remove alert
+    window.setTimeout(function() {
+        $(".alert").not('.alert-important').fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove();
+        });
+    }, 5000);
+</script>

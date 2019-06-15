@@ -6,6 +6,7 @@ use App\Inventory;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Auth;
+use Illuminate\Support\Facades\Validator;
 class InventoryController extends Controller
 {
     /**
@@ -16,7 +17,8 @@ class InventoryController extends Controller
     public function index()
     {
         //
-        $inventories= Inventory::all();
+
+        $inventories= Inventory::latest()->get();
         return view('backend.inventory.index',compact('inventories'));
     }
 
@@ -26,28 +28,46 @@ class InventoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Inventory $inventory)
+    public function create(Request $request)
     {
-        //
-        $user = Auth::user();
-        return view('backend.inventory.create',compact('inventory','user'));
+
+
+           if ($request->isMethod('get'))
+
+            return view('backend.inventory.form');
+
+        else {
+
+            $rules = [
+                'name' => 'required',
+                'quantity' => 'required',
+                'body' => 'required'
+            ];
+
+            $validator = Validator::make($request->all(), $rules);
+
+            if ($validator->fails())
+
+                return response()->json([
+                    'fail' => true,
+                    'errors' => $validator->errors()
+                ]);
+
+              $input = $request->all();
+             $request->user()->inventories()->create($input);
+
+            return response()->json([
+                'fail' => false,
+                'redirect_url' => url('inventorie'),
+                 'message' =>'New Drug created successfully!'
+            ]);
+
+
+        }
+
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Requests\InventoryStoreRequest $request)
-    {
-        //
-        $data=$request->all();
-
-         $request->user()->create($data);
-
-        return redirect("/inventories")->with("message", "New Item created successfully!");
-    }
 
     /**
      * Display the specified resource.
@@ -81,12 +101,38 @@ class InventoryController extends Controller
      * @param  \App\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function update(Requests\InventoryStoreRequest $request, Inventory $inventory)
+    public function update(Request $request, $id)
     {
-        //
-        $inventory->update($request->all());
-        return redirect("/inventories")
-            ->with("message", "Item  Updated successfully!!");
+
+     if ($request->isMethod('get'))
+
+            return view('backend.inventory.form', ['inventory' => Inventory::find($id)]);
+
+        else {
+            $rules = [
+                 'name' => 'required',
+                'quantity' => 'required',
+                'body' => 'required'
+            ];
+
+            $validator = Validator::make($request->all(), $rules);
+            if ($validator->fails())
+                return response()->json([
+                    'fail' => true,
+                    'errors' => $validator->errors()
+                ]);
+
+            $inventory = Inventory::find($id);
+            $inventory->update($request->all());
+
+            return response()->json([
+                'fail' => false,
+                 'message' =>'Drug  Updated successfully!!',
+                 'redirect_url' => url('inventorie')
+            ]);
+
+        }
+
     }
 
     /**
@@ -95,10 +141,21 @@ class InventoryController extends Controller
      * @param  \App\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Inventory $inventory)
+    public function destroy($id)
     {
+
+        try{
+
+      $inventory=Inventory::FindOrFail($id);
+
         $inventory->delete();
-        return redirect("/inventories")
-            ->with('message','Item deleted successfully');
+
+         } catch (\Exception $e) {
+
+             Session::flash('error', 'Some thing is wrong. Please try again');
+
+        }
+       return back()->with('success', 'Drug deleted successfully!');
+
     }
 }

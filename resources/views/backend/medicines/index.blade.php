@@ -32,14 +32,14 @@
     <div class="content mt-3">
         <div class="row">
             <div class="col-sm-12">
+     @include('backend_partials.messages')
 
-    @include('backend_partials.messages')
             @if(! $medicines->count())
                 <div class="alert alert-danger m-2">
                     No Records
                 </div>
                 <!-- /.alert alert-danger -->
-     @else
+            @else
                     <div class="card">
                         <div class="card-header bg-primary">
                             <ul class="nav nav-tabs card-header-tabs">
@@ -64,5 +64,6 @@
         <!-- /.row -->
     </div>
 @endsection
+@include('backend.medicines.script')
 
 

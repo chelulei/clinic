@@ -5,11 +5,19 @@
         <div class="login-wrap">
             <div class="login-content">
                 <div class="login-logo">
-                    {{--<a href="/">--}}
-                        {{--<img src="/backend/images/icon/logo.png" alt="CoolAdmin">--}}
-                    {{--</a>--}}
+                    <a href="{{url('/')}}">
+                        <img src="{{ asset('/backend/images/icon/logo.png') }}" alt="Norsu">
+                    </a>
                 </div>
                 <div class="login-form">
+                    @if($errors->any())
+                    <div class="alert alert-danger" role="alert">
+                        @foreach ($errors->all() as $error)
+                        <strong>{{ $error }}</strong>
+                        @endforeach
+                        </div>
+                    @endif
+
                     <form action="{{ route('login') }}" method="post">
                         @csrf
                         <div class="form-group">
@@ -21,6 +29,7 @@
                                         <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                             @endif
+
                         </div>
                         <div class="form-group">
                             <label>{{ __('Password') }}</label>

@@ -8,7 +8,7 @@ use Auth;
 //Importing laravel-permission models
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-
+use Session;
 class RolesController extends Controller {
 
     public function __construct() {
@@ -25,7 +25,7 @@ class RolesController extends Controller {
     public function index() {
         $roles = Role::all();//Get all roles
 
-        return view('backend.roles.index')->with('roles', $roles);
+        return view('backend.roles.index',compact('roles'));
     }
 
     /**
@@ -53,6 +53,8 @@ class RolesController extends Controller {
             ]
         );
 
+        try{
+
         $name = $request['name'];
         $role = new Role();
         $role->name = $name;
@@ -68,9 +70,16 @@ class RolesController extends Controller {
             $role->givePermissionTo($p);
         }
 
-        return redirect()->route('backend.roles.index')
-            ->with('message',
-                'Role'. $role->name.' added!');
+
+        } catch (\Exception $e) {
+
+             Session::flash("Something wen't wrong! Please try again");
+
+        }
+        return redirect()->route('backend.roles.index')->with('succes','Role Added Successfullly');
+
+
+
     }
 
     /**
@@ -85,6 +94,7 @@ class RolesController extends Controller {
 
     /**
      * Show the form for editing the specified resource.
+     *
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -105,6 +115,7 @@ class RolesController extends Controller {
      */
     public function update(Request $request, $id) {
 
+    try{
         $role = Role::findOrFail($id);//Get role with the given id
         //Validate name and permission fields
         $this->validate($request, [
@@ -127,9 +138,14 @@ class RolesController extends Controller {
             $role->givePermissionTo($p);  //Assign permission to role
         }
 
-        return redirect()->route('backend.roles.index')
-            ->with('message',
-                'Role'. $role->name.' updated!');
+       } catch (\Exception $e) {
+
+           Session::flash("Something wen't wrong! Please try again");
+
+        }
+
+        return redirect()->route('backend.roles.index')->with('success','Role updated Successfully');
+
     }
 
     /**
@@ -140,12 +156,18 @@ class RolesController extends Controller {
      */
     public function destroy($id)
     {
+
+    try{
         $role = Role::findOrFail($id);
         $role->delete();
 
-        return redirect()->route('backend.roles.index')
-            ->with('message',
-                'Role deleted!');
+     } catch (\Exception $e) {
+
+            Session::flash("Something wen't wrong! Please try again");
+
+        }
+        return redirect()->route('backend.roles.index')->with('success','Role deleted Successfully');
+
 
     }
 }

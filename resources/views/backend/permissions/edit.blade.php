@@ -21,10 +21,10 @@
 
                     <div class="form-group">
                         {{ Form::label('name', 'Permission Name') }}
-                        {{ Form::text('name', null, array('class' => 'form-control')) }}
+                        {{ Form::text('name', null, ['class' => 'form-control']) }}
                     </div>
                     <br>
-                    {{ Form::submit('Edit', array('class' => 'btn btn-outline-primary')) }}
+                    {{ Form::submit('UPDATE', ['class' => 'btn btn-primary btn-lg']) }}
 
                     {{ Form::close() }}
                 </div>

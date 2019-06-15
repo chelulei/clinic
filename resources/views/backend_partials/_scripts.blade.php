@@ -1,27 +1,20 @@
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     var tday=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-    var tmonth=["January","February","March","April","May","June","July","August","September","October","November","December"];
+var tmonth=["January","February","March","April","May","June","July","August","September","October","November","December"];
 
-    function GetClock(){
-        var d=new Date();
-        var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
-        var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+function GetClock(){
+var d=new Date();
+var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
+var nhour=d.getHours(),nmin=d.getMinutes();
+if(nmin<=9) nmin="0"+nmin
 
-        if(nhour==0){ap=" AM";nhour=12;}
-        else if(nhour<12){ap=" AM";}
-        else if(nhour==12){ap=" PM";}
-        else if(nhour>12){ap=" PM";nhour-=12;}
+var clocktext=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+"";
+document.getElementById('clockbox').innerHTML=clocktext;
+}
 
-        if(nmin<=9) nmin="0"+nmin;
-        if(nsec<=9) nsec="0"+nsec;
-        if(document.getElementById("clockbox") != null){
-        var clocktext=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
-        document.getElementById('clockbox').innerHTML=clocktext;}
-    }
-
-    GetClock();
-    setInterval(GetClock,1000);
-</script>
+GetClock();
+setInterval(GetClock,1000);
+</script> --}}
 
 <!-- Jquery JS-->
 <script src="{{asset('/backend/vendor/jquery-3.2.1.min.js')}}"></script>
@@ -39,16 +32,11 @@
 <script src="{{asset('/backend/vendor/dataTables/buttons.html5.min.js')}}"></script>
 <script src="{{asset('/backend/vendor/dataTables/buttons.print.min.js')}}"></script>
 
-
-<script src="{{asset('/backend/js/sweetalert.min.js')}}"></script>
 <!-- Bootstrap JS-->
 <script src="{{asset('/backend/vendor/bootstrap-4.1/popper.min.js')}}"></script>
 <script src="{{asset('/backend/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-
-
-
+<script src="{{asset('/backend/vendor/datetimepicker/moment.min.js')}}"></script>
+<script src="{{asset('/backend/vendor/datetimepicker/tempusdominus-bootstrap-4.min.js')}}"></script>
 
 <script src="{{asset('/backend/vendor/slick/slick.min.js')}}">
 </script>
@@ -68,18 +56,24 @@
 <!-- Main JS-->
 <script src="{{asset('/backend/js/main.js')}}"></script>
 <script>
-
-    $(document).ready(function() {
+ $(document).ready(function () {
 
         $("#seeAnotherFieldGroup").change(function() {
+
             if ($(this).val() == "student") {
+
                 $('#otherFieldGroupDiv').show();
+
                 $('#otherField1').attr('required','');
                 $('#otherField1').attr('data-error', 'This field is required.');
                 $('#otherField2').attr('required','');
                 $('#otherField2').attr('data-error', 'This field is required.');
+                $('#staffField2').removeAttr('name');
+
             } else {
+
                 $('#otherFieldGroupDiv').hide();
+
                 $('#otherField1').removeAttr('required');
                 $('#otherField1').removeAttr('data-error');
                 $('#otherField2').removeAttr('required');
@@ -93,23 +87,29 @@
         $("#seeAnotherFieldGroup").change(function() {
 
             if ($(this).val() == "staff" || $(this).val() == "guest") {
+
                 $('#staffFieldGroupDiv').show();
+
                 $('#staffField1').attr('required','');
                 $('#staffField1').attr('data-error', 'This field is required.');
-                $('#staffField2').attr('required','');
-                $('#staffField2').attr('data-error', 'This field is required.');
+                // $('#staffField2').attr('required','');
+                // $('#staffField2').attr('data-error', 'This field is required.');
+                $('#otherField3').removeAttr('name');
+
             } else {
+
                 $('#staffFieldGroupDiv').hide();
                 $('#staffField1').removeAttr('required');
                 $('#staffField1').removeAttr('data-error');
                 $('#staffField2').removeAttr('required');
                 $('#staffField2').removeAttr('data-error');
+
             }
         });
 
         $("#seeAnotherFieldGroup").trigger("change");
 
-        
+
         $('#DataTable').DataTable( {
             dom: 'lBfrtip',
             buttons: [
@@ -117,39 +117,24 @@
             ]
         } );
 
+       //without print
+         $('#Data_Table').DataTable();
 
     $('select').select2({
-        theme: "classic"
+
+        theme: "classic",
+        width: 'resolve',
+
     });
 
     //Remove alert
-    window.setTimeout(function() {
-        $(".alert").fadeTo(500, 0).slideUp(500, function(){
-            $(this).remove();
-        });
-    }, 4000);
+    // window.setTimeout(function() {
+    //     $(".alert").not('.alert-info').fadeTo(500, 0).slideUp(500, function(){
+    //         $(this).remove();
+    //     });
+    // }, 5000);
 
-    $("#datepicker").datetimepicker({
-
-        // useCurrent: false,
-        format: "L"
-    });
-    $("#datepick").datetimepicker({
-
-        format: "L"
-    });
-
-
-    $("#timepicker").datetimepicker({
-        format: "LT"
-    });
-
-    $("#timepicker2").datetimepicker({
-        format: "LT"
-    });
-    $("#slot").datetimepicker({
-        format: "LT"
-    });
+    $('div.alert').not('.alert-important').delay(5000).fadeOut(350);
 
         $(".btn-group, .dropdown").hover(
             function () {
@@ -178,8 +163,16 @@
 
         getCount();
 
+       	$('#datetimepicker4').datetimepicker({
+                    format: 'L'
+                });
 
+           	$('#datetimepicker3').datetimepicker({
+                    format: 'LT'
+                });
 
 
     });
+
+
 </script>

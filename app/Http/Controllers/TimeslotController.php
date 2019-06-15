@@ -18,6 +18,7 @@ class TimeslotController extends Controller
         $user = Auth::user();
         $slots= Timeslot::all();
         return view('backend.timeslots.index',compact('slots','user'));
+
     }
 
     /**

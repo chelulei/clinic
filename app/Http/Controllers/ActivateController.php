@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-
+use App\Appointment;
 class ActivateController extends Controller
 {
     //
@@ -43,6 +43,27 @@ class ActivateController extends Controller
         return redirect()->route('backend.users.index')
 
         ->with('message','Something went wrong try again');
+
+        }
+
+    }
+
+
+     public function complete($id)
+    {
+        $appointment = Appointment::findorFail($id);
+        $appointment->status = 1;
+        $appointment->save();
+
+        if ($appointment) {
+
+        return redirect()->route('backend.appointments.index')
+        ->with('message', 'Tasked completed successfully');
+        }else{
+
+        return redirect()->route('backend.appointments.index')
+
+            ->with('message','Something went wrong');
 
         }
 

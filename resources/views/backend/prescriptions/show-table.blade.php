@@ -25,7 +25,7 @@
     <div class="card-body">
         <h5 class="card-title">Complaints</h5>
         <p class="card-text">
-            {{$prescription->complaints}}
+            {!! $prescription->complaints !!}
         </p>
 
     </div>
@@ -34,7 +34,7 @@
     <div class="card-body">
         <h5 class="card-title">HPI/ROS/PE</h5>
         <p class="card-text">
-            {{$prescription->hpi}}
+            {!! $prescription->hpi !!}
         </p>
 
     </div>
@@ -43,7 +43,7 @@
     <div class="card-body">
         <h5 class="card-title">Physical Examination</h5>
         <p class="card-text">
-            {{$prescription->examination}}
+            {!! $prescription->examination !!}
         </p>
 
     </div>
@@ -52,7 +52,7 @@
     <div class="card-body">
         <h5 class="card-title">Assessment / Primary Immunisation</h5>
         <p class="card-text">
-            {{$prescription->assessment}}
+            {!! $prescription->assessment !!}
         </p>
 
     </div>
@@ -61,11 +61,11 @@
     <div class="card-body">
         <h5 class="card-title">Treatment</h5>
         <p class="card-text">
-            {{$prescription->treatment}}
+            {!! $prescription->treatment !!}
         </p>
 
     </div>
 </div>
 
-<a class="btn btn-outline-primary btn-lg" href="{{ route('backend.prescriptions.edit',$prescription->id)}}">UPDATE</a>
+<a class="btn btn-outline-primary btn-lg" href="{{ route('backend.prescriptions.edit',$prescription->slug)}}">UPDATE</a>
 

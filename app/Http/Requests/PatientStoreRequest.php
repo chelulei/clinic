@@ -36,12 +36,16 @@ class PatientStoreRequest extends FormRequest
             'date_birth'    => 'required',
             'weight'    => 'nullable',
             'height'    => 'nullable',
-            'course'    => 'required',
-            'year'    => 'required',
+            'course'    => 'nullable',
+            'year'    => 'nullable',
             'religion'    =>'nullable',
             'work'    =>'nullable',
             'name2'    => 'required',
-            'contact'    => 'required',
+           'contact' =>
+                array(
+                    'required',
+                    'regex:/^(09|\+639)\d{9}$/u'
+                ),
             'address2'    => 'required',
             'allergies'    => 'nullable',
             'illness'    => 'nullable',

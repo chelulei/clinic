@@ -40,7 +40,8 @@
         <div class="row">
             <div class="col-sm-12">
 
-    @include('backend_partials.messages')
+  @include('backend_partials.messages')
+
             @if(! $prescriptions->count())
                 <div class="alert alert-danger m-2">
                     No Records
@@ -72,4 +73,4 @@
     </div>
 @endsection
 
-
+@include('backend.prescriptions.script')

@@ -7,7 +7,7 @@ use Auth;
 //Importing laravel-permission models
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-
+use Session;
 class PermissionsController extends Controller
 {
 
@@ -49,6 +49,7 @@ class PermissionsController extends Controller
             'name'=>'required|max:40',
         ]);
 
+      try {
         $name = $request['name'];
         $permission = new Permission();
         $permission->name = $name;
@@ -66,9 +67,15 @@ class PermissionsController extends Controller
             }
         }
 
-        return redirect()->route('backend.permissions.index')
-            ->with('message',
-                'Permission'. $permission->name.' added!');
+
+     } catch (\Exception $e) {
+
+           Session::flash("Something wen't wrong! Please try again",'danger');
+
+        }
+
+        return redirect()->route('backend.permissions.index')->with('success','Permission added Successfully');
+
 
     }
 
@@ -102,6 +109,8 @@ class PermissionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
+
+try{
         $permission = Permission::findOrFail($id);
         $this->validate($request, [
             'name'=>'required|max:40',
@@ -109,9 +118,15 @@ class PermissionsController extends Controller
         $input = $request->all();
         $permission->fill($input)->save();
 
-        return redirect()->route('backend.permissions.index')
-            ->with('message',
-                'Permission'. $permission->name.' updated!');
+
+
+ } catch (\Exception $e) {
+
+             Session::flash("Something wen't wrong! Please try again",'danger');
+
+        }
+        return redirect()->route('backend.permissions.index')->with('success','Permission updated Successfully');
+
 
     }
 
@@ -122,20 +137,30 @@ class PermissionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
+
+
         $permission = Permission::findOrFail($id);
 
+       try{
         //Make it impossible to delete this specific permission
         if ($permission->name == "Administer roles & permissions") {
-            return redirect()->route('permissions.index')
-                ->with('message',
-                    'Cannot delete this Permission!');
+
+              Session::flash("Cannot delete this Permission!");
+
+            return redirect()->route('permissions.index');
+
         }
 
         $permission->delete();
 
-        return redirect()->route('backend.permissions.index')
-            ->with('message',
-                'Permission deleted!');
+
+     } catch (\Exception $e) {
+
+            Session::flash("Something wen't wrong! Please try again")->error();
+
+        }
+        return redirect()->route('backend.permissions.index')->with('success','Permission deleted Successfully');
+
 
     }
 }

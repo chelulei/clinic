@@ -24,6 +24,7 @@
                 </ul>
             </div>
             <div class="col-lg-6 col-md-6 appointment-right pt-60 pb-60">
+                    @include('backend_partials.messages')
                 <form class="form-wrap" method="POST" action="{{ route('backend.bookings.store') }}">
                     @csrf
                     <h3 class="pb-20 text-center mb-30">Book an Appointment</h3>
@@ -32,7 +33,7 @@
                     <input type="email" class="form-control" name="email" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'" required>
                     <input id="datepicker1" name="dop" class="dates form-control"  placeholder="Date of Birth" type="text">
                     <input id="datepicker2" class="dates form-control"  name="date" placeholder="appointment Date" type="text">
-                    <textarea class="" rows="5"  placeholder="Messege" name="messege"  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required></textarea>
+                    <textarea class="form-control" rows="5"  placeholder="Messege" name="message"  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required></textarea>
                     <button type="submit" class="primary-btn text-uppercase">Confirm Booking</button>
                 </form>
             </div>

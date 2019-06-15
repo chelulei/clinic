@@ -22,7 +22,7 @@
                 <div class="card-body card-block">
                     {!! Form::model($patient, [
                   'method' => 'PUT',
-                  'route'  => ['backend.patients.update', $patient->id],
+                  'route'  => ['backend.patients.update', $patient->slug],
                   'files'  => TRUE,
                   'id'     => 'patient-form'
               ]) !!}

@@ -6,12 +6,12 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-
+use  App\Appointment;
 class PatientNotify extends Notification
 {
     use Queueable;
 
-//     protected $patient;
+    public $patient;
     /**
      * Create a new notification instance.
      *
@@ -56,15 +56,12 @@ class PatientNotify extends Notification
      */
     public function toArray($notifiable)
     {
-            return [
-                //
-                'name' => $this->patient->name,
-                'phone' => $this->patient->phone,
-                'email' => $this->patient->email,
-                'dop' => $this->patient->dop,
-                'message' => $this->patient->message
 
-
-            ];
+     return [
+            'message' => 'Appointment',
+            'name' => $this->patient->name,
+        ];
     }
+
+
 }

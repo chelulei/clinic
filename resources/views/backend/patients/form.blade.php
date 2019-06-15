@@ -1,4 +1,5 @@
 @csrf
+
 <div class="form-group">
     {{ Form::hidden('user_id', $user->id) }}
 </div>
@@ -8,22 +9,26 @@
             <label for="exampleInputEmail1">Type</label>
             <select name="type"  class="form-control" id="seeAnotherFieldGroup" required>
                 <option value="">--Select Type---</option>
-                <option value="student" @if ($patient->type == "student")selected="selected" @endif>Student</option>
-                <option value="staff" @if ($patient->type == "staff")selected="selected" @endif>Staff</option>
-                <option value="staff" @if ($patient->type == "guest")selected="selected" @endif>Guest</option>
+                <option value="student" {{ old('type',$patient->type ) == 'student' ? 'selected' : '' }}>Student</option>
+                <option value="staff" {{ old('type',$patient->type ) == 'staff' ? 'selected' : '' }}>Staff</option>
+                <option value="guest"  {{ old('type',$patient->type ) == 'guest' ? 'selected' : '' }}>Guest</option>
             </select>
         </div>
     </div>
     <div class="col-md-4">
-        <div class="form-group {{ $errors->has('type') ? 'has-error' : ''}}">
-            {!! Form::label('idno','ID NO') !!}
-            {!! Form::number('idno', null, ['class' => 'form-control','id' => 'otherFieldDiv']) !!}
+        <div class="form-group">
 
-            @if($errors->has('idno'))
-                <span class="help-block">{{ $errors->first('idno') }}</span>
-            @endif
+            {!! Form::label('idno','ID NO') !!}
+            <input  type="number" name="idno" value="{{ old('idno',$patient->idno) }}" class="form-control {{ $errors->has('idno') ? 'is-invalid' : ' ' }}"  required>
+
+                @if($errors->has('idno'))
+                        <div class="invalid-feedback">
+                        <strong>{{ $errors->first('idno') }}</strong>
+                        </div>
+                    @endif
         </div>
     </div>
+
     <div class="col-md-4">
         <div class="form-group">
             <label for=""><br></label>
@@ -35,55 +40,59 @@
 <!-- /.row -->
 <div class="row">
     <div class="col-md-4">
-        <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
+        <div class="form-group">
             {!! Form::label('name') !!}
-            {!! Form::text('name', null, ['class' => 'form-control']) !!}
-
-            @if($errors->has('name'))
-                <span class="help-block">{{ $errors->first('name') }}</span>
-            @endif
+            <input  type="text" name="name" value="{{ old('name',$patient->name) }}" class="form-control {{ $errors->has('name') ? 'is-invalid' : ' ' }}"  required>
+                  @if($errors->has('name'))
+                        <div class="invalid-feedback">
+                        <strong>{{ $errors->first('name') }}</strong>
+                        </div>
+                    @endif
         </div>
     </div>
 <!-- /.col-md-4 -->
     <div class="col-md-2">
-        <div class="form-group {{ $errors->has('age') ? 'has-error' : '' }}">
+        <div class="form-group">
             {!! Form::label('age') !!}
-            {!! Form::number('age', null, ['class' => 'form-control']) !!}
-
-            @if($errors->has('age'))
-                <span class="help-block">{{ $errors->first('age') }}</span>
+             <input  type="number" name="age" value="{{ old('age',$patient->age) }}" class="form-control {{ $errors->has('age') ? 'is-invalid' : ' ' }}"  required>
+                @if($errors->has('age'))
+                <div class="invalid-feedback">
+                <strong>{{ $errors->first('age') }}</strong>
+                </div>
             @endif
         </div>
     </div>
 <!-- /.col-md-4 -->
     <div class="col-md-4">
-        <div  class="form-group{{ $errors->has('sex') ? ' has-error' : '' }}">
+        <div  class="form-group">
          <label for="">Sex</label>
         <br>
            <div class="form-check-inline">
                <label class="form-check-label">
-                   <input type=radio name="sex" value="Male" {{ $patient->sex == 'Male' ? 'checked' : ''}}>Male</option>
+                 <input type="radio" name="sex" value="Male" {{ (old('sex',$patient->sex) == 'Male') ? 'checked' : '' }}>Male</option>
                </label>
            </div>
            <div class="form-check-inline">
                <label class="form-check-label">
-                   <input type=radio name="sex" value="Female" {{ $patient->sex == 'Female' ? 'checked' : ''}}>Female</option>
+                      <input type="radio" name="sex" value="Female" {{ (old('sex',$patient->sex) == 'Female') ? 'checked' : '' }}>Female</option>
                </label>
            </div>
-        @if ($errors->has('sex'))
-            <span class="help-block">
-           <strong>{{ $errors->first('sex') }}</strong>
-           </span>
-        @endif
+       @if($errors->has('sex'))
+                <div class="invalid-feedback">
+                <strong>{{ $errors->first('sex') }}</strong>
+                </div>
+            @endif
       </div>
      </div>
     <div class="col-md-2">
-        <div class="form-group {{ $errors->has('status') ? 'has-error' : '' }}">
+        <div class="form-group">
             {!! Form::label('status') !!}
-            {!! Form::text('status', null, ['class' => 'form-control']) !!}
+           <input id="status" type="text" name="status" value="{{ old('status',$patient->status) }}" class="form-control {{ $errors->has('status') ? 'is-invalid' : ' ' }}"  required>
 
-            @if($errors->has('status'))
-                <span class="help-block">{{ $errors->first('status') }}</span>
+        @if($errors->has('status'))
+                <div class="invalid-feedback">
+                <strong>{{ $errors->first('status') }}</strong>
+                </div>
             @endif
         </div>
     </div>
@@ -94,82 +103,121 @@
 <!-- /.row -->
 <div class="row">
     <div class="col-md-4">
-        <div class="form-group {{ $errors->has('address') ? 'has-error' : ''}}">
+        <div class="form-group">
             {!! Form::label('address') !!}
-            {!! Form::text('address', null, ['class' => 'form-control','rows' => 3, 'cols' =>5]) !!}
+           <input id="address" type="text" name="address" value="{{ old('address',$patient->address) }}" class="form-control {{ $errors->has('address') ? 'is-invalid' : ' ' }}"  required>
 
-            @if($errors->has('address'))
-                <span class="help-block">{{ $errors->first('address') }}</span>
-            @endif
+    @if($errors->has('address'))
+            <div class="invalid-feedback">
+            <strong>{{ $errors->first('address') }}</strong>
+            </div>
+        @endif
         </div>
     </div>
     <!-- /.col-md-4 -->
     <div class="col-md-4">
-        <div class="form-group {{ $errors->has('date_birth') ? 'has-error' : '' }}">
+        <div class="form-group">
             {!! Form::label('date of birth') !!}
-            {!! Form::text('date_birth', null, ['class' => 'form-control', 'id' =>'datepicker']) !!}
-
-            @if($errors->has('date_birth'))
-                <span class="help-block">{{ $errors->first('date_birth') }}</span>
+           <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+                    <input type="text" value="{{ old('date_birth',$patient->date_birth) }}" name="date_birth"  class="form-control datetimepicker-input" data-target="#datetimepicker4"/>
+                    <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+          @if($errors->has('date_birth'))
+                <div class="invalid-feedback">
+                <strong>{{ $errors->first('date_birth') }}</strong>
+                </div>
             @endif
         </div>
     </div>
     <!-- /.col-md-4 -->
     <div class="col-md-2">
-        <div class="form-group {{ $errors->has('weight') ? 'has-error' : '' }}">
+        <div class="form-group">
             {!! Form::label('weight') !!}
-            {!! Form::text('weight', null, ['class' => 'form-control','placeholder'=>'Kg']) !!}
+            <input id="weight" type="text" name="weight" value="{{ old('weight',$patient->weight) }}" class="form-control {{ $errors->has('weight') ? 'is-invalid' : ' ' }}"  placeholder="kg">
 
-            @if($errors->has('weight'))
-                <span class="help-block">{{ $errors->first('weight') }}</span>
-            @endif
+   @if($errors->has('weight'))
+		<div class="invalid-feedback">
+		   <strong>{{ $errors->first('weight') }}</strong>
+		</div>
+	@endif
         </div>
     </div>
     <!-- /.col-md-4 -->
     <div class="col-md-2">
-        <div class="form-group {{ $errors->has('height') ? 'has-error' : '' }}">
+        <div class="form-group">
             {!! Form::label('height') !!}
-            {!! Form::text('height', null, ['class' => 'form-control','placeholder'=>'cm']) !!}
+         <input id="height" type="text" name="height" value="{{ old('height',$patient->height) }}" class="form-control {{ $errors->has('height') ? 'is-invalid' : ' ' }}" placeholder="cm">
 
-            @if($errors->has('height'))
-                <span class="help-block">{{ $errors->first('height') }}</span>
-            @endif
+   @if($errors->has('height'))
+		<div class="invalid-feedback">
+		   <strong>{{ $errors->first('height') }}</strong>
+		</div>
+	@endif
         </div>
     </div>
 </div>
-
+{{-- students --}}
 <div class="form-group" id="otherFieldGroupDiv">
     <div class="row">
+    <div class="col-4">
+                {!! Form::label('course') !!}
+                    <input id="otherField1" type="text" name="course" value="{{ old('course',$patient->course) }}" class="form-control {{ $errors->has('course') ? 'is-invalid' : ' ' }}" required>
+                @if($errors->has('course'))
+                        <div class="invalid-feedback">
+                        <strong>{{ $errors->first('course') }}</strong>
+                        </div>
+                    @endif
+            </div>
+            <div class="col-4">
+                <label for="exampleInputEmail1">Year Level</label>
+                <select name="year"  class="form-control" id="otherField2">
+                <option value="">--Select Year---</option>
+                <option value="1st"  {{ old('year', $patient->year) == '1st' ? 'selected' : '' }}>1st Year</option>
+                <option value="2nd" {{ old('year', $patient->year) == '2nd' ? 'selected' : '' }}>2nd Year</option>
+                <option value="3rd" {{ old('year', $patient->year) == '3rd' ? 'selected' : '' }}>3rd Year</option>
+                <option value="4th" {{ old('year', $patient->year) == '4th' ? 'selected' : '' }}>4th Year</option>
+                <option value="5th" {{ old('year', $patient->year) == '5th' ? 'selected' : '' }}>5th Year</option>
+                </select>
+            </div>
+
         <div class="col-4">
-            {!! Form::label('course') !!}
-            {!! Form::text('course', null, ['class' => 'form-control','id' => 'otherField1']) !!}
-        </div>
-        <div class="col-4">
-            <label for="exampleInputEmail1">Year Level</label>
-            <select name="year"  class="form-control" id="otherField2">
-            <option value="">--Select Year---</option>
-            <option value="1st" @if ($patient->year == "1st")selected="selected" @endif>1st Year</option>
-            <option value="2nd" @if ($patient->year == "2nd")selected="selected" @endif>2nd Year</option>
-            <option value="3rd" @if ($patient->year == "3rd")selected="selected" @endif>3rd Year</option>
-            <option value="4th" @if ($patient->year == "4th")selected="selected" @endif>4th Year</option>
-            <option value="5th" @if ($patient->year == "5th")selected="selected" @endif>5th Year</option>
-            </select>
-        </div>
-        <div class="col-4">
+             <div class="form-group">
             {!! Form::label('religion') !!}
-            {!! Form::text('religion', null, ['class' => 'form-control']) !!}
+             <input id="otherField3"  type="text" name="religion" value="{{ old('religion',$patient->religion) }}" class="form-control {{ $errors->has('religion') ? 'is-invalid' : ' ' }}"  >
+                @if($errors->has('religion'))
+                <div class="invalid-feedback">
+                <strong>{{ $errors->first('religion') }}</strong>
+                </div>
+            @endif
+        </div>
         </div>
     </div>
 </div>
 <div class="form-group" id="staffFieldGroupDiv">
     <div class="row">
         <div class="col-6">
+               <div class="form-group">
             {!! Form::label('work') !!}
-            {!! Form::text('work', null, ['class' => 'form-control','id' => 'staffField1']) !!}
+             <input id="staffField1"  type="text" name="work" value="{{ old('work',$patient->work) }}" class="form-control {{ $errors->has('work') ? 'is-invalid' : ' ' }}">
+                @if($errors->has('work'))
+                <div class="invalid-feedback">
+                <strong>{{ $errors->first('work') }}</strong>
+                </div>
+            @endif
+        </div>
         </div>
         <div class="col-6">
+            <div class="form-group">
             {!! Form::label('religion') !!}
-            {!! Form::text('religion', null, ['class' => 'form-control']) !!}
+             <input id="staffField2"  type="text" name="religion" value="{{ old('religion',$patient->religion) }}" class="form-control {{ $errors->has('religion') ? 'is-invalid' : ' ' }}"  >
+                @if($errors->has('religion'))
+                <div class="invalid-feedback">
+                <strong>{{ $errors->first('religion') }}</strong>
+                </div>
+            @endif
+        </div>
         </div>
     </div>
 </div>
@@ -178,35 +226,40 @@
 <div class="row">
 
     <div class="col-md-4">
-        <div class="form-group {{ $errors->has('name2') ? 'has-error' : '' }}">
+        <div class="form-group">
             {!! Form::label('name') !!}
-            {!! Form::text('name2', null, ['class' => 'form-control']) !!}
+            <input id="name2" type="text" name="name2" value="{{ old('name2',$patient->name2) }}" class="form-control {{ $errors->has('name2') ? 'is-invalid' : ' ' }}"  required>
 
-            @if($errors->has('name2'))
-                <span class="help-block">{{ $errors->first('name2') }}</span>
-            @endif
+   @if($errors->has('name2'))
+		<div class="invalid-feedback">
+		   <strong>{{ $errors->first('name2') }}</strong>
+		</div>
+	@endif
         </div>
     </div>
     <!-- /.col-md-4 -->
     <div class="col-md-4">
-        <div class="form-group {{ $errors->has('contact') ? 'has-error' : '' }}">
+        <div class="form-group">
             {!! Form::label('contact') !!}
-            {!! Form::text('contact', null, ['class' => 'form-control']) !!}
-
-            @if($errors->has('contact'))
-                <span class="help-block">{{ $errors->first('contact') }}</span>
-            @endif
+           <input id="contact" type="number" name="contact" value="{{ old('contact',$patient->contact) }}" class="form-control
+           {{ $errors->has('contact') ? 'is-invalid' : ' ' }}"  required>
+          @if($errors->has('contact'))
+            <div class="invalid-feedback">
+               <strong>{{ $errors->first('contact') }}</strong>
+            </div>
+        @endif
         </div>
     </div>
     <!-- /.col-md-4 -->
     <div class="col-md-4">
-        <div class="form-group {{ $errors->has('address2') ? 'has-error' : ''}}">
+        <div class="form-group">
             {!! Form::label('address') !!}
-            {!! Form::text('address2', null, ['class' => 'form-control','rows' => 3, 'cols' =>5]) !!}
-
-            @if($errors->has('address2'))
-                <span class="help-block">{{ $errors->first('address2') }}</span>
-            @endif
+           <input id="address2" type="text" name="address2" value="{{ old('address2',$patient->address2) }}" class="form-control {{ $errors->has('address2') ? 'is-invalid' : ' ' }}"  required>
+   @if($errors->has('address2'))
+		<div class="invalid-feedback">
+		   <strong>{{ $errors->first('address2') }}</strong>
+		</div>
+	@endif
         </div>
     </div>
     <!-- /.col-md-4 -->
@@ -224,12 +277,12 @@
         </label>
         <br>
       @endforeach
-        <div class="form-group {{ $errors->has('allergies') ? 'has-error' : ''}}">
+        <div class="form-group">
             {!! Form::label('allergies') !!}
-            {!! Form::text('allergies', null, ['class' => 'form-control','rows' => 2, 'cols' =>5]) !!}
+           <input  type="text" name="allergies" value="{{ old('allergies',$patient->allergies) }}" class="form-control {{ $errors->has('allergies') ? 'is-invalid' : ' ' }}">
 
             @if($errors->has('allergies'))
-                <span class="help-block">{{ $errors->first('allergies') }}</span>
+                <span class="invalid-feedback">{{ $errors->first('allergies') }}</span>
             @endif
         </div>
         <!-- /# -->
@@ -247,12 +300,11 @@
         <br>
 
       @endforeach
-        <div class="form-group {{ $errors->has('medics') ? 'has-error' : ''}}">
+        <div class="form-group">
             {!! Form::label('medics','Meds Taken') !!}
-            {!! Form::text('medics', null, ['class' => 'form-control','rows' => 2, 'cols' =>5]) !!}
-
+           <input  type="text" name="medics" value="{{ old('medics',$patient->medics) }}" class="form-control {{ $errors->has('medics') ? 'is-invalid' : ' ' }}">
             @if($errors->has('medics'))
-                <span class="help-block">{{ $errors->first('medics') }}</span>
+                <span class="invalid-feedback">{{ $errors->first('medics') }}</span>
             @endif
         </div>
     </div>
@@ -260,22 +312,23 @@
     <!-- /.col-md-6 -->
     <div class="row">
         <div class="col-md-6">
-            <div class="form-group {{ $errors->has('illness') ? 'has-error' : '' }}">
+            <div class="form-group">
                 {!! Form::label('Previous Illness') !!}
-                {!! Form::text('illness', null, ['class' => 'form-control']) !!}
+              <input  type="text" name="illness" value="{{ old('illness',$patient->illness) }}" class="form-control {{ $errors->has('illness') ? 'is-invalid' : ' ' }}">
                 @if($errors->has('illness'))
-                    <span class="help-block">{{ $errors->first('illness') }}</span>
+                    <span class="invalid-feedback">{{ $errors->first('illness') }}</span>
                 @endif
             </div>
         </div>
         <!-- /.co-md-6 -->
         <div class="col-md-6">
-            <div class="form-group {{ $errors->has('contact') ? 'has-error' : '' }}">
+            <div class="form-group">
                 {!! Form::label('Previous Hospitalization') !!}
-                {!! Form::text('hospital', null, ['class' => 'form-control']) !!}
+               <input  type="text" name="hospital" value="{{ old('hospital',$patient->hospital) }}" class="form-control {{ $errors->has('hospital') ? 'is-invalid' : ' ' }}">
                 @if($errors->has('hospital'))
-                    <span class="help-block">{{ $errors->first('hospital') }}</span>
+                    <span class="invalid-feedback">{{ $errors->first('hospital') }}</span>
                 @endif
+
             </div>
         </div>
         <!-- /.co-md-6 -->

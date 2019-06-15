@@ -1,38 +1,40 @@
-<table class="table table-bordered" id="DataTable">
+<table class="table table-bordered" id="Data_Table">
     <thead>
     <tr>
         <th>Action</th>
         <th>Patient</th>
-        <th>Decsription</th>
         <th>Date</th>
-        <th>Start Time</th>
-        <th>End Time</th>
+        <th>Time</th>
+        <th>Status</th>
+
     </tr>
     </thead>
     <tbody>
     @foreach($appointments as $appointment)
-
         <tr>
-            <td>
-
-                {!! Form::open(['method' => 'DELETE', 'route' => ['backend.appointments.destroy', $appointment->id]]) !!}
-                <a data-toggle="tooltip" data-placement="top" title="Edit" href="{{ route('backend.appointments.edit',$appointment->id)}}" class="btn btn-outline-primary btn-sm">
+            <td width='200'>
+ <a data-toggle="tooltip" data-placement="top" title="Edit"
+ href="{{ route('backend.appointments.edit',$appointment->id)}}" class="btn btn-md  btn-outline-primary">
                     <i class="fa fa-edit"></i>
-                    <!-- /.fa fa-edit -->
-                </a>
-                <!-- /.btn  btn-default -->
-                <button data-toggle="tooltip" data-placement="top" title="Delete" onclick="return confirm('Are you sure?');" type="submit" class="btn btn-sm btn-outline-danger">
-                    <i class="fa fa-times"></i>
-                </button>
 
-                <!-- /.btn bt-danger -->
-                {!! Form::close() !!}
+                </a>
+                <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$appointment->id}})"
+              data-target="#DeleteModal" class="btn   btn-md btn-outline-danger">
+
+              <i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Delete"></i>
+            </a>
+
             </td>
-            <td>{{$appointment->user->name}}</td>
-            <td>{!!$appointment->title!!}</td>
+            <td>{{$appointment->patient->name}}</td>
             <td>{{$appointment->date}}</td>
-            <td>{{$appointment->start_time}}</td>
-            <td>{{$appointment->finish_time}}</td>
+            <td>{{$appointment->time}}</td>
+            <td>
+                 @if($appointment->status == 1)
+                   <span class="badge badge-success">Completed</span>
+                    @else
+                    <a href="{{route('complete',[$appointment->id])}}" ><span class="badge badge-danger">pending</span></a>
+                    @endif
+            </td>
             @endforeach
         </tr>
     </tbody>

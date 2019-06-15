@@ -7,4 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class BookAppointment extends Model
 {
     //
+    protected $guarded = [];
+
+
 }

@@ -6,10 +6,20 @@
     <script src="{{asset('/backend/vendor/tinymce/plugin/tinymce/tinymce.min.js')}}"></script>
     <script>tinymce.init({
             selector:'textarea',
-            menubar:'false'
+            setup : function(ed)
+            {
+                ed.on('init', function()
+                {
+                    this.execCommand("fontName", false, "tahoma");
+                    this.execCommand("fontSize", false, "12px");
+                });
+            }  ,
+                        menubar:'false',
+             toolbar: "styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link fontsizeselect |",
+              relative_urls: false
     });</script>
 </head>
-<body class="imsition">
+<body class="animsiti">
 <div class="page-wrapper">
     <!-- HEADER MOBILE-->
 @include('layouts.backend.header-mobile')
@@ -40,8 +50,13 @@
         <!-- END PAGE CONTAINER-->
     </div>
 </div>
-@include('backend_partials._scripts')
-@yield('script')
+
+  @include('backend_partials._modal')
+ <!-- modal-->
+  @include('backend_partials._scripts')
+  @yield('script')
+
 </body>
 </html>
 <!-- end document-->
+

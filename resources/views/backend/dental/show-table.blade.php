@@ -1,20 +1,27 @@
-<table class="table table-bordered" id="DataTable">
-    <thead>
-    <tr>
-        <th>Teeth</th>
-        <th>Treatment</th>
-        <th>Notes</th>
-    </tr>
-    </thead>
+<table class="table table-bordered border" id="Data_Table">
     <tbody>
-          <tr>
+           <tr>
+              <td>
+                 Teeth
+              </td>
             <td>
                 @foreach($dental->patient->teeths as $teeth)
                     <span class="badge badge-primary">{{$teeth->name}}</span><br>
                 @endforeach
             </td>
-            <td>{{$dental->treat}}</td>
-            <td>{{$dental->notes}}</td>
-        </tr>
+            </tr>
+             <tr>
+                <td>
+                   Treatment
+                </td>
+                <td>{!! $dental->treat !!}</td>
+                </tr>
+                <tr>
+                    <td>
+                      Notes
+                    </td>
+                   <td>{!! $dental->notes !!}</td>
+                </tr>
+
     </tbody>
 </table>

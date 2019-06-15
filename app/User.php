@@ -23,7 +23,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-       'name','username','slug','email','address','phone','password','image'
+
+       'name','username','slug','email','password','image'
+
     ];
 
 
@@ -44,6 +46,11 @@ class User extends Authenticatable
     public function getUserNameAttribute($value)
     {
         return ucwords($value);
+    }
+
+    public function setUserNameAttribute($value)
+    {
+        $this->attributes['username'] = strtolower($value);
     }
 
     public function getRouteKeyName()

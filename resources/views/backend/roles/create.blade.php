@@ -39,8 +39,8 @@
     </div>
     @if (count($errors) > 0)
         <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-            <ul>
+             <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul class="ml-2">
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
@@ -57,7 +57,7 @@
         {!! Form::open(array('route' => 'backend.roles.store','method'=>'POST')) !!}
             <div class="form-group">
                 {{ Form::label('name', 'Name') }}
-                {{ Form::text('name', null, array('class' => 'form-control')) }}
+                {{ Form::text('name', null, ['class' => 'form-control']) }}
             </div>
                     <h5><b>Assign Permissions</b></h5>
                     <br>

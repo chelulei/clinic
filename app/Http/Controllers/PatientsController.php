@@ -5,7 +5,7 @@ use App\History;
 use App\Immunization;
 use App\Http\Requests;
 use Auth;
-
+use Session;
 class PatientsController extends Controller
 {
 
@@ -47,13 +47,22 @@ class PatientsController extends Controller
      public function store(Requests\PatientStoreRequest $request)
     {
         //
+
+         try {
+
         $data= $this->handleRequest($request);
         $patient = Patient::create($data);
         $patient->histories()->attach($request->histo);
 
         $patient->immunizations()->attach($request->immun);
 
-        return redirect("/patients")->with("message", "New patient was created successfully!");
+
+         } catch (\Exception $e) {
+
+            Session::flash("Something wen't wrong! Please try again")->error();
+        }
+
+        return redirect("/patients")->with('success','New patient was created successfully!');
     }
 
      private function handleRequest($request){
@@ -89,7 +98,9 @@ class PatientsController extends Controller
         //
         $histories = History::all();
         $immunizations = Immunization::all();
+
         return view("backend.patients.show",
+
             compact('patient','histories','immunizations'));
 
     }
@@ -100,13 +111,14 @@ class PatientsController extends Controller
      * @param  \App\patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Patient $patient)
     {
         $user = Auth::user();
-        $patient = Patient::with('histories','immunizations')->findOrFail($id);
+         Patient::with('histories','immunizations');
+
         $histories = History::all();
         $immunizations = Immunization::all();
-        return view("backend.patients.edit", 
+        return view("backend.patients.edit",
             compact('patient','histories','immunizations','user'));
     }
 
@@ -117,16 +129,24 @@ class PatientsController extends Controller
      * @param  \App\patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function update(Requests\PatientUpdateRequest $request, $id)
+    public function update(Requests\PatientUpdateRequest $request, Patient $patient)
     {
         //
-        $patient = Patient::findOrFail($id);
+        // $patient = Patient::findOrFail($id);
+        try {
+
         $data=$this->handleRequest($request);
         $patient->update($data);
         $patient->histories()->sync($request->histo);
         $patient->immunizations()->sync($request->immun);
 
-        return redirect("/patients")->with("message", "Patient was updated successfully!!");
+         } catch (\Exception $e) {
+
+              Session::flash("Something wen't wrong! Please try again")->error();
+        }
+
+
+        return redirect("/patients")->with('success','Patient was updated successfully!');
     }
     /**
      * Remove the specified resource from storage.
@@ -136,8 +156,19 @@ class PatientsController extends Controller
      */
     public function destroy($id)
     {
-          Patient::findOrFail($id)->delete();
-        return redirect("/patients")->with("message", "Patient was deleted successfully!");
+         try {
+
+         $patient=Patient::FindOrFail($id);
+
+         $patient->delete();
+
+          } catch (\Exception $e) {
+
+              Session::flash("Something wen't wrong! Please try again")->error();
+
+        }
+
+        return redirect("/patients")->with('success','Patient was deleted successfully!');
     }
 }
 

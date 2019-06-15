@@ -15,13 +15,15 @@ class CreateDentalsTable extends Migration
     {
         Schema::create('dentals', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('patient_id')->unsigned()->nullable();
-            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('restrict');
-            $table->unsignedInteger('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
+            $table->unsignedInteger('patient_id')->nullable();
+            $table->unsignedInteger('user_id')->nullable();
+            $table->string('slug')->nullable();
             $table->text('treat');
             $table->text('notes');
             $table->timestamps();
+
+             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('restrict');
+               $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
         });
     }
 

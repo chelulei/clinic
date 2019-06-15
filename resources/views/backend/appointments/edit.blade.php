@@ -46,14 +46,9 @@
             {!! Form::model($appointment, [
                  'method' => 'PUT',
                  'route'  => ['backend.appointments.update', $appointment->id],
-
              ]) !!}
-
-
-            @include('backend.appointments.form')
-
+              @include('backend.appointments.edit_form')
             {!! Form::close() !!}
-
                 </div>
             </div>
         </div>

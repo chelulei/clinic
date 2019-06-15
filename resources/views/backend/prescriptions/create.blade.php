@@ -51,7 +51,6 @@
                 ]) !!}
                 @csrf
                 @include('backend.prescriptions.form')
-
                 {!! Form::close() !!}
             </div>
         </div>
@@ -61,9 +60,16 @@
 @endsection
 @section('style')
 <style type="text/css" media="print">
+
     @media print {
         @page { margin: 0; }
         body { margin: 1.6cm; }
     }
+
+    #select{
+
+        height: 50%;
+    }
+
 </style>
 @endsection

@@ -5,6 +5,12 @@
             <th>ID No</th>
             <th>Type</th>
             <th>Name</th>
+            @if ($patient->type == 'student')
+               <th>Course</th>
+                <th>Year</th>
+            @else
+                <th>Work</th>
+            @endif
         </tr>
         </thead>
         <tbody>
@@ -12,6 +18,12 @@
                 <td>{{$patient->idno}}</td>
                 <td>{{$patient->type}}</td>
                 <td>{{$patient->name}}</td>
+                  @if ($patient->type == 'student')
+                  <td>{{$patient->course}}</td>
+                  <td>{{$patient->year}}</td>
+                  @else
+                 <td>{{$patient->work}}</td>
+                 @endif
             </tr>
         </tbody>
     </table>
@@ -25,6 +37,7 @@
             <th>Age</th>
             <th>Sex</th>
             <th>Status</th>
+            <th>Religion</th>
         </tr>
         </thead>
         <tbody>
@@ -33,6 +46,7 @@
             <td>{{$patient->age}}</td>
             <td>{{$patient->sex}}</td>
             <td>{{$patient->status}}</td>
+             <td>{{$patient->religion}}</td>
         </tr>
         </tbody>
     </table>
@@ -147,6 +161,6 @@
     </table>
 </div>
 <br>
-    <a class="btn btn-outline-primary btn-lg" href="{{ route('backend.patients.edit',$patient->id)}}">UPDATE</a>
+    <a class="btn btn-outline-primary btn-lg" href="{{ route('backend.patients.edit',$patient->slug)}}">UPDATE</a>
 
     <!-- /.fa fa-edit -->

@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Prescription;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Session;
 use Illuminate\Support\Facades\Auth;
 class PrescriptionsController extends Controller
 {
@@ -49,11 +50,18 @@ class PrescriptionsController extends Controller
     public function store(Requests\PrescriptStoreRequest $request)
     {
         //
+   try{
 
         $data= $this->handleRequest($request);
         Prescription::create($data);
 
-        return redirect("/prescriptions")->with("message", "New prescription created successfully!");
+    } catch (\Exception $e) {
+
+            Session::flash("Something wen't wrong! Please try again")->error();
+
+        }
+
+        return redirect("/prescriptions")->with('success','New prescription created successfully!');
     }
 
     private function handleRequest($request){
@@ -114,17 +122,23 @@ class PrescriptionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Requests\PrescriptUpdateRequest $request, $id)
+    public function update(Requests\PrescriptUpdateRequest $request, Prescription $prescription)
     {
         //
 
-        $prescription = Prescription::findOrFail($id);
-
+        // $prescription = Prescription::findOrFail($id);
+ try {
         $data=$this->handleRequest($request);
 
         $prescription->update($data);
 
-        return redirect("/prescriptions")->with("message", "prescription updated successfully!!");
+       } catch (\Exception $e) {
+
+            Session::flash("Something wen't wrong! Please try again")->error();
+
+        }
+
+        return redirect("/prescriptions")->with('success','Mesprescription updated successfully!sage!');
     }
 
     /**
@@ -136,8 +150,17 @@ class PrescriptionsController extends Controller
     public function destroy($id)
     {
         //
-        Prescription::findOrFail($id)->delete();
 
-        return redirect("/prescriptions")->with("message", "prescription deleted successfully!");
+ try {
+       $prescription=Prescription::FindOrFail($id);
+
+       $prescription->delete();
+
+    } catch (\Exception $e) {
+            Session::flash("Something wen't wrong! Please try again")->error();
+
+        }
+
+        return redirect("/prescriptions")->with('success','Prescription deleted successfully!');
     }
 }

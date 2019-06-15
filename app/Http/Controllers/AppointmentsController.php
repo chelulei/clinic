@@ -6,6 +6,7 @@ use App\Appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
+use Session;
 class AppointmentsController extends Controller
 {
     /**
@@ -19,7 +20,7 @@ class AppointmentsController extends Controller
 //        $working_hours = Appointment::all();
 //        return view('backend.appointments.index', compact('working_hours'));
 
-        $appointments = Appointment::all();
+        $appointments = Appointment::latest()->get();
         return view('backend.appointments.index', compact('appointments'));
     }
 
@@ -44,9 +45,28 @@ class AppointmentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        Appointment::create(Input::all());
-        return redirect('/appointments')->with('success', 'A has been added');
+
+         $this->validate($request, [
+                 'patient_id'=>'required',
+                 'date' => 'required',
+                 'time' => 'required'
+        ]);
+
+        try {
+
+             $input = $request->all();
+             $request->user()->appointments()->create($input);
+
+        } catch (\Exception $e) {
+
+           Session::flash("Something wen't wrong! Please try again");
+
+        }
+
+            return redirect()->route('backend.appointments.index')
+            ->with('success','Appointment has been added successfully');
+
+
     }
 
     /**
@@ -66,10 +86,10 @@ class AppointmentsController extends Controller
      * @param  \App\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Appointment $appointment)
     {
         //
-        $appointment = Appointment::findOrFail($id);
+        // $appointment = Appointment::findOrFail($id);
         $user = Auth::user();
         return view("backend.appointments.edit", compact('appointment','user'));
     }
@@ -81,15 +101,22 @@ class AppointmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Appointment $appointment)
     {
         //
 
-        $event = Appointment::findOrFail($id);
+        // $event = Appointment::findOrFail($id);
+       try {
+           $appointment->update($request->all());
 
-        $event->update($request->all());
+        } catch (\Exception $e) {
 
-        return redirect("/appointments")->with("message", "Appointment updated successfully!!");
+            Session::flash("Something wen't wrong! Please try again");
+
+        }
+
+       return redirect()->route('backend.appointments.index')
+       ->with('success','Appointment has been Updated successfully');
     }
 
     /**
@@ -102,15 +129,21 @@ class AppointmentsController extends Controller
     public function destroy($id)
     {
         //
-        Appointment::findOrFail($id)->delete();
+        try {
 
-        return redirect("/appointments")->with("message", "Appointment deleted successfully!");
+        $appointment=Appointment::FindOrFail($id);
+
+        $appointment->delete();
+
+       } catch (\Exception $e) {
+
+            Session::flash("Something wen't wrong! Please try again");
+
+        }
+
+         return redirect()->route('backend.appointments.index')
+         ->with('success', 'Service deleted successfully');
+
     }
 
-    public function save()
-    {
-        //
-
-    }
-    
 }

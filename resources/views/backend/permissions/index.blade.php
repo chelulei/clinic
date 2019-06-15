@@ -38,6 +38,7 @@
         <div class="row">
             <div class="col-sm-12">
     @include('backend_partials.messages')
+
     @if(! $permissions->count())
         <div class="alert alert-danger m-2">
             No Records
@@ -68,3 +69,4 @@
         <!-- /.row -->
     </div>
 @endsection
+@include('backend.permissions.script')

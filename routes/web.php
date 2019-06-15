@@ -31,6 +31,14 @@ Route::get('/contact', [
     'as'   => 'main'
 ]);
 
+Route::get('/markAsRead',function(){
+
+Auth()->user()->unreadNotifications->markAsRead();
+
+return back();
+
+});
+
 Auth::routes();
 
 
@@ -44,17 +52,24 @@ Route::resource('/patients', 'PatientsController',['as'=>'backend']);
 Route::resource('/prescriptions', 'PrescriptionsController',['as'=>'backend']);
 Route::resource('/roles', 'RolesController',['as'=>'backend']);
 Route::resource('/permissions', 'permissionsController',['as'=>'backend']);
-Route::resource('/appointments', 'AppointmentsController',['as'=>'backend']);
+Route::resource('/appointments', 'AppointmentsController', ['as'=>'backend']);
 Route::resource('/events', 'EventController',['as'=>'backend']);
 Route::resource('/slots', 'TimeslotController',['as'=>'backend']);
 Route::resource('/users', 'UsersController',['as'=>'backend']);
 Route::resource('/account', 'AccountController',['as'=>'backend']);
 Route::resource('/dental', 'DentalController',['as'=>'backend']);
 Route::resource('/inventories', 'InventoryController',['as'=>'backend']);
+Route::resource('/quanties', 'QuantityController',['as'=>'backend']);
 Route::resource('/medicines', 'MedicineController',['as'=>'backend']);
-
-
 Route::put('/profile/{user}', 'ProfileController@update')->name('profile.update');
+
+Route::group(['prefix' => 'inventorie'], function () {
+    Route::get('/', 'InventoryController@index');
+    Route::match(['get', 'post'], 'create', 'InventoryController@create');
+    Route::match(['get', 'put'], 'update/{id}', 'InventoryController@update');
+
+});
+
 Route::get('/profile/{user}/edit', [
         'uses' => 'ProfileController@edit',
         'as'   => 'profile-edit'
@@ -75,13 +90,12 @@ Route::get('/count', 'PagesController@getCount');
 
 Route::any('activate/{id}','ActivateController@activate')->name('activate');
 Route::any('deactivate/{id}','ActivateController@deactivate')->name('deactivate');
+Route::any('complete/{id}','ActivateController@complete')->name('complete');
 
 Route::resource('/bookings', 'BookAppointmentController',['as'=>'backend']);
 
 Route::get('/notice', [
     'uses' => 'BookAppointmentController@store',
 ]);
-
-
 
 

@@ -7,8 +7,9 @@ use App\Patient;
 use App\Teeth;
 use Illuminate\Http\Request;
 use Auth;
-use DB;
+use Session;
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 class DentalController extends Controller
 {
     /**
@@ -48,13 +49,19 @@ class DentalController extends Controller
     public function store(Requests\DentalStoreRequest $request)
     {
         //
+        try {
         $patient = Patient::findOrFail($request->patient_id);
 
         $patient->teeths()->attach($request->teeth);
 
         Dental::create($request->all());
 
-        return redirect("/dental")->with("message", "New Service created successfully!");
+} catch (\Exception $e) {
+
+            Session::flash("Something wen't wrong! Please try again")->error();
+
+        }
+        return redirect()->route('backend.dental.index')->with('success', 'New Service created successfully');
     }
 
     /**
@@ -78,6 +85,7 @@ class DentalController extends Controller
     public function edit($id)
     {
         //
+
         $dental = Dental::findOrFail($id);
         $user = Auth::user();
 
@@ -104,7 +112,7 @@ class DentalController extends Controller
     {
         //
 
-
+ try {
         $dental = Dental::findOrFail($id);
 
         $patient_id = Dental::where('id', '=', $id)
@@ -117,7 +125,15 @@ class DentalController extends Controller
 
         $dental->update($request->all());
 
-        return redirect("/dental")->with("message", "Patient was updated successfully!!");
+
+
+   } catch (\Exception $e) {
+
+            Session::flash("Something wen't wrong! Please try again")->error();
+
+        }
+
+        return redirect()->route('backend.dental.index')->with('success', 'Service was updated successfully!!');
     }
 
     /**
@@ -126,11 +142,23 @@ class DentalController extends Controller
      * @param  \App\Dental  $dental
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dental $dental)
+    public function destroy($id)
     {
         //
-        $dental->delete();
-        return redirect()->route('backend.dental.index')
-            ->with('message','Service deleted successfully');
+        try {
+
+               $dental= Dental::FindOrFail($id);
+
+                 $dental->delete();
+
+
+
+        } catch (\Exception $e) {
+
+            Session::flash("Something wen't wrong! Please try again")->error();
+
+        }
+        return redirect()->route('backend.dental.index')->with('success', 'Service deleted successfully');
+
     }
 }

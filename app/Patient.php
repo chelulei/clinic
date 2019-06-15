@@ -11,6 +11,7 @@ class Patient extends Model
     protected $fillable = [
         'user_id',
         'type',
+        'slug',
         'idno',
         'name',
         'age'  ,
@@ -42,10 +43,35 @@ class Patient extends Model
         'password', 'remember_token',
     ];
 
-//    public function getRouteKeyName()
-//    {
-//        return 'slug';
-//    }
+   public function getRouteKeyName()
+   {
+       return 'slug';
+   }
+
+    /**
+     * Boot the model.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($patient) {
+            $patient->update(['slug' => $patient->type]);
+        });
+    }
+
+/**
+     * Set the proper slug attribute
+     *
+     * @param string $value
+     */
+    public function setSlugAttribute($value)
+    {
+        if (static::whereSlug($slug = str_slug($value))->exists()) {
+            $slug = "{$slug}-{$this->id}";
+        }
+        $this->attributes['slug'] = $slug;
+    }
 
 
     public function getImageUrlAttribute($value){
@@ -77,6 +103,11 @@ class Patient extends Model
         return $this->hasMany(Prescription::class);
     }
 
+     public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
+
     public function dental()
     {
         return $this->hasMany(Dental::class);
@@ -100,4 +131,5 @@ class Patient extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
 }

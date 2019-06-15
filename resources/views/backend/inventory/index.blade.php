@@ -1,10 +1,37 @@
 @extends('layouts.backend.main')
 
 @section('title', 'Norsu Clinic | inventories index')
+@section('style')
+    <style>
+        .loading {
+            background: lightgrey;
+            padding: 15px;
+            position: fixed;
+            border-radius: 4px;
+            left: 50%;
+            top: 50%;
+            text-align: center;
+            margin: -40px 0 0 -50px;
+            z-index: 2000;
+            display: none;
+        }
 
+        a, a:hover {
+            color: white;
+        }
+
+        .form-group.required label:after {
+            content: " *";
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+@endsection
 @section('content')
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
+    <div class="breadcrumbs">
+        <div class="page-header float-left pl-2">
+            <div class="page-title">
+                <h1 class="bread-head">
             @role('secretary')
             <li class="breadcrumb-item"> <a href="{{route('home')}}">
                 <i class="fas fa-tachometer-alt"></i> Dashboard
@@ -20,15 +47,39 @@
                 <i class="fas fa-tachometer-alt"></i> Dashboard
                 </a></li>
             @endrole
-            <li class="breadcrumb-item"><a href="{{ route('backend.medicines.create') }}">Give Medicine</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('backend.inventories.create') }}">Add Medicine</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('backend.medicines.index') }}">Medicine History</a></li>
-        </ol>
-    </nav>
+                </h1>
+            </div>
+        </div>
+         <div class="float-left pr-2">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" id="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">
+                            <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal">
+                               <i class="fa fa-thumbs-up" aria-hidden="true"></i> GIVE MEDICINE
+                            </button>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+        <div class="float-right pr-2">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" id="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a href="#modalForm" data-toggle="modal" data-href="{{url('inventorie/create')}}">
+                            <button class="au-btn au-btn-icon au-btn--blue">
+                                <i class="zmdi zmdi-plus"></i>Add Medicine</button>
+                            </a>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
     <div class="content mt-3">
         <div class="row">
             <div class="col-sm-12">
-                @include('backend_partials.messages')
+
+              @include('backend_partials.messages')
+
                 @if(! $inventories->count())
                     <div class="alert alert-danger m-2">
                         No Records
@@ -59,6 +110,12 @@
         </div>
         <!-- /.row -->
     </div>
+    <div class="loading">
+        <i class="fa fa-refresh fa-spin fa-2x fa-fw"></i><br/>
+        <span>Loading</span>
+    </div>
 @endsection
+@include('backend.inventory.script')
+
 
 

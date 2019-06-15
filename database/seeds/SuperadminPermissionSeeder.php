@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 class SuperadminPermissionSeeder extends Seeder
@@ -29,7 +30,7 @@ class SuperadminPermissionSeeder extends Seeder
 
         //3) Create Admin User
         $user = ['name' => 'superadmin','username' => 'superadmin',
-            'slug' => 'superadmin','status' =>1,'email' => 'superadmin@coredev.ph','address' =>300, 'password' => Hash::make('123456')];
+            'slug' => 'superadmin','status' =>1,'email' => 'superadmin@coredev.ph', 'password' =>Hash::make('123456')];
         $user = User::create($user);
 
         //4) Set User Role
